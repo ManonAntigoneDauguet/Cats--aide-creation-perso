@@ -1,0 +1,30 @@
+// MEDIA QUERIES MIXINS
+@mixin mobile-only {
+    @media all and (max-width: map-get($breakpoints, xsmall)) {
+        @content;
+    }
+}
+
+@mixin except-mobile {
+    @media all and (min-width: map-get($breakpoints, xsmall)) {
+        @content;
+    }
+}
+
+@mixin tablet-and-less {
+    @media all and (max-width: map-get($breakpoints, small)) {
+        @content;
+    }
+}
+
+@mixin laptop-and-less {
+    @media all and (max-width: map-get($breakpoints, medium)) {
+        @content;
+    }
+}
+
+@mixin large-desktop-only {
+    @media all and (min-width: map-get($breakpoints, xlarge)) {
+        @content;
+    }
+}

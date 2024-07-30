@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    max-width: 1440px;
+    min-height: 100vh;
+    margin: auto;
+    font-family: $primary-font;
+}
+
+main {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 0px 8px 212px 8px;
+    animation: opacity-appear 1500ms;
+
+    @include mobile-only {
+        padding-bottom: 264px;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    @include mobile-only {
+        font-size: 20px;
+    }
+}
+
+h2 {
+    color: var(--secondary-color);
+    font-weight: 500;
+    font-size: 36px;
+
+    @include mobile-only {
+        font-size: 20px;
+    }
+}
+
+p {
+    font-size: 24px;
+
+    @include tablet-and-less {
+        font-size: 18px;
+    }
+
+    @include mobile-only {
+        font-size: 13px;
+    }
+}
+
+
