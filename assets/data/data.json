@@ -215,7 +215,8 @@
     "qualities": [
         {
             "id": 1,
-            "name": ""
+            "name": "",
+            "types": ["bastet", "human"]
         }
     ],
     "defaults": [

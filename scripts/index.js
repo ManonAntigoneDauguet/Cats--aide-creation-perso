@@ -1,22 +1,17 @@
-let data;
+/************** NECESSARIES IMPORTS *************/
+import { checkInputIsValid, displayOptions } from "./utils.js";
+import { displayCharacteristics, characteristics, updateCharacAvailablePoints } from "./features/characteristics.feature.js";
+import { displayPresentation } from "./features/presentation.feature.js";
+import { displayQualitiesAndDefaults } from "./features/qualitiesAndDefaults.feature.js";
+
+
+
+/************** DOM ELEMENTS ********************/
 const characterType = document.getElementById('type');
 characterType.value = 'cat';
-const caracAvailablePoints = document.querySelector('.caracAvailablePoints');
-const factionInput = document.getElementById('faction');
 const breedInput = document.getElementById('breed');
-const qualitiesDiv = document.querySelector('.qualities');
-const defaultsDiv = document.querySelector('.defaults');
 
-const gri = { "input": document.getElementById('gri'), "maxValueTd": document.getElementById('griMaxValue'), "catMaxValue": 5, "bastetMaxValue": 5, "humanMaxValue": 5, "actualMaxValue": 5 };
-const oei = { "input": document.getElementById('oei'), "maxValueTd": document.getElementById('oeiMaxValue'), "catMaxValue": 5, "bastetMaxValue": 4, "humanMaxValue": 4, "actualMaxValue": 5 };
-const poi = { "input": document.getElementById('poi'), "maxValueTd": document.getElementById('poiMaxValue'), "catMaxValue": 5, "bastetMaxValue": 5, "humanMaxValue": 5, "actualMaxValue": 5 };
-const que = { "input": document.getElementById('que'), "maxValueTd": document.getElementById('queMaxValue'), "catMaxValue": 5, "bastetMaxValue": 5, "humanMaxValue": 4, "actualMaxValue": 5 };
-const ron = { "input": document.getElementById('ron'), "maxValueTd": document.getElementById('ronMaxValue'), "catMaxValue": 5, "bastetMaxValue": 5, "humanMaxValue": 5, "actualMaxValue": 5 };
-const car = { "input": document.getElementById('car'), "maxValueTd": document.getElementById('carMaxValue'), "catMaxValue": 5, "bastetMaxValue": 5, "humanMaxValue": 5, "actualMaxValue": 5 };
-const vib = { "input": document.getElementById('vib'), "maxValueTd": document.getElementById('vibMaxValue'), "catMaxValue": 5, "bastetMaxValue": 4, "humanMaxValue": 3, "actualMaxValue": 5 };
-const cou = { "input": document.getElementById('cou'), "maxValueTd": document.getElementById('couMaxValue'), "catMaxValue": 5, "bastetMaxValue": 5, "humanMaxValue": 5, "actualMaxValue": 5 };
-const cha = { "input": document.getElementById('cha'), "maxValueTd": document.getElementById('chaMaxValue'), "catMaxValue": 5, "bastetMaxValue": 4, "humanMaxValue": 5, "actualMaxValue": 3 };
-const caracteristics = [gri, oei, poi, que, ron, car, vib, cou, cha];
+
 
 async function getData() {
     const response = await fetch('./assets/data/data.json');
@@ -31,169 +26,59 @@ function getCat(breed) {
     return cat;
 }
 
-async function displayFactions() {
-    const option = document.createElement("option");
-    option.setAttribute("value", "");
-    option.innerHTML = "- -";
-    factionInput.appendChild(option);
-    data.factions.forEach(e => {
-        const option = document.createElement("option");
-        option.setAttribute("value", e.name);
-        option.innerHTML = e.name;
-        factionInput.appendChild(option);
-    })
-}
-
-async function displayBreed() {
-    const option = document.createElement("option");
-    option.setAttribute("value", "");
-    option.innerHTML = "- -";
-    breedInput.appendChild(option);
-    data.breed.forEach(e => {
-        const option = document.createElement("option");
-        option.setAttribute("value", e.name);
-        option.innerHTML = e.name;
-        breedInput.appendChild(option);
-    })
-}
-
-function checkInputIsValid(input, min, max) {
-    console.log("value : ", input.value, " min : ", min, " max : ", max)
-    if (input.value < min) { input.value = min; }
-    if (input.value > max) { input.value = max; }
-}
-
-function updatecaracAvailablePoints() {
-    let sum = 0;
-    caracteristics.forEach(e => sum += Number(e.input.value));
-    caracAvailablePoints.innerHTML = 28 - sum;
-    if (caracAvailablePoints.innerHTML < 0) {
-        caracAvailablePoints.classList.add("error");
-        caracAvailablePoints.classList.remove("succes");
-    } else if (caracAvailablePoints.innerHTML == 0) {
-        caracAvailablePoints.classList.remove("error");
-        caracAvailablePoints.classList.add("succes");
-    }
-    else {
-        caracAvailablePoints.classList.remove("error");
-        caracAvailablePoints.classList.remove("succes");
-    }
-}
-
 async function init() {
     await getData();
-    caracteristics.forEach(e => {
+    characteristics.forEach(e => {
         e.input.value = 1;
         e.maxValueTd.innerHTML = e.actualMaxValue;
     })
-    updatecaracAvailablePoints();
-    displayFactions();
-    displayBreed();
-    displayDefaults();
-    displayQualities();
+    displayCharacteristics();
+    displayPresentation(data);
+    displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value);
 }
+
+
+/******************* PAGE CREATION ******************/
+let data;
 
 init();
 
 characterType.addEventListener("change", () => {
     switch (characterType.value) {
         case 'cat':
-            caracteristics.forEach(e => {
+            characteristics.forEach(e => {
                 e.maxValueTd.innerHTML = e.catMaxValue;
                 e.actualMaxValue = e.catMaxValue;
                 checkInputIsValid(e.input, 1, e.catMaxValue);
-                updatecaracAvailablePoints();
+                updateCharacAvailablePoints();
             })
             breedInput.removeAttribute('disabled', '');
             break;
         case 'bastet':
-            caracteristics.forEach(e => {
+            characteristics.forEach(e => {
                 e.maxValueTd.innerHTML = e.bastetMaxValue;
                 e.actualMaxValue = e.bastetMaxValue;
                 checkInputIsValid(e.input, 1, e.bastetMaxValue);
-                updatecaracAvailablePoints();
+                updateCharacAvailablePoints();
             })
             breedInput.setAttribute('disabled', '');
             breedInput.value = '';
             break;
 
         case 'human':
-            caracteristics.forEach(e => {
+            characteristics.forEach(e => {
                 e.maxValueTd.innerHTML = e.humanMaxValue;
                 e.actualMaxValue = e.humanMaxValue;
                 checkInputIsValid(e.input, 1, e.humanMaxValue);
-                updatecaracAvailablePoints();
+                updateCharacAvailablePoints();
             })
             breedInput.setAttribute('disabled', '');
             breedInput.value = '';
             break;
     }
-    displayDefaults();
-    displayQualities();
+    displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value);
 })
 
 breedInput.addEventListener("change", () => {
-    const cat = getCat("persan");
-    displayQualities();
-    displayDefaults();
+    displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value);
 })
-
-caracteristics.forEach(e => {
-    e.input.addEventListener("blur", () => {
-        checkInputIsValid(e.input, 1, e.actualMaxValue);
-        updatecaracAvailablePoints();
-    })
-})
-
-function displayQualities() {
-    qualitiesDiv.innerHTML = "Qualités :";
-    const cat = getCat(breedInput.value);
-    cat.qualities.forEach(e => {
-        const caract = document.createElement('li');
-        caract.innerHTML = e;
-        qualitiesDiv.appendChild(caract);
-    });
-    for (let i = cat.qualities.length; i < 2; i++) {
-        const caract = document.createElement('li');
-        const caractInput = document.createElement('select');
-        const option = document.createElement('option');
-        option.setAttribute('value', "");
-        option.innerHTML = "- -"
-        caractInput.appendChild(option);
-        data.qualities.forEach(e => {
-            const option = document.createElement('option');
-            option.setAttribute('value', e.name);
-            option.innerHTML = e.name
-            caractInput.appendChild(option);
-        })
-        caract.appendChild(caractInput);
-        qualitiesDiv.appendChild(caract);
-    }
-}
-
-function displayDefaults() {
-    defaultsDiv.innerHTML = "Défauts :";
-    const cat = getCat(breedInput.value);
-    cat.defaults.forEach(e => {
-        const caract = document.createElement('li');
-        caract.innerHTML = e;
-        defaultsDiv.appendChild(caract);
-    })
-    for (let i = cat.defaults.length; i < 3; i++) {
-        const caract = document.createElement('li');
-        const caractInput = document.createElement('select');
-        const option = document.createElement('option');
-        option.setAttribute('value', "");
-        option.innerHTML = "- -"
-        caractInput.appendChild(option);
-        const filteredData = data.defaults.filter(e => e.types.includes(characterType.value));
-        filteredData.forEach(e => {
-            const option = document.createElement('option');
-            option.setAttribute('value', e.name);
-            option.innerHTML = e.name
-            caractInput.appendChild(option);
-        })
-        caract.appendChild(caractInput);
-        defaultsDiv.appendChild(caract);
-    }
-}
