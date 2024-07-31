@@ -1,0 +1,21 @@
+.qualitiesAndDefaults {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    ul {
+        font-size: 18px;
+        list-style: inside;
+    }
+
+    li {
+        list-style-type: circle;
+
+        li {
+            list-style-type: square;
+            padding: 8px 24px;
+            font-weight: bold;
+        }
+
+    }
+}

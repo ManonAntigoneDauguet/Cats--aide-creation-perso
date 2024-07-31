@@ -2,67 +2,168 @@
     "breed": [
         {
             "id": 1,
-            "name": "abyssin"
+            "name": "abyssin",
+            "defaults": [
+                "voyant",
+                "joueur"
+            ],
+            "qualities": []
         },
         {
             "id": 2,
-            "name": "angora"
+            "name": "angora",
+            "defaults": [
+                "voyant",
+                "hydrophile"
+            ],
+            "qualities": []
         },
         {
             "id": 3,
-            "name": "bengal"
+            "name": "bengal",
+            "defaults": [
+                "voyant",
+                "hydrophile"
+            ],
+            "qualities": [
+                "athlète"
+            ]
         },
         {
             "id": 4,
-            "name": "birman"
+            "name": "birman",
+            "defaults": [
+                "voyant"
+            ],
+            "qualities": [
+                "athlète"
+            ]
         },
         {
             "id": 5,
-            "name": "british shorthair"
+            "name": "british shorthair",
+            "defaults": [
+                "voyant"
+            ],
+            "qualities": [
+                "chouchou du quartier"
+            ]
         },
         {
             "id": 6,
-            "name": "chartreux"
+            "name": "chartreux",
+            "defaults": [
+                "voyant"
+            ],
+            "qualities": [
+                "volonté de fer"
+            ]
         },
         {
             "id": 7,
-            "name": "exotic shorthair"
+            "name": "exotic shorthair",
+            "defaults": [
+                "joueur"
+            ],
+            "qualities": [
+                "athlète"
+            ]
         },
         {
             "id": 8,
-            "name": "européen"
+            "name": "européen",
+            "defaults": [],
+            "qualities": []
         },
         {
             "id": 9,
-            "name": "main coon"
+            "name": "main coon",
+            "defaults": [
+                "voyant"
+            ],
+            "qualities": [
+                "athlète"
+            ]
         },
         {
             "id": 10,
-            "name": "norvégien"
+            "name": "norvégien",
+            "defaults": [
+                "voyant"
+            ],
+            "qualities": [
+                "athlète",
+                "sauteur exceptionnel"
+            ]
         },
         {
             "id": 11,
-            "name": "oriental"
+            "name": "oriental",
+            "defaults": [
+                "joueur",
+                "mépris des humains"
+            ],
+            "qualities": [
+                "Don Juan"
+            ]
         },
         {
             "id": 12,
-            "name": "persan"
+            "name": "persan",
+            "defaults": [
+                "voyant"
+            ],
+            "qualities": [
+                "pattes de velours"
+            ]
         },
         {
             "id": 13,
-            "name": "ragdoll"
+            "name": "ragdoll",
+            "defaults": [
+                "score de Poil <= 2"
+            ],
+            "qualities": [
+                "chouchou du quartier"
+            ]
         },
         {
             "id": 14,
-            "name": "scottish fold"
+            "name": "scottish fold",
+            "defaults": [
+                "voyant",
+                "râleur"
+            ],
+            "qualities": [
+                "volonté de fer"
+            ]
         },
         {
             "id": 15,
-            "name": "siamois"
+            "name": "siamois",
+            "defaults": [
+                "voyant",
+                "mépris des humains"
+            ],
+            "qualities": [
+                "débrouillard en milieu humain"
+            ]
         },
         {
             "id": 16,
-            "name": "somali"
+            "name": "somali",
+            "defaults": [
+                "curieux"
+            ],
+            "qualities": [
+                "sauteur exceptionnel"
+            ]
+        },
+        {
+            "id": 17,
+            "name": "autre...",
+            "defaults": [],
+            "qualities": []
         }
     ],
     "factions": [
@@ -109,6 +210,94 @@
         {
             "id": 11,
             "name": "autre..."
+        }
+    ],
+    "qualities": [
+        {
+            "id": 1,
+            "name": ""
+        }
+    ],
+    "defaults": [
+        {
+            "id": 1,
+            "name": "altergique aux chats",
+            "types": ["bastet", "human"]
+        },
+        {
+            "id": 2,
+            "name": "boiteux",
+            "types": ["cat", "bastet", "human"]
+        },
+        {
+            "id": 3,
+            "name": "curieux",
+            "types": ["cat", "bastet", "human"]
+        },
+        {
+            "id": 4,
+            "name": "débiteur",
+            "types": ["cat", "bastet", "human"]
+        },
+        {
+            "id": 5,
+            "name": "défiguré",
+            "types": ["cat", "bastet", "human"]
+        },
+        {
+            "id": 6,
+            "name": "gourmand",
+            "types": ["cat", "bastet", "human"]
+        },
+        {
+            "id": 7,
+            "name": "hydrophile",
+            "types": ["cat"]
+        },
+        {
+            "id": 8,
+            "name": "joueur",
+            "types": ["cat", "bastet", "human"]
+        },
+        {
+            "id": 9,
+            "name": "lubie",
+            "types": ["cat"]
+        },
+        {
+            "id": 10,
+            "name": "mépris des huamin",
+            "types": ["cat"]
+        },
+        {
+            "id": 11,
+            "name": "phobie bénigne",
+            "types": ["cat", "bastet", "human"]
+        },
+        {
+            "id": 12,
+            "name": "phobie problématique",
+            "types": ["cat", "bastet", "human"]
+        },
+        {
+            "id": 13,
+            "name": "phobie grave",
+            "types": ["cat", "bastet", "human"]
+        },
+        {
+            "id": 14,
+            "name": "râleur",
+            "types": ["cat", "bastet", "human"]
+        },
+        {
+            "id": 15,
+            "name": "vertige",
+            "types": ["human"]
+        },
+        {
+            "id": 3,
+            "name": "voyant",
+            "types": ["cat"]
         }
     ]
 }

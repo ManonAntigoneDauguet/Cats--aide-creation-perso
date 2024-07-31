@@ -1,8 +1,11 @@
+let data;
 const characterType = document.getElementById('type');
 characterType.value = 'cat';
 const caracAvailablePoints = document.querySelector('.caracAvailablePoints');
 const factionInput = document.getElementById('faction');
 const breedInput = document.getElementById('breed');
+const qualitiesDiv = document.querySelector('.qualities');
+const defaultsDiv = document.querySelector('.defaults');
 
 const gri = { "input": document.getElementById('gri'), "maxValueTd": document.getElementById('griMaxValue'), "catMaxValue": 5, "bastetMaxValue": 5, "humanMaxValue": 5, "actualMaxValue": 5 };
 const oei = { "input": document.getElementById('oei'), "maxValueTd": document.getElementById('oeiMaxValue'), "catMaxValue": 5, "bastetMaxValue": 4, "humanMaxValue": 4, "actualMaxValue": 5 };
@@ -15,14 +18,20 @@ const cou = { "input": document.getElementById('cou'), "maxValueTd": document.ge
 const cha = { "input": document.getElementById('cha'), "maxValueTd": document.getElementById('chaMaxValue'), "catMaxValue": 5, "bastetMaxValue": 4, "humanMaxValue": 5, "actualMaxValue": 3 };
 const caracteristics = [gri, oei, poi, que, ron, car, vib, cou, cha];
 
-async function displayPresentation() {
+async function getData() {
     const response = await fetch('./assets/data/data.json');
-    const data = await response.json();
-    displayFactions(data);
-    displayBreed(data);
+    data = await response.json();
 }
 
-async function displayFactions(data) {
+function getCat(breed) {
+    const cat = data.breed.find(e => e.name == breed);
+    if (!cat) {
+        return data.breed.find(e => e.name == 'autre...');
+    }
+    return cat;
+}
+
+async function displayFactions() {
     const option = document.createElement("option");
     option.setAttribute("value", "");
     option.innerHTML = "- -";
@@ -35,7 +44,7 @@ async function displayFactions(data) {
     })
 }
 
-async function displayBreed(data) {
+async function displayBreed() {
     const option = document.createElement("option");
     option.setAttribute("value", "");
     option.innerHTML = "- -";
@@ -71,13 +80,17 @@ function updatecaracAvailablePoints() {
     }
 }
 
-function init() {
+async function init() {
+    await getData();
     caracteristics.forEach(e => {
         e.input.value = 1;
         e.maxValueTd.innerHTML = e.actualMaxValue;
     })
     updatecaracAvailablePoints();
-    displayPresentation();
+    displayFactions();
+    displayBreed();
+    displayDefaults();
+    displayQualities();
 }
 
 init();
@@ -91,6 +104,7 @@ characterType.addEventListener("change", () => {
                 checkInputIsValid(e.input, 1, e.catMaxValue);
                 updatecaracAvailablePoints();
             })
+            breedInput.removeAttribute('disabled', '');
             break;
         case 'bastet':
             caracteristics.forEach(e => {
@@ -99,6 +113,8 @@ characterType.addEventListener("change", () => {
                 checkInputIsValid(e.input, 1, e.bastetMaxValue);
                 updatecaracAvailablePoints();
             })
+            breedInput.setAttribute('disabled', '');
+            breedInput.value = '';
             break;
 
         case 'human':
@@ -108,8 +124,18 @@ characterType.addEventListener("change", () => {
                 checkInputIsValid(e.input, 1, e.humanMaxValue);
                 updatecaracAvailablePoints();
             })
+            breedInput.setAttribute('disabled', '');
+            breedInput.value = '';
             break;
     }
+    displayDefaults();
+    displayQualities();
+})
+
+breedInput.addEventListener("change", () => {
+    const cat = getCat("persan");
+    displayQualities();
+    displayDefaults();
 })
 
 caracteristics.forEach(e => {
@@ -118,3 +144,56 @@ caracteristics.forEach(e => {
         updatecaracAvailablePoints();
     })
 })
+
+function displayQualities() {
+    qualitiesDiv.innerHTML = "Qualités :";
+    const cat = getCat(breedInput.value);
+    cat.qualities.forEach(e => {
+        const caract = document.createElement('li');
+        caract.innerHTML = e;
+        qualitiesDiv.appendChild(caract);
+    });
+    for (let i = cat.qualities.length; i < 2; i++) {
+        const caract = document.createElement('li');
+        const caractInput = document.createElement('select');
+        const option = document.createElement('option');
+        option.setAttribute('value', "");
+        option.innerHTML = "- -"
+        caractInput.appendChild(option);
+        data.qualities.forEach(e => {
+            const option = document.createElement('option');
+            option.setAttribute('value', e.name);
+            option.innerHTML = e.name
+            caractInput.appendChild(option);
+        })
+        caract.appendChild(caractInput);
+        qualitiesDiv.appendChild(caract);
+    }
+}
+
+function displayDefaults() {
+    defaultsDiv.innerHTML = "Défauts :";
+    const cat = getCat(breedInput.value);
+    cat.defaults.forEach(e => {
+        const caract = document.createElement('li');
+        caract.innerHTML = e;
+        defaultsDiv.appendChild(caract);
+    })
+    for (let i = cat.defaults.length; i < 3; i++) {
+        const caract = document.createElement('li');
+        const caractInput = document.createElement('select');
+        const option = document.createElement('option');
+        option.setAttribute('value', "");
+        option.innerHTML = "- -"
+        caractInput.appendChild(option);
+        const filteredData = data.defaults.filter(e => e.types.includes(characterType.value));
+        filteredData.forEach(e => {
+            const option = document.createElement('option');
+            option.setAttribute('value', e.name);
+            option.innerHTML = e.name
+            caractInput.appendChild(option);
+        })
+        caract.appendChild(caractInput);
+        defaultsDiv.appendChild(caract);
+    }
+}

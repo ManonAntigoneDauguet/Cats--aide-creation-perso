@@ -45,7 +45,7 @@ h2 {
 }
 
 p {
-    font-size: 24px;
+    font-size: 18px;
 
     @include tablet-and-less {
         font-size: 18px;
@@ -63,11 +63,53 @@ p {
 .succes {
     color: green;
     font-weight: bold;
+
     &::after {
         content: ' ✔';
     }
 }
 
-section + section {
+section+section {
     padding-top: 24px;
+}
+
+.main__content {
+    @include except-mobile {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .presentation {
+        grid-column: 1 / 2;
+    }
+
+    .caracteristics {
+        grid-column: 1 / 2;
+    }
+
+    .qualitiesAndDefaults {
+        grid-column: 2 / 3;
+    }
+}
+
+.couple-label-input {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    justify-content: space-between;
+    + .couple-label-input {
+        padding-top: 8px;
+    }
+}
+
+input, select {
+    width: 180px;
+    border: 1px solid $secondary-color;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+*:disabled {
+    background-color: rgb(185, 185, 185);
+    color: linen;
 }

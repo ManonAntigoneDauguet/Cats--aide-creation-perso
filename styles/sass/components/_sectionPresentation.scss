@@ -15,21 +15,4 @@
             border-color: $secondary-color;
         }
     }
-
-    .couple-label-input {
-        display: flex;
-        flex-direction: row;
-        gap: 24px;
-        justify-content: space-between;
-        + .couple-label-input {
-            padding-top: 8px;
-        }
-    }
-
-    input, select {
-        width: 150px;
-        border: 1px solid $secondary-color;
-        padding: 4px;
-        border-radius: 5px;
-    }
 }
