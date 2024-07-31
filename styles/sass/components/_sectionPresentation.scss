@@ -1,0 +1,35 @@
+.presentation__content {
+    &__inputs {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        row-gap: 8px;
+        gap: 32px;
+
+        @include mobile-only {
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        hr {
+            border-color: $secondary-color;
+        }
+    }
+
+    .couple-label-input {
+        display: flex;
+        flex-direction: row;
+        gap: 24px;
+        justify-content: space-between;
+        + .couple-label-input {
+            padding-top: 8px;
+        }
+    }
+
+    input, select {
+        width: 150px;
+        border: 1px solid $secondary-color;
+        padding: 4px;
+        border-radius: 5px;
+    }
+}

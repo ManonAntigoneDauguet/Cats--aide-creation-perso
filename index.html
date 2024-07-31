@@ -9,54 +9,69 @@
     <title>Cats! Aide à la création de perso</title>
 
     <link href="./styles/css/index.css" rel="stylesheet">
+    <!-- Police Island Moments -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Island+Moments&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
         <div class="header__content">
-            <img src="./assets/presentation.jpg" class="img-presentation">
             <h1>Cats! Aide à la création de perso</h1>
+            <img src="./assets/img/presentation.jpg" class="img-presentation">
         </div>
     </header>
 
     <main>
         <div class="main__content">
-            <div>
-                <div class="couple-label-input">
-                    <label for="type">Type</label>
-                    <select name="type" id="type">
-                        <option value="cat">Chat</option>
-                        <option value="bastet">Bastet</option>
-                        <option value="human">Humain</option>
-                    </select>
+            <section class="presentation">
+                <div class="presentation__content">
+                    <h2>1. Présentation</h2>
+                    <div class="presentation__content__inputs">
+                        <div>
+                            <div class="couple-label-input">
+                                <label for="type">Type</label>
+                                <select name="type" id="type">
+                                    <option value="cat">Chat</option>
+                                    <option value="bastet">Bastet</option>
+                                    <option value="human">Humain</option>
+                                </select>
+                            </div>
+                            <div class="couple-label-input">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" />
+                            </div>
+                            <div class="couple-label-input">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" />
+                            </div>
+                            <div class="couple-label-input">
+                                <label for="breed">Race</label>
+                                <select id="breed"></select>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="couple-label-input">
+                                <label for="line">Lignée</label>
+                                <input type="text" id="line" />
+                            </div>
+                            <div class="couple-label-input">
+                                <label for="reputation">Réputation</label>
+                                <input type="number" id="reputation" />
+                            </div>
+                            <div class="couple-label-input">
+                                <label for="faction">Faction</label>
+                                <select id="faction"></select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="couple-label-input">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" />
-                </div>
-                <div class="couple-label-input">
-                    <label for="age">Age</label>
-                    <input type="number" id="age" />
-                </div>
-                <div class="couple-label-input">
-                    <label for="breed">Race</label>
-                    <input type="text" id="breed" />
-                </div>
-                <div class="couple-label-input">
-                    <label for="line">Lignée</label>
-                    <input type="text" id="line" />
-                </div>
-                <div class="couple-label-input">
-                    <label for="reputation">Réputation</label>
-                    <input type="number" id="reputation" />
-                </div>
-                <div class="couple-label-input">
-                    <label for="faction">Faction</label>
-                    <input type="text" id="faction" />
-                </div>
-            </div>
 
-            <div>
+            </section>
+
+            <section>
+                <h2>2. Caractéristiques</h2>
                 <table>
                     <caption>
                         Points de caractéristiques
@@ -73,78 +88,80 @@
                             <td>
                                 <input type="number" id="gri" min="1" max="5" />
                             </td>
-                            <td></td>
+                            <td id="griMaxValue"></td>
                         </tr>
                         <tr>
                             <th scope="row">OEIL (Précision)</th>
                             <td>
                                 <input type="number" id="oei" min="1" max="5" />
                             </td>
-                            <td></td>
+                            <td id="oeiMaxValue"></td>
                         </tr>
                         <tr>
                             <th scope="row">POIL (Vigueur)</th>
                             <td>
                                 <input type="number" id="poi" min="1" max="5" />
                             </td>
-                            <td></td>
+                            <td id="poiMaxValue"></td>
                         </tr>
                         <tr>
                             <th scope="row">QUEUE (Agilité)</th>
                             <td>
                                 <input type="number" id="que" min="1" max="5" />
                             </td>
-                            <td></td>
+                            <td id="queMaxValue"></td>
                         </tr>
                         <tr>
                             <th scope="row">RONRONNEMENT (Intelligence)</th>
                             <td>
                                 <input type="number" id="ron" min="1" max="5" />
                             </td>
-                            <td></td>
+                            <td id="ronMaxValue"></td>
                         </tr>
                         <tr>
                             <th scope="row">CARESSE (Volonté)</th>
                             <td>
                                 <input type="number" id="car" min="1" max="5" />
                             </td>
-                            <td></td>
+                            <td id="carMaxValue"></td>
                         </tr>
                         <tr>
                             <th scope="row">VIBRISSE (Intuition)</th>
                             <td>
                                 <input type="number" id="vib" min="1" max="5" />
                             </td>
-                            <td></td>
+                            <td id="vibMaxValue"></td>
                         </tr>
                         <tr>
                             <th scope="row">COUSSINET (Sociabilité)</th>
                             <td>
                                 <input type="number" id="cou" min="1" max="5" />
                             </td>
-                            <td></td>
+                            <td id="couMaxValue"></td>
                         </tr>
                         <tr>
                             <th scope="row">CHANCE</th>
                             <td>
                                 <input type="number" id="cha" min="1" max="5" />
                             </td>
-                            <td></td>
+                            <td id="chaMaxValue"></td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th scope="row">Points totaux = ???</th>
-                            <th scope="row" colspan="2">Points restants = ???</th>
+                            <th scope="row">Points totaux = 28</th>
+                            <th scope="row" colspan="2">Points restants = <span class="caracAvailablePoints">???</span>
+                            </th>
                         </tr>
                     </tfoot>
                     </thead>
                 </table>
-            </div>
+            </section>
         </div>
     </main>
 
     <footer>
         <div class="footer__content">😺</div>
     </footer>
+    <script type="module" src="./scripts/index.js"></script>
 </body>

@@ -1,0 +1,114 @@
+{
+    "breed": [
+        {
+            "id": 1,
+            "name": "abyssin"
+        },
+        {
+            "id": 2,
+            "name": "angora"
+        },
+        {
+            "id": 3,
+            "name": "bengal"
+        },
+        {
+            "id": 4,
+            "name": "birman"
+        },
+        {
+            "id": 5,
+            "name": "british shorthair"
+        },
+        {
+            "id": 6,
+            "name": "chartreux"
+        },
+        {
+            "id": 7,
+            "name": "exotic shorthair"
+        },
+        {
+            "id": 8,
+            "name": "européen"
+        },
+        {
+            "id": 9,
+            "name": "main coon"
+        },
+        {
+            "id": 10,
+            "name": "norvégien"
+        },
+        {
+            "id": 11,
+            "name": "oriental"
+        },
+        {
+            "id": 12,
+            "name": "persan"
+        },
+        {
+            "id": 13,
+            "name": "ragdoll"
+        },
+        {
+            "id": 14,
+            "name": "scottish fold"
+        },
+        {
+            "id": 15,
+            "name": "siamois"
+        },
+        {
+            "id": 16,
+            "name": "somali"
+        }
+    ],
+    "factions": [
+        {
+            "id": 1,
+            "name": "interventionnistes"
+        },
+        {
+            "id": 2,
+            "name": "progresssites"
+        },
+        {
+            "id": 3,
+            "name": "esclavagistes"
+        },
+        {
+            "id": 4,
+            "name": "conservateurs"
+        },
+        {
+            "id": 5,
+            "name": "écologistes"
+        },
+        {
+            "id": 6,
+            "name": "passéistes"
+        },
+        {
+            "id": 7,
+            "name": "paresseux"
+        },
+        {
+            "id": 8,
+            "name": "nihilistes"
+        },
+        {
+            "id": 9,
+            "name": "défaitistes"
+        },
+        {
+            "id": 10,
+            "name": "avant-gardistes"
+        },
+        {
+            "id": 11,
+            "name": "autre..."
+        }
+    ]
+}

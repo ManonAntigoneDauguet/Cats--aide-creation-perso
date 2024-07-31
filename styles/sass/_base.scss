@@ -9,6 +9,7 @@ body {
     min-height: 100vh;
     margin: auto;
     font-family: $primary-font;
+    background-color: $background-color;
 }
 
 main {
@@ -33,9 +34,10 @@ h1 {
 }
 
 h2 {
-    color: var(--secondary-color);
+    color: $secondary-color;
     font-weight: 500;
-    font-size: 36px;
+    font-size: 24px;
+    padding-bottom: 8px;
 
     @include mobile-only {
         font-size: 20px;
@@ -54,4 +56,18 @@ p {
     }
 }
 
+.error {
+    color: red;
+}
 
+.succes {
+    color: green;
+    font-weight: bold;
+    &::after {
+        content: ' ✔';
+    }
+}
+
+section + section {
+    padding-top: 24px;
+}
