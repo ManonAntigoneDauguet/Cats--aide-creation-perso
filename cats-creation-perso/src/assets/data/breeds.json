@@ -1,169 +1,167 @@
-{
-    "breeds": [
-        {
-            "id": 1,
-            "name": "abyssin",
-            "defaults": [
-                "voyant",
-                "joueur"
-            ],
-            "qualities": []
-        },
-        {
-            "id": 2,
-            "name": "angora",
-            "defaults": [
-                "voyant",
-                "hydrophile"
-            ],
-            "qualities": []
-        },
-        {
-            "id": 3,
-            "name": "bengal",
-            "defaults": [
-                "voyant",
-                "hydrophile"
-            ],
-            "qualities": [
-                "athlète"
-            ]
-        },
-        {
-            "id": 4,
-            "name": "birman",
-            "defaults": [
-                "voyant"
-            ],
-            "qualities": [
-                "athlète"
-            ]
-        },
-        {
-            "id": 5,
-            "name": "british shorthair",
-            "defaults": [
-                "voyant"
-            ],
-            "qualities": [
-                "chouchou du quartier"
-            ]
-        },
-        {
-            "id": 6,
-            "name": "chartreux",
-            "defaults": [
-                "voyant"
-            ],
-            "qualities": [
-                "volonté de fer"
-            ]
-        },
-        {
-            "id": 7,
-            "name": "exotic shorthair",
-            "defaults": [
-                "joueur"
-            ],
-            "qualities": [
-                "athlète"
-            ]
-        },
-        {
-            "id": 8,
-            "name": "européen",
-            "defaults": [],
-            "qualities": []
-        },
-        {
-            "id": 9,
-            "name": "main coon",
-            "defaults": [
-                "voyant"
-            ],
-            "qualities": [
-                "athlète"
-            ]
-        },
-        {
-            "id": 10,
-            "name": "norvégien",
-            "defaults": [
-                "voyant"
-            ],
-            "qualities": [
-                "athlète",
-                "sauteur exceptionnel"
-            ]
-        },
-        {
-            "id": 11,
-            "name": "oriental",
-            "defaults": [
-                "joueur",
-                "mépris des humains"
-            ],
-            "qualities": [
-                "Don Juan"
-            ]
-        },
-        {
-            "id": 12,
-            "name": "persan",
-            "defaults": [
-                "voyant"
-            ],
-            "qualities": [
-                "pattes de velours"
-            ]
-        },
-        {
-            "id": 13,
-            "name": "ragdoll",
-            "defaults": [
-                "score de Poil <= 2"
-            ],
-            "qualities": [
-                "chouchou du quartier"
-            ]
-        },
-        {
-            "id": 14,
-            "name": "scottish fold",
-            "defaults": [
-                "voyant",
-                "râleur"
-            ],
-            "qualities": [
-                "volonté de fer"
-            ]
-        },
-        {
-            "id": 15,
-            "name": "siamois",
-            "defaults": [
-                "voyant",
-                "mépris des humains"
-            ],
-            "qualities": [
-                "débrouillard en milieu humain"
-            ]
-        },
-        {
-            "id": 16,
-            "name": "somali",
-            "defaults": [
-                "curieux"
-            ],
-            "qualities": [
-                "sauteur exceptionnel"
-            ]
-        },
-        {
-            "id": 17,
-            "name": "autre...",
-            "defaults": [],
-            "qualities": []
-        }
-    ]
-}
+[
+    {
+        "id": 1,
+        "name": "abyssin",
+        "defaults": [
+            "voyant",
+            "joueur"
+        ],
+        "qualities": []
+    },
+    {
+        "id": 2,
+        "name": "angora",
+        "defaults": [
+            "voyant",
+            "hydrophile"
+        ],
+        "qualities": []
+    },
+    {
+        "id": 3,
+        "name": "bengal",
+        "defaults": [
+            "voyant",
+            "hydrophile"
+        ],
+        "qualities": [
+            "athlète"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "birman",
+        "defaults": [
+            "voyant"
+        ],
+        "qualities": [
+            "athlète"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "british shorthair",
+        "defaults": [
+            "voyant"
+        ],
+        "qualities": [
+            "chouchou du quartier"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "chartreux",
+        "defaults": [
+            "voyant"
+        ],
+        "qualities": [
+            "volonté de fer"
+        ]
+    },
+    {
+        "id": 7,
+        "name": "exotic shorthair",
+        "defaults": [
+            "joueur"
+        ],
+        "qualities": [
+            "athlète"
+        ]
+    },
+    {
+        "id": 8,
+        "name": "européen",
+        "defaults": [],
+        "qualities": []
+    },
+    {
+        "id": 9,
+        "name": "main coon",
+        "defaults": [
+            "voyant"
+        ],
+        "qualities": [
+            "athlète"
+        ]
+    },
+    {
+        "id": 10,
+        "name": "norvégien",
+        "defaults": [
+            "voyant"
+        ],
+        "qualities": [
+            "athlète",
+            "sauteur exceptionnel"
+        ]
+    },
+    {
+        "id": 11,
+        "name": "oriental",
+        "defaults": [
+            "joueur",
+            "mépris des humains"
+        ],
+        "qualities": [
+            "Don Juan"
+        ]
+    },
+    {
+        "id": 12,
+        "name": "persan",
+        "defaults": [
+            "voyant"
+        ],
+        "qualities": [
+            "pattes de velours"
+        ]
+    },
+    {
+        "id": 13,
+        "name": "ragdoll",
+        "defaults": [
+            "score de Poil <= 2"
+        ],
+        "qualities": [
+            "chouchou du quartier"
+        ]
+    },
+    {
+        "id": 14,
+        "name": "scottish fold",
+        "defaults": [
+            "voyant",
+            "râleur"
+        ],
+        "qualities": [
+            "volonté de fer"
+        ]
+    },
+    {
+        "id": 15,
+        "name": "siamois",
+        "defaults": [
+            "voyant",
+            "mépris des humains"
+        ],
+        "qualities": [
+            "débrouillard en milieu humain"
+        ]
+    },
+    {
+        "id": 16,
+        "name": "somali",
+        "defaults": [
+            "curieux"
+        ],
+        "qualities": [
+            "sauteur exceptionnel"
+        ]
+    },
+    {
+        "id": 17,
+        "name": "autre...",
+        "defaults": [],
+        "qualities": []
+    }
+]

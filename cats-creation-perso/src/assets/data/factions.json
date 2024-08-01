@@ -1,48 +1,46 @@
-{
-    "factions": [
-        {
-            "id": 1,
-            "name": "interventionnistes"
-        },
-        {
-            "id": 2,
-            "name": "progresssites"
-        },
-        {
-            "id": 3,
-            "name": "esclavagistes"
-        },
-        {
-            "id": 4,
-            "name": "conservateurs"
-        },
-        {
-            "id": 5,
-            "name": "écologistes"
-        },
-        {
-            "id": 6,
-            "name": "passéistes"
-        },
-        {
-            "id": 7,
-            "name": "paresseux"
-        },
-        {
-            "id": 8,
-            "name": "nihilistes"
-        },
-        {
-            "id": 9,
-            "name": "défaitistes"
-        },
-        {
-            "id": 10,
-            "name": "avant-gardistes"
-        },
-        {
-            "id": 11,
-            "name": "autre..."
-        }
-    ]
-}
+[
+    {
+        "id": 1,
+        "name": "interventionnistes"
+    },
+    {
+        "id": 2,
+        "name": "progresssites"
+    },
+    {
+        "id": 3,
+        "name": "esclavagistes"
+    },
+    {
+        "id": 4,
+        "name": "conservateurs"
+    },
+    {
+        "id": 5,
+        "name": "écologistes"
+    },
+    {
+        "id": 6,
+        "name": "passéistes"
+    },
+    {
+        "id": 7,
+        "name": "paresseux"
+    },
+    {
+        "id": 8,
+        "name": "nihilistes"
+    },
+    {
+        "id": 9,
+        "name": "défaitistes"
+    },
+    {
+        "id": 10,
+        "name": "avant-gardistes"
+    },
+    {
+        "id": 11,
+        "name": "autre..."
+    }
+]

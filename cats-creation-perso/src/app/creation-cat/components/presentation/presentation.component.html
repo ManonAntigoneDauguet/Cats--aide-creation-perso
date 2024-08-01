@@ -21,7 +21,12 @@
                 </div>
                 <div class="couple-label-input">
                     <label for="breed">Race</label>
-                    <select id="breed"></select>
+                    <select id="breed">
+                        <option value="">- -</option>
+                        <option *ngFor="let breed of breeds$ | async" value="{{breed.name}}">
+                            {{breed.name}}
+                        </option>
+                    </select>
                 </div>
             </div>
             <div>
@@ -31,7 +36,12 @@
                 </div>
                 <div class="couple-label-input">
                     <label for="faction">Faction</label>
-                    <select id="faction"></select>
+                    <select id="faction">
+                        <option value="">- -</option>
+                        <option *ngFor="let faction of factions$ | async" value="{{faction.name}}">
+                            {{faction.name}}
+                        </option>
+                    </select>
                 </div>
                 <div class="couple-label-input">
                     <label for="faction">Réputation</label>
