@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 export const routes: Routes = [
-    { path: '', loadChildren: () => import('./creation-cat/creation-cat.module').then(m => m.CreationCatModule)}
+    { path: '', loadChildren: () => import('./creation-cat/creation-cat.module').then(m => m.CreationCatModule) }
 ];
 
 @NgModule({
@@ -13,4 +13,4 @@ export const routes: Routes = [
         RouterModule
     ]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreationCatComponent } from './page/creation-cat.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: CreationCatComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

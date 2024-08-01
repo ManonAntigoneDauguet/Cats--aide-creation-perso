@@ -1,0 +1,22 @@
+@import '../../../../styles/utils/variables';
+@import '../../../../styles/utils/mixins';
+
+
+.presentation__content {
+    &__inputs {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        row-gap: 8px;
+        gap: 32px;
+
+        @include mobile-only {
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        hr {
+            border-color: $secondary-color;
+        }
+    }
+}

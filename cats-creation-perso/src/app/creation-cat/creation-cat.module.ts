@@ -5,7 +5,6 @@ import { CreationCatRoutingModule } from './creation-cat-routing.module';
 
 
 @NgModule({
-  declarations: [],
   imports: [
     CommonModule,
     CreationCatRoutingModule
