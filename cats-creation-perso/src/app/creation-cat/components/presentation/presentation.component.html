@@ -5,7 +5,7 @@
             <div>
                 <div class="couple-label-input">
                     <label for="type">Type</label>
-                    <select name="type" id="type">
+                    <select name="type" id="type" [(ngModel)]="type" (change)="changeType($event)">
                         <option value="cat">Chat</option>
                         <option value="bastet">Bastet</option>
                         <option value="human">Humain</option>
@@ -21,7 +21,7 @@
                 </div>
                 <div class="couple-label-input">
                     <label for="breed">Race</label>
-                    <select id="breed">
+                    <select id="breed" [(ngModel)]="breed" (change)="changeBreed($event)">
                         <option value="">- -</option>
                         <option *ngFor="let breed of breeds$ | async" value="{{breed.name}}">
                             {{breed.name}}
