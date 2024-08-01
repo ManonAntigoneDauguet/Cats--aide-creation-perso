@@ -1,0 +1,26 @@
+@import '../../../../styles/utils/variables';
+@import '../../../../styles/utils/mixins';
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    background-color: $primary-color;
+    width: 100%;
+    max-width: 1440px;
+}
+
+.footer__content {
+    height: 100px;
+    box-sizing: border-box;
+    padding: 16px 32px;
+    display: flex;
+    align-items: flex-start;
+
+    @include mobile-only {
+        height: 200px;
+        justify-content: center;
+        align-items: end;
+        padding-bottom: 48px;
+    }
+}

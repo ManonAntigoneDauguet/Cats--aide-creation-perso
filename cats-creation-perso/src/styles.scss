@@ -1,1 +1,121 @@
-/* You can add global styles to this file, and also import other style files */
+@import './styles/utils/variables';
+@import './styles/utils/mixins';
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    max-width: 1440px;
+    min-height: 100vh;
+    margin: auto;
+    font-family: $primary-font;
+    background-color: $background-color;
+}
+
+main {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 0px 8px 212px 8px;
+    animation: opacity-appear 1500ms;
+
+    @include mobile-only {
+        padding-bottom: 264px;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    @include mobile-only {
+        font-size: 20px;
+    }
+}
+
+h2 {
+    color: $secondary-color;
+    font-weight: 500;
+    font-size: 24px;
+    padding-bottom: 8px;
+
+    @include mobile-only {
+        font-size: 20px;
+    }
+}
+
+p {
+    font-size: 18px;
+
+    @include tablet-and-less {
+        font-size: 18px;
+    }
+
+    @include mobile-only {
+        font-size: 13px;
+    }
+}
+
+.error {
+    color: red;
+}
+
+.succes {
+    color: green;
+    font-weight: bold;
+
+    &::after {
+        content: ' ✔';
+    }
+}
+
+section+section {
+    padding-top: 24px;
+}
+
+.main__content {
+    @include except-mobile {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .presentation {
+        grid-column: 1 / 2;
+    }
+
+    .characteristics {
+        grid-column: 1 / 2;
+    }
+
+    .qualitiesAndDefaults {
+        grid-column: 2 / 3;
+    }
+}
+
+.couple-label-input {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    justify-content: space-between;
+
+    +.couple-label-input {
+        padding-top: 8px;
+    }
+}
+
+input,
+select {
+    width: 180px;
+    border: 1px solid $secondary-color;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+*:disabled {
+    background-color: rgb(185, 185, 185);
+    color: linen;
+}
