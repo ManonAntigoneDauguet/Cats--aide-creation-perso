@@ -215,90 +215,179 @@
     "qualities": [
         {
             "id": 1,
-            "name": "",
-            "types": ["bastet", "human"]
+            "name": "ambidextre",
+            "types": ["bastet", "human"],
+            "description": ""
+        },
+        {
+            "id": 2,
+            "name": "ami des chats",
+            "types": ["bastet", "human"],
+            "description": ""
+        },
+        {
+            "id": 3,
+            "name": "athlète",
+            "types": ["cat", "bastet", "human"],
+            "description": ""
+        },
+        {
+            "id": 4,
+            "name": "chouchou du quartier",
+            "types": ["cat"],
+            "description": ""
+        },
+        {
+            "id": 5,
+            "name": "créditeur",
+            "types": ["cat"],
+            "description": ""
+        },
+        {
+            "id": 6,
+            "name": "débrouillard en milieu humain",
+            "types": ["cat"],
+            "description": ""
+        },
+        {
+            "id": 7,
+            "name": "Don Juan",
+            "types": ["cat", "bastet", "human"],
+            "description": ""
+        },
+        {
+            "id": 8,
+            "name": "ennemi préféré",
+            "types": ["cat"],
+            "description": ""
+        },
+        {
+            "id": 9,
+            "name": "griffes d'acier",
+            "types": ["cat"],
+            "description": ""
+        },
+        {
+            "id": 10,
+            "name": "pattes de velours",
+            "types": ["cat"],
+            "description": ""
+        },
+        {
+            "id": 11,
+            "name": "sauteur exceptionnel",
+            "types": ["cat"],
+            "description": ""
+        },
+        {
+            "id": 12,
+            "name": "réputation de matou",
+            "types": ["cat"],
+            "description": ""
+        },
+        {
+            "id": 13,
+            "name": "volonté de fer",
+            "types": ["cat", "bastet", "human"],
+            "description": ""
         }
     ],
     "defaults": [
         {
             "id": 1,
             "name": "altergique aux chats",
-            "types": ["bastet", "human"]
+            "types": ["bastet", "human"],
+            "description": ""
         },
         {
             "id": 2,
             "name": "boiteux",
-            "types": ["cat", "bastet", "human"]
+            "types": ["cat", "bastet", "human"],
+            "description": ""
         },
         {
             "id": 3,
             "name": "curieux",
-            "types": ["cat", "bastet", "human"]
+            "types": ["cat", "bastet", "human"],
+            "description": ""
         },
         {
             "id": 4,
             "name": "débiteur",
-            "types": ["cat", "bastet", "human"]
+            "types": ["cat", "bastet", "human"],
+            "description": ""
         },
         {
             "id": 5,
             "name": "défiguré",
-            "types": ["cat", "bastet", "human"]
+            "types": ["cat", "bastet", "human"],
+            "description": ""
         },
         {
             "id": 6,
             "name": "gourmand",
-            "types": ["cat", "bastet", "human"]
+            "types": ["cat", "bastet", "human"],
+            "description": ""
         },
         {
             "id": 7,
             "name": "hydrophile",
-            "types": ["cat"]
+            "types": ["cat"],
+            "description": ""
         },
         {
             "id": 8,
             "name": "joueur",
-            "types": ["cat", "bastet", "human"]
+            "types": ["cat", "bastet", "human"],
+            "description": ""
         },
         {
             "id": 9,
             "name": "lubie",
-            "types": ["cat"]
+            "types": ["cat"],
+            "description": ""
         },
         {
             "id": 10,
             "name": "mépris des huamin",
-            "types": ["cat"]
+            "types": ["cat"],
+            "description": ""
         },
         {
             "id": 11,
             "name": "phobie bénigne",
-            "types": ["cat", "bastet", "human"]
+            "types": ["cat", "bastet", "human"],
+            "description": ""
         },
         {
             "id": 12,
             "name": "phobie problématique",
-            "types": ["cat", "bastet", "human"]
+            "types": ["cat", "bastet", "human"],
+            "description": ""
         },
         {
             "id": 13,
             "name": "phobie grave",
-            "types": ["cat", "bastet", "human"]
+            "types": ["cat", "bastet", "human"],
+            "description": ""
         },
         {
             "id": 14,
             "name": "râleur",
-            "types": ["cat", "bastet", "human"]
+            "types": ["cat", "bastet", "human"],
+            "description": ""
         },
         {
             "id": 15,
             "name": "vertige",
-            "types": ["human"]
+            "types": ["human"],
+            "description": ""
         },
         {
-            "id": 3,
+            "id": 16,
             "name": "voyant",
-            "types": ["cat"]
+            "types": ["cat"],
+            "description": "mettez un -1 en discrétion"
         }
     ]
 }

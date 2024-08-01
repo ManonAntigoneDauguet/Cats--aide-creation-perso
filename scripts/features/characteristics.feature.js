@@ -13,6 +13,7 @@ const vib = { "input": document.getElementById('vib'), "maxValueTd": document.ge
 const cou = { "input": document.getElementById('cou'), "maxValueTd": document.getElementById('couMaxValue'), "catMaxValue": 5, "bastetMaxValue": 5, "humanMaxValue": 5, "actualMaxValue": 5 };
 const cha = { "input": document.getElementById('cha'), "maxValueTd": document.getElementById('chaMaxValue'), "catMaxValue": 5, "bastetMaxValue": 4, "humanMaxValue": 5, "actualMaxValue": 3 };
 const characteristics = [gri, oei, poi, que, ron, car, vib, cou, cha];
+const characTotalPoints = document.querySelector('.caracTotalPoints');
 const characAvailablePoints = document.querySelector('.caracAvailablePoints');
 
 /**
@@ -28,10 +29,15 @@ function displayCharacteristics() {
     updateCharacAvailablePoints();
 }
 
+function setCharacTotalPoints(newTotal) {
+    characTotalPoints.innerHTML = newTotal;
+    updateCharacAvailablePoints();
+}
+
 function updateCharacAvailablePoints() {
     let sum = 0;
     characteristics.forEach(e => sum += Number(e.input.value));
-    characAvailablePoints.innerHTML = 28 - sum;
+    characAvailablePoints.innerHTML = characTotalPoints.textContent - sum;
     if (characAvailablePoints.innerHTML < 0) {
         characAvailablePoints.classList.add("error");
         characAvailablePoints.classList.remove("succes");
@@ -45,4 +51,4 @@ function updateCharacAvailablePoints() {
     }
 }
 
-export { characteristics, updateCharacAvailablePoints, displayCharacteristics };
+export { characteristics, displayCharacteristics, setCharacTotalPoints };

@@ -1,6 +1,6 @@
 /************** NECESSARIES IMPORTS *************/
-import { checkInputIsValid, displayOptions } from "./utils.js";
-import { displayCharacteristics, characteristics, updateCharacAvailablePoints } from "./features/characteristics.feature.js";
+import { checkInputIsValid } from "./utils.js";
+import { displayCharacteristics, characteristics, setCharacTotalPoints } from "./features/characteristics.feature.js";
 import { displayPresentation } from "./features/presentation.feature.js";
 import { displayQualitiesAndDefaults } from "./features/qualitiesAndDefaults.feature.js";
 
@@ -10,7 +10,7 @@ import { displayQualitiesAndDefaults } from "./features/qualitiesAndDefaults.fea
 const characterType = document.getElementById('type');
 characterType.value = 'cat';
 const breedInput = document.getElementById('breed');
-
+const recapQualitiesAndDefaults = document.querySelector('.recapQualitiesAndDefaults')
 
 
 async function getData() {
@@ -35,6 +35,7 @@ async function init() {
     displayCharacteristics();
     displayPresentation(data);
     displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value);
+    getAllQualitiesSelected();
 }
 
 
@@ -50,7 +51,7 @@ characterType.addEventListener("change", () => {
                 e.maxValueTd.innerHTML = e.catMaxValue;
                 e.actualMaxValue = e.catMaxValue;
                 checkInputIsValid(e.input, 1, e.catMaxValue);
-                updateCharacAvailablePoints();
+                setCharacTotalPoints(28);
             })
             breedInput.removeAttribute('disabled', '');
             break;
@@ -59,7 +60,7 @@ characterType.addEventListener("change", () => {
                 e.maxValueTd.innerHTML = e.bastetMaxValue;
                 e.actualMaxValue = e.bastetMaxValue;
                 checkInputIsValid(e.input, 1, e.bastetMaxValue);
-                updateCharacAvailablePoints();
+                setCharacTotalPoints(26);
             })
             breedInput.setAttribute('disabled', '');
             breedInput.value = '';
@@ -70,7 +71,7 @@ characterType.addEventListener("change", () => {
                 e.maxValueTd.innerHTML = e.humanMaxValue;
                 e.actualMaxValue = e.humanMaxValue;
                 checkInputIsValid(e.input, 1, e.humanMaxValue);
-                updateCharacAvailablePoints();
+                setCharacTotalPoints(24);
             })
             breedInput.setAttribute('disabled', '');
             breedInput.value = '';
@@ -81,4 +82,33 @@ characterType.addEventListener("change", () => {
 
 breedInput.addEventListener("change", () => {
     displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value);
+    getAllQualitiesSelected();
 })
+
+
+
+function getAllQualitiesSelected() {
+    // const all = document.querySelectorAll('.qualitySelected');
+    // all.forEach((optionDOM) => {
+    //     if (optionDOM?.textContent !== "") {
+    //         const selected = data.qualities.find(e => e.name === optionDOM.textContent);
+    //         const description = document.createElement('p');
+    //         description.innerHTML = selected.description;
+    //         recapQualitiesAndDefaults.appendChild(description);
+    //     }
+    // })
+
+}
+
+// function getAllDefaultsSelected() {
+//     const all = document.querySelectorAll('.defaultSelected');
+//     all.forEach((optionDOM) => {
+//         if (optionDOM?.textContent !== "") {
+//             const selected = data.defaults.find(e => e.name === optionDOM.textContent);
+//             console.log(selected)
+//             const description = document.createElement('p');
+//             description.innerHTML = selected.description;
+//             recapQualitiesAndDefaults.appendChild(description);
+//         }
+//     })
+// }

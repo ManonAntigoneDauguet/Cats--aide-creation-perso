@@ -13,8 +13,9 @@ function checkInputIsValid(input, min, max) {
  * Create options in a select input from data
  * @param { Array } subData 
  * @param { HTMLElement } input 
+ * @param { String } dataCategory for the id of options 
  */
-function displayOptions(subData, input) {
+function displayOptions(subData, input, dataCategory) {
     const option = document.createElement("option");
     option.setAttribute("value", "");
     option.innerHTML = "- -";
@@ -22,6 +23,7 @@ function displayOptions(subData, input) {
     subData.forEach(e => {
         const option = document.createElement("option");
         option.setAttribute("value", e.name);
+        option.setAttribute("id", `${dataCategory}-${e.id}`)
         option.innerHTML = e.name;
         input.appendChild(option);
     })

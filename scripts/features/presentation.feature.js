@@ -16,11 +16,11 @@ function displayPresentation(data) {
 }
 
 async function displayFactions(data) {
-    displayOptions(data.factions, factionInput);
+    displayOptions(data.factions, factionInput, "faction");
 }
 
 async function displayBreed(data) {
-    displayOptions(data.breed, breedInput);
+    displayOptions(data.breed, breedInput, "breed");
 }
 
 
