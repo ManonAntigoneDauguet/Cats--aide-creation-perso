@@ -1,0 +1,11 @@
+.skillsContainer {
+    @include except-mobile {
+        width: 60%;
+    }
+}
+
+.skillContainer {
+    input {
+        width: 50px;
+    }
+}

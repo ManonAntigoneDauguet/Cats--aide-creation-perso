@@ -3,6 +3,7 @@ import { checkInputIsValid } from "./utils.js";
 import { displayCharacteristics, characteristics, setCharacTotalPoints } from "./features/characteristics.feature.js";
 import { displayPresentation } from "./features/presentation.feature.js";
 import { displayQualitiesAndDefaults } from "./features/qualitiesAndDefaults.feature.js";
+import { displaySkills } from "./features/skills.feature.js";
 
 
 
@@ -19,6 +20,11 @@ async function getData() {
     data = await response.json();
 }
 
+async function getSkillData() {
+    const response = await fetch('./assets/data/skills.json');
+    skillData = await response.json();
+}
+
 function getCat(breed) {
     const cat = data.breed.find(e => e.name == breed);
     if (!cat) {
@@ -29,6 +35,7 @@ function getCat(breed) {
 
 async function init() {
     await getData();
+    await getSkillData();
     characteristics.forEach(e => {
         e.input.value = 1;
         e.maxValueTd.innerHTML = e.actualMaxValue;
@@ -36,13 +43,13 @@ async function init() {
     displayCharacteristics();
     displayPresentation(data);
     displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value);
-    getAllQualitiesSelected();
-    getAllDefaultsSelected();
+    displaySkills(skillData, characterType.value);
 }
 
 
 /******************* PAGE CREATION ******************/
 let data;
+let skillData;
 
 init();
 
@@ -79,7 +86,9 @@ characterType.addEventListener("change", () => {
             breedInput.value = '';
             break;
     }
-    displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value);
+    displayQualitiesAndDefaults(data, getCat(breedInput.value), 
+    characterType.value);
+    displaySkills(skillData, characterType.value);
 })
 
 breedInput.addEventListener("change", () => {

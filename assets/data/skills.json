@@ -1,0 +1,253 @@
+[
+    {
+        "id": 1,
+        "name": "armes à feu",
+        "types": [
+            "bastet",
+            "human"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "armes blanches",
+        "types": [
+            "bastet",
+            "human"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "arts martiaux (Ω)",
+        "types": [
+            "human"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "bricolage",
+        "types": [
+            "bastet",
+            "human"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "chasse",
+        "types": [
+            "cat"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "culture générale",
+        "types": [
+            "bastet",
+            "human",
+            "cat"
+        ]
+    },
+    {
+        "id": 7,
+        "name": "combat à mains nues",
+        "types": [
+            "bastet",
+            "human"
+        ]
+    },
+    {
+        "id": 8,
+        "name": "combat griffu",
+        "types": [
+            "cat"
+        ]
+    },
+    {
+        "id": 9,
+        "name": "conduite de véhicule",
+        "types": [
+            "bastet",
+            "human"
+        ]
+    },
+    {
+        "id": 10,
+        "name": "connaissance de la rue",
+        "types": [
+            "bastet",
+            "human",
+            "cat"
+        ]
+    },
+    {
+        "id": 11,
+        "name": "déguisement",
+        "types": [
+            "bastet",
+            "human"
+        ]
+    },
+    {
+        "id": 12,
+        "name": "discrétion",
+        "types": [
+            "bastet",
+            "human",
+            "cat"
+        ]
+    },
+    {
+        "id": 13,
+        "name": "droit, admnistration usages (Ω)",
+        "types": [
+            "bastet",
+            "human"
+        ]
+    },
+    {
+        "id": 14,
+        "name": "escalade",
+        "types": [
+            "bastet",
+            "human",
+            "cat"
+        ]
+    },
+    {
+        "id": 15,
+        "name": "énerver les humains",
+        "types": [
+            "cat"
+        ]
+    },
+    {
+        "id": 16,
+        "name": "langage humain (Ω)",
+        "types": [
+            "cat"
+        ]
+    },
+    {
+        "id": 17,
+        "name": "langues étrangères (Ω)",
+        "types": [
+            "bastet",
+            "human"
+        ]
+    },
+    {
+        "id": 18,
+        "name": "leadership",
+        "types": [
+            "bastet",
+            "human",
+            "cat"
+        ]
+    },
+    {
+        "id": 19,
+        "name": "odorat",
+        "types": [
+            "bastet",
+            "human","cat"
+        ]
+    },
+    {
+        "id": 20,
+        "name": "orientation",
+        "types": [
+            "bastet",
+            "human",
+            "cat"
+        ]
+    },
+    {
+        "id": 21,
+        "name": "psychologie féline",
+        "types": [
+            "bastet",
+            "human"
+        ]
+    },
+    {
+        "id": 22,
+        "name": "psychologie humaine",
+        "types": [
+            "bastet",
+            "cat"
+        ]
+    },
+    {
+        "id": 23,
+        "name": "réclamer à manger",
+        "types": [
+            "cat"
+        ]
+    },
+    {
+        "id": 24,
+        "name": "réclamer des caresses",
+        "types": [
+            "cat"
+        ]
+    },
+    {
+        "id": 25,
+        "name": "repérer/trouver",
+        "types": [
+            "bastet",
+            "human",
+            "cat"
+        ]
+    },
+    {
+        "id": 26,
+        "name": "saut",
+        "types": [
+            "bastet",
+            "human",
+            "cat"
+        ]
+    },
+    {
+        "id": 27,
+        "name": "secourisme (Ω)",
+        "types": [
+            "bastet",
+            "human"
+        ]
+    },
+    {
+        "id": 28,
+        "name": "séduire",
+        "types": [
+            "bastet",
+            "human",
+            "cat"
+        ]
+    },
+    {
+        "id": 29,
+        "name": "survie",
+        "types": [
+            "bastet",
+            "human",
+            "cat"
+        ]
+    },
+    {
+        "id": 30,
+        "name": "use et coutumes humaines",
+        "types": [
+            "bastet",
+            "cat"
+        ]
+    },
+    {
+        "id": 31,
+        "name": "utiliser un objet humain",
+        "types": [
+            "bastet",
+            "cat"
+        ]
+    }
+]
