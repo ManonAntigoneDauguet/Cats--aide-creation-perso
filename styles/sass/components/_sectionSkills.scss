@@ -1,11 +1,35 @@
-.skillsContainer {
-    @include except-mobile {
-        width: 60%;
+.skill-help-container {
+    height: 24px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+
+    img {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 24px;
+        transform: scale(1);
+    }
+
+    input {
+        height: 16px;
+        width: 16px;
+    }
+
+    input:not(:checked) ~img {
+        transform: scale(0);
     }
 }
 
-.skillContainer {
-    input {
-        width: 50px;
+.skill-table {
+    th[scope="col"] {
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    td.td {
+        width: min-content;
+
     }
 }

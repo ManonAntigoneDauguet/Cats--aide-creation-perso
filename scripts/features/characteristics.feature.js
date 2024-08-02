@@ -1,5 +1,6 @@
 /************** NECESSARIES IMPORTS *************/
 import { checkInputIsValid } from "../utils.js";
+import { setSkillsTotalPoint, displaySkillValues } from "./skills.feature.js";
 
 
 /************** DOM ELEMENTS ********************/
@@ -19,11 +20,13 @@ const characAvailablePoints = document.querySelector('.caracAvailablePoints');
 /**
  * Add event listeners on caracteristics features at init
  */
-function displayCharacteristics() {
+function displayCharacteristics(skillData, type) {
     characteristics.forEach(e => {
-        e.input.addEventListener("blur", () => {
+        e.input.addEventListener("change", () => {
             checkInputIsValid(e.input, 1, e.actualMaxValue);
             updateCharacAvailablePoints();
+            setSkillsTotalPoint();
+            displaySkillValues(skillData, type);
         })
     })
     updateCharacAvailablePoints();
@@ -32,6 +35,7 @@ function displayCharacteristics() {
 function setCharacTotalPoints(newTotal) {
     characTotalPoints.innerHTML = newTotal;
     updateCharacAvailablePoints();
+    
 }
 
 function updateCharacAvailablePoints() {
@@ -51,4 +55,18 @@ function updateCharacAvailablePoints() {
     }
 }
 
-export { characteristics, displayCharacteristics, setCharacTotalPoints };
+function getCaract(caracShortName) {
+    switch (caracShortName) {
+        case 'oei': return oei.input.value;
+        case 'gri': return gri.input.value;
+        case 'poi': return poi.input.value;
+        case 'que': return que.input.value;
+        case 'ron': return ron.input.value;
+        case 'car': return car.input.value;
+        case 'vib': return vib.input.value;
+        case 'cou': return cou.input.value;
+        case 'cha': return cha.input.value;
+    }
+}
+
+export { characteristics, displayCharacteristics, setCharacTotalPoints, getCaract };

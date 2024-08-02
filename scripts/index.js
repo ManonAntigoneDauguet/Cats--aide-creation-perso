@@ -40,7 +40,7 @@ async function init() {
         e.input.value = 1;
         e.maxValueTd.innerHTML = e.actualMaxValue;
     })
-    displayCharacteristics();
+    displayCharacteristics(skillData, characterType.value);
     displayPresentation(data);
     displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value);
     displaySkills(skillData, characterType.value);

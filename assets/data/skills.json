@@ -5,6 +5,9 @@
         "types": [
             "bastet",
             "human"
+        ],
+        "caract" : [
+            "oei"
         ]
     },
     {
@@ -13,6 +16,9 @@
         "types": [
             "bastet",
             "human"
+        ],
+        "caract" : [
+            "que"
         ]
     },
     {
@@ -20,6 +26,9 @@
         "name": "arts martiaux (Ω)",
         "types": [
             "human"
+        ],
+        "caract" : [
+            "gri", "que"
         ]
     },
     {
@@ -28,6 +37,9 @@
         "types": [
             "bastet",
             "human"
+        ],
+        "caract" : [
+            "oei", "ron"
         ]
     },
     {
@@ -35,6 +47,9 @@
         "name": "chasse",
         "types": [
             "cat"
+        ],
+        "caract" : [
+            "ron", "vib"
         ]
     },
     {
@@ -44,6 +59,9 @@
             "bastet",
             "human",
             "cat"
+        ],
+        "caract" : [
+            "ron"
         ]
     },
     {
@@ -52,6 +70,9 @@
         "types": [
             "bastet",
             "human"
+        ],
+        "caract" : [
+            "gri", "poi"
         ]
     },
     {
@@ -59,6 +80,9 @@
         "name": "combat griffu",
         "types": [
             "cat"
+        ],
+        "caract" : [
+            "gri", "poi"
         ]
     },
     {
@@ -67,6 +91,9 @@
         "types": [
             "bastet",
             "human"
+        ],
+        "caract" : [
+            "ron"
         ]
     },
     {
@@ -76,6 +103,9 @@
             "bastet",
             "human",
             "cat"
+        ],
+        "caract" : [
+            "ron", "cou"
         ]
     },
     {
@@ -84,6 +114,9 @@
         "types": [
             "bastet",
             "human"
+        ],
+        "caract" : [
+            "oei"
         ]
     },
     {
@@ -93,6 +126,9 @@
             "bastet",
             "human",
             "cat"
+        ],
+        "caract" : [
+            "que"
         ]
     },
     {
@@ -101,6 +137,9 @@
         "types": [
             "bastet",
             "human"
+        ],
+        "caract" : [
+            "ron"
         ]
     },
     {
@@ -110,6 +149,9 @@
             "bastet",
             "human",
             "cat"
+        ],
+        "caract" : [
+            "gri", "que"
         ]
     },
     {
@@ -117,6 +159,9 @@
         "name": "énerver les humains",
         "types": [
             "cat"
+        ],
+        "caract" : [
+            "que", "ron"
         ]
     },
     {
@@ -124,6 +169,9 @@
         "name": "langage humain (Ω)",
         "types": [
             "cat"
+        ],
+        "caract" : [
+            "ron"
         ]
     },
     {
@@ -132,6 +180,9 @@
         "types": [
             "bastet",
             "human"
+        ],
+        "caract" : [
+            "ron"
         ]
     },
     {
@@ -141,6 +192,9 @@
             "bastet",
             "human",
             "cat"
+        ],
+        "caract" : [
+            "car"
         ]
     },
     {
@@ -149,6 +203,9 @@
         "types": [
             "bastet",
             "human","cat"
+        ],
+        "caract" : [
+            "ron", "vib"
         ]
     },
     {
@@ -158,6 +215,9 @@
             "bastet",
             "human",
             "cat"
+        ],
+        "caract" : [
+            "vib"
         ]
     },
     {
@@ -166,6 +226,9 @@
         "types": [
             "bastet",
             "human"
+        ],
+        "caract" : [
+            "ron", "vib"
         ]
     },
     {
@@ -174,6 +237,9 @@
         "types": [
             "bastet",
             "cat"
+        ],
+        "caract" : [
+            "ron"
         ]
     },
     {
@@ -181,6 +247,9 @@
         "name": "réclamer à manger",
         "types": [
             "cat"
+        ],
+        "caract" : [
+            "car"
         ]
     },
     {
@@ -188,6 +257,9 @@
         "name": "réclamer des caresses",
         "types": [
             "cat"
+        ],
+        "caract" : [
+            "cou"
         ]
     },
     {
@@ -197,6 +269,9 @@
             "bastet",
             "human",
             "cat"
+        ],
+        "caract" : [
+            "car", "vib"
         ]
     },
     {
@@ -206,6 +281,9 @@
             "bastet",
             "human",
             "cat"
+        ],
+        "caract" : [
+            "que", "oei"
         ]
     },
     {
@@ -214,6 +292,9 @@
         "types": [
             "bastet",
             "human"
+        ],
+        "caract" : [
+            "ron"
         ]
     },
     {
@@ -223,6 +304,9 @@
             "bastet",
             "human",
             "cat"
+        ],
+        "caract" : [
+            "cou"
         ]
     },
     {
@@ -232,6 +316,9 @@
             "bastet",
             "human",
             "cat"
+        ],
+        "caract" : [
+            "ron", "vib"
         ]
     },
     {
@@ -240,6 +327,9 @@
         "types": [
             "bastet",
             "cat"
+        ],
+        "caract" : [
+            "ron"
         ]
     },
     {
@@ -248,6 +338,9 @@
         "types": [
             "bastet",
             "cat"
+        ],
+        "caract" : [
+            "oei"
         ]
     }
 ]
