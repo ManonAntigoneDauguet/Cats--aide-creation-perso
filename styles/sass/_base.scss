@@ -37,7 +37,7 @@ h2 {
     color: $secondary-color;
     font-weight: 500;
     font-size: 24px;
-    padding-bottom: 8px;
+    padding-bottom: 16px;
 
     @include mobile-only {
         font-size: 20px;
@@ -70,26 +70,27 @@ p {
 }
 
 section+section {
-    padding-top: 24px;
+    padding-top: 32px;
 }
 
 .main__content {
     @include except-mobile {
         display: grid;
         grid-template-columns: 1fr 1fr;
+
+        .presentation {
+            grid-column: 1 / 2;
+        }
+
+        .characteristics {
+            grid-column: 1 / 2;
+        }
+
+        .qualitiesAndDefaults {
+            grid-column: 2 / 3;
+        }
     }
 
-    .presentation {
-        grid-column: 1 / 2;
-    }
-
-    .characteristics {
-        grid-column: 1 / 2;
-    }
-
-    .qualitiesAndDefaults {
-        grid-column: 2 / 3;
-    }
 }
 
 .couple-label-input {
@@ -97,12 +98,14 @@ section+section {
     flex-direction: row;
     gap: 24px;
     justify-content: space-between;
-    + .couple-label-input {
+
+    +.couple-label-input {
         padding-top: 8px;
     }
 }
 
-input, select {
+input,
+select {
     width: 180px;
     border: 1px solid $secondary-color;
     padding: 4px;

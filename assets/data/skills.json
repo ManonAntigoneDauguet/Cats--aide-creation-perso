@@ -1,0 +1,346 @@
+[
+    {
+        "id": 1,
+        "name": "armes à feu",
+        "types": [
+            "bastet",
+            "human"
+        ],
+        "caract" : [
+            "oei"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "armes blanches",
+        "types": [
+            "bastet",
+            "human"
+        ],
+        "caract" : [
+            "que"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "arts martiaux (Ω)",
+        "types": [
+            "human"
+        ],
+        "caract" : [
+            "gri", "que"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "bricolage",
+        "types": [
+            "bastet",
+            "human"
+        ],
+        "caract" : [
+            "oei", "ron"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "chasse",
+        "types": [
+            "cat"
+        ],
+        "caract" : [
+            "ron", "vib"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "culture générale",
+        "types": [
+            "bastet",
+            "human",
+            "cat"
+        ],
+        "caract" : [
+            "ron"
+        ]
+    },
+    {
+        "id": 7,
+        "name": "combat à mains nues",
+        "types": [
+            "bastet",
+            "human"
+        ],
+        "caract" : [
+            "gri", "poi"
+        ]
+    },
+    {
+        "id": 8,
+        "name": "combat griffu",
+        "types": [
+            "cat"
+        ],
+        "caract" : [
+            "gri", "poi"
+        ]
+    },
+    {
+        "id": 9,
+        "name": "conduite de véhicule",
+        "types": [
+            "bastet",
+            "human"
+        ],
+        "caract" : [
+            "ron"
+        ]
+    },
+    {
+        "id": 10,
+        "name": "connaissance de la rue",
+        "types": [
+            "bastet",
+            "human",
+            "cat"
+        ],
+        "caract" : [
+            "ron", "cou"
+        ]
+    },
+    {
+        "id": 11,
+        "name": "déguisement",
+        "types": [
+            "bastet",
+            "human"
+        ],
+        "caract" : [
+            "oei"
+        ]
+    },
+    {
+        "id": 12,
+        "name": "discrétion",
+        "types": [
+            "bastet",
+            "human",
+            "cat"
+        ],
+        "caract" : [
+            "que"
+        ]
+    },
+    {
+        "id": 13,
+        "name": "droit, admnistration usages (Ω)",
+        "types": [
+            "bastet",
+            "human"
+        ],
+        "caract" : [
+            "ron"
+        ]
+    },
+    {
+        "id": 14,
+        "name": "escalade",
+        "types": [
+            "bastet",
+            "human",
+            "cat"
+        ],
+        "caract" : [
+            "gri", "que"
+        ]
+    },
+    {
+        "id": 15,
+        "name": "énerver les humains",
+        "types": [
+            "cat"
+        ],
+        "caract" : [
+            "que", "ron"
+        ]
+    },
+    {
+        "id": 16,
+        "name": "langage humain (Ω)",
+        "types": [
+            "cat"
+        ],
+        "caract" : [
+            "ron"
+        ]
+    },
+    {
+        "id": 17,
+        "name": "langues étrangères (Ω)",
+        "types": [
+            "bastet",
+            "human"
+        ],
+        "caract" : [
+            "ron"
+        ]
+    },
+    {
+        "id": 18,
+        "name": "leadership",
+        "types": [
+            "bastet",
+            "human",
+            "cat"
+        ],
+        "caract" : [
+            "car"
+        ]
+    },
+    {
+        "id": 19,
+        "name": "odorat",
+        "types": [
+            "bastet",
+            "human","cat"
+        ],
+        "caract" : [
+            "ron", "vib"
+        ]
+    },
+    {
+        "id": 20,
+        "name": "orientation",
+        "types": [
+            "bastet",
+            "human",
+            "cat"
+        ],
+        "caract" : [
+            "vib"
+        ]
+    },
+    {
+        "id": 21,
+        "name": "psychologie féline",
+        "types": [
+            "bastet",
+            "human"
+        ],
+        "caract" : [
+            "ron", "vib"
+        ]
+    },
+    {
+        "id": 22,
+        "name": "psychologie humaine",
+        "types": [
+            "bastet",
+            "cat"
+        ],
+        "caract" : [
+            "ron"
+        ]
+    },
+    {
+        "id": 23,
+        "name": "réclamer à manger",
+        "types": [
+            "cat"
+        ],
+        "caract" : [
+            "car"
+        ]
+    },
+    {
+        "id": 24,
+        "name": "réclamer des caresses",
+        "types": [
+            "cat"
+        ],
+        "caract" : [
+            "cou"
+        ]
+    },
+    {
+        "id": 25,
+        "name": "repérer/trouver",
+        "types": [
+            "bastet",
+            "human",
+            "cat"
+        ],
+        "caract" : [
+            "car", "vib"
+        ]
+    },
+    {
+        "id": 26,
+        "name": "saut",
+        "types": [
+            "bastet",
+            "human",
+            "cat"
+        ],
+        "caract" : [
+            "que", "oei"
+        ]
+    },
+    {
+        "id": 27,
+        "name": "secourisme (Ω)",
+        "types": [
+            "bastet",
+            "human"
+        ],
+        "caract" : [
+            "ron"
+        ]
+    },
+    {
+        "id": 28,
+        "name": "séduire",
+        "types": [
+            "bastet",
+            "human",
+            "cat"
+        ],
+        "caract" : [
+            "cou"
+        ]
+    },
+    {
+        "id": 29,
+        "name": "survie",
+        "types": [
+            "bastet",
+            "human",
+            "cat"
+        ],
+        "caract" : [
+            "ron", "vib"
+        ]
+    },
+    {
+        "id": 30,
+        "name": "use et coutumes humaines",
+        "types": [
+            "bastet",
+            "cat"
+        ],
+        "caract" : [
+            "ron"
+        ]
+    },
+    {
+        "id": 31,
+        "name": "utiliser un objet humain",
+        "types": [
+            "bastet",
+            "cat"
+        ],
+        "caract" : [
+            "oei"
+        ]
+    }
+]

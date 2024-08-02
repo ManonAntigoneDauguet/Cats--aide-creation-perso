@@ -3,6 +3,7 @@ import { checkInputIsValid } from "./utils.js";
 import { displayCharacteristics, characteristics, setCharacTotalPoints } from "./features/characteristics.feature.js";
 import { displayPresentation } from "./features/presentation.feature.js";
 import { displayQualitiesAndDefaults } from "./features/qualitiesAndDefaults.feature.js";
+import { displaySkills } from "./features/skills.feature.js";
 
 
 
@@ -10,12 +11,18 @@ import { displayQualitiesAndDefaults } from "./features/qualitiesAndDefaults.fea
 const characterType = document.getElementById('type');
 characterType.value = 'cat';
 const breedInput = document.getElementById('breed');
-const recapQualitiesAndDefaults = document.querySelector('.recapQualitiesAndDefaults')
+const recapQualities = document.querySelector('.recapQualitiesAndDefaults--recapQualities');
+const recapDefaults = document.querySelector('.recapQualitiesAndDefaults--recapDefaults');
 
 
 async function getData() {
     const response = await fetch('./assets/data/data.json');
     data = await response.json();
+}
+
+async function getSkillData() {
+    const response = await fetch('./assets/data/skills.json');
+    skillData = await response.json();
 }
 
 function getCat(breed) {
@@ -28,19 +35,21 @@ function getCat(breed) {
 
 async function init() {
     await getData();
+    await getSkillData();
     characteristics.forEach(e => {
         e.input.value = 1;
         e.maxValueTd.innerHTML = e.actualMaxValue;
     })
-    displayCharacteristics();
+    displayCharacteristics(skillData, characterType.value);
     displayPresentation(data);
     displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value);
-    getAllQualitiesSelected();
+    displaySkills(skillData, characterType.value);
 }
 
 
 /******************* PAGE CREATION ******************/
 let data;
+let skillData;
 
 init();
 
@@ -77,38 +86,39 @@ characterType.addEventListener("change", () => {
             breedInput.value = '';
             break;
     }
-    displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value);
+    displayQualitiesAndDefaults(data, getCat(breedInput.value), 
+    characterType.value);
+    displaySkills(skillData, characterType.value);
 })
 
 breedInput.addEventListener("change", () => {
     displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value);
     getAllQualitiesSelected();
+    getAllDefaultsSelected();
 })
 
 
 
 function getAllQualitiesSelected() {
-    // const all = document.querySelectorAll('.qualitySelected');
-    // all.forEach((optionDOM) => {
-    //     if (optionDOM?.textContent !== "") {
-    //         const selected = data.qualities.find(e => e.name === optionDOM.textContent);
-    //         const description = document.createElement('p');
-    //         description.innerHTML = selected.description;
-    //         recapQualitiesAndDefaults.appendChild(description);
-    //     }
-    // })
-
+    recapQualities.innerHTML = "";
+    const all = document.querySelectorAll('.qualitySelected');
+    all.forEach((selectedDOM) => {
+        const selectedOption = data.qualities.find(d => d.name === selectedDOM.textContent);
+        const description = document.createElement('p');
+        description.innerHTML = selectedOption.description;
+        recapQualities.appendChild(description);
+    })
 }
 
-// function getAllDefaultsSelected() {
-//     const all = document.querySelectorAll('.defaultSelected');
-//     all.forEach((optionDOM) => {
-//         if (optionDOM?.textContent !== "") {
-//             const selected = data.defaults.find(e => e.name === optionDOM.textContent);
-//             console.log(selected)
-//             const description = document.createElement('p');
-//             description.innerHTML = selected.description;
-//             recapQualitiesAndDefaults.appendChild(description);
-//         }
-//     })
-// }
+function getAllDefaultsSelected() {
+    recapDefaults.innerHTML = "";
+    const all = document.querySelectorAll('.defaultSelected');
+    all.forEach((selectedDOM) => {
+        const selectedOption = data.defaults.find(d => d.name === selectedDOM.textContent);
+        const description = document.createElement('p');
+        description.innerHTML = selectedOption.description;
+        recapDefaults.appendChild(description);
+    })
+}
+
+export { getAllDefaultsSelected, getAllQualitiesSelected }

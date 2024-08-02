@@ -216,178 +216,305 @@
         {
             "id": 1,
             "name": "ambidextre",
-            "types": ["bastet", "human"],
-            "description": ""
+            "types": [
+                "bastet",
+                "human"
+            ],
+            "description": "Ajouter 1 en OEIL sans prendre en compte les limites de points. Ne peux pas vous permettre de dépasser 5.",
+            "cost": 8
         },
         {
             "id": 2,
             "name": "ami des chats",
-            "types": ["bastet", "human"],
-            "description": ""
+            "types": [
+                "bastet",
+                "human"
+            ],
+            "description": "+1 en COUSSINET vis à vis des chats seulement. Ne peux pas vous permettre de dépasser 5.",
+            "cost": 8
         },
         {
             "id": 3,
             "name": "athlète",
-            "types": ["cat", "bastet", "human"],
-            "description": ""
+            "types": [
+                "cat",
+                "bastet",
+                "human"
+            ],
+            "description": "Ajouter 1 en POIL sans prendre en compte les limites de points. Ne peux pas vous permettre de dépasser 5.",
+            "cost": 8
         },
         {
             "id": 4,
             "name": "chouchou du quartier",
-            "types": ["cat"],
-            "description": ""
+            "types": [
+                "cat"
+            ],
+            "description": "+1 en COUSSINET vis à vis des humains seulement. Ne peux pas vous permettre de dépasser 5.",
+            "cost": 8
         },
         {
             "id": 5,
             "name": "créditeur",
-            "types": ["cat"],
-            "description": ""
+            "types": [
+                "cat"
+            ],
+            "description": "Quelqu'un doit une faveur au perso.",
+            "cost": 8
         },
         {
             "id": 6,
             "name": "débrouillard en milieu humain",
-            "types": ["cat"],
-            "description": ""
+            "types": [
+                "cat"
+            ],
+            "description": "spécial (p52)",
+            "cost": 8
         },
         {
             "id": 7,
             "name": "Don Juan",
-            "types": ["cat", "bastet", "human"],
-            "description": ""
+            "types": [
+                "cat",
+                "bastet",
+                "human"
+            ],
+            "description": "+1 en COUSSINET vis à vis du sexe opposé seulement. Ne peux pas vous permettre de dépasser 5.",
+            "cost": 8
         },
         {
             "id": 8,
             "name": "ennemi préféré",
-            "types": ["cat"],
-            "description": ""
+            "types": [
+                "cat"
+            ],
+            "description": "Baisse automatiquement la difficulté d'un cran pour toucher.",
+            "cost": 6
+        },
+        {
+            "id": 14,
+            "name": "équilibriste",
+            "types": [
+                "cat",
+                "bastet",
+                "human"
+            ],
+            "description": "Ajouter 1 en QUEUE sans prendre en compte les limites de points. Ne peux pas vous permettre de dépasser 5.",
+            "cost": 8
         },
         {
             "id": 9,
             "name": "griffes d'acier",
-            "types": ["cat"],
-            "description": ""
+            "types": [
+                "cat"
+            ],
+            "description": "+1 niveau de blessure aux dégâts.",
+            "cost": 6
         },
         {
             "id": 10,
             "name": "pattes de velours",
-            "types": ["cat"],
-            "description": ""
+            "types": [
+                "cat"
+            ],
+            "description": "Ajoutez 1 en Discrétion sans prendre en compte les limites de points. Ne peux pas vous permettre de dépasser 5.",
+            "cost": 6
         },
         {
             "id": 11,
             "name": "sauteur exceptionnel",
-            "types": ["cat"],
-            "description": ""
+            "types": [
+                "cat"
+            ],
+            "description": "Ajoutez 1 en Saut sans prendre en compte les limites de points. Ne peux pas vous permettre de dépasser 5.",
+            "cost": 6
         },
         {
             "id": 12,
             "name": "réputation de matou",
-            "types": ["cat"],
-            "description": ""
+            "types": [
+                "cat"
+            ],
+            "description": "Augmente le score de réputation du perso.",
+            "cost": 6
         },
         {
             "id": 13,
             "name": "volonté de fer",
-            "types": ["cat", "bastet", "human"],
-            "description": ""
+            "types": [
+                "cat",
+                "bastet",
+                "human"
+            ],
+            "description": "Ajouter 1 en CARESSE sans prendre en compte les limites de points. Ne peux pas vous permettre de dépasser 5.",
+            "cost": 8
         }
     ],
     "defaults": [
         {
             "id": 1,
             "name": "altergique aux chats",
-            "types": ["bastet", "human"],
-            "description": ""
+            "types": [
+                "bastet",
+                "human"
+            ],
+            "description": "spécial (p48)",
+            "gain": 4
         },
         {
             "id": 2,
             "name": "boiteux",
-            "types": ["cat", "bastet", "human"],
-            "description": ""
+            "types": [
+                "cat",
+                "bastet",
+                "human"
+            ],
+            "description": "Retirez 1 en QUEUE sans prendre en compte les limites de points. Ne peux pas vous permettre de descendre à 0.",
+            "gain": 4
         },
         {
             "id": 3,
             "name": "curieux",
-            "types": ["cat", "bastet", "human"],
-            "description": ""
+            "types": [
+                "cat",
+                "bastet",
+                "human"
+            ],
+            "description": "Jet de CARESSE Difficile pour résister à l'envie de fouiller.",
+            "gain": 2
         },
         {
             "id": 4,
             "name": "débiteur",
-            "types": ["cat", "bastet", "human"],
-            "description": ""
+            "types": [
+                "cat",
+                "bastet",
+                "human"
+            ],
+            "description": "Le perso doit une faveur à quelqu'un.",
+            "gain": 4
         },
         {
             "id": 5,
             "name": "défiguré",
-            "types": ["cat", "bastet", "human"],
-            "description": ""
+            "types": [
+                "cat",
+                "bastet",
+                "human"
+            ],
+            "description": "Retirez 1 en COUSSINET sans prendre en compte les limites de points. Ne peux pas vous permettre de descendre à 0.",
+            "gain": 4
         },
         {
             "id": 6,
             "name": "gourmand",
-            "types": ["cat", "bastet", "human"],
-            "description": ""
+            "types": [
+                "cat",
+                "bastet",
+                "human"
+            ],
+            "description": "Jet de CARESSE Difficile pour résister à l'envie de manger.",
+            "gain": 4
         },
         {
             "id": 7,
             "name": "hydrophile",
-            "types": ["cat"],
-            "description": ""
+            "types": [
+                "cat"
+            ],
+            "description": "-1 en COUSSINET vis à vis des chats seulement. Ne peux pas vous permettre de descendre à 0.",
+            "gain": 4
         },
         {
             "id": 8,
             "name": "joueur",
-            "types": ["cat", "bastet", "human"],
-            "description": ""
+            "types": [
+                "cat",
+                "bastet",
+                "human"
+            ],
+            "description": "Jet de CARESSE Difficile pour résister à l'envie de jouer.",
+            "gain": 4
         },
         {
             "id": 9,
             "name": "lubie",
-            "types": ["cat"],
-            "description": ""
+            "types": [
+                "cat"
+            ],
+            "description": "Jet de CARESSE Difficile pour résister à son caprice.",
+            "gain": 4
         },
         {
             "id": 10,
-            "name": "mépris des huamin",
-            "types": ["cat"],
-            "description": ""
+            "name": "mépris des humain",
+            "types": [
+                "cat"
+            ],
+            "description": "-1 en COUSSINET vis à vis des humains seulement. Ne peux pas vous permettre de descendre à 0.",
+            "gain": 4
         },
         {
             "id": 11,
             "name": "phobie bénigne",
-            "types": ["cat", "bastet", "human"],
-            "description": ""
+            "types": [
+                "cat",
+                "bastet",
+                "human"
+            ],
+            "description": "Jet de CARESSE Difficile en situation à risque.",
+            "gain": 2
         },
         {
             "id": 12,
             "name": "phobie problématique",
-            "types": ["cat", "bastet", "human"],
-            "description": ""
+            "types": [
+                "cat",
+                "bastet",
+                "human"
+            ],
+            "description": "Jet de CARESSE Très Difficile en situation à risque",
+            "gain": 4
         },
         {
             "id": 13,
             "name": "phobie grave",
-            "types": ["cat", "bastet", "human"],
-            "description": ""
+            "types": [
+                "cat",
+                "bastet",
+                "human"
+            ],
+            "description": "Jet de CARESSE Quasiment impossible en situation à risque",
+            "gain": 8
         },
         {
             "id": 14,
             "name": "râleur",
-            "types": ["cat", "bastet", "human"],
-            "description": ""
+            "types": [
+                "cat",
+                "bastet",
+                "human"
+            ],
+            "description": "Retirez 1 en COUSSINET sans prendre en compte les limites de points. Ne peux pas vous permettre de descendre à 0.",
+            "gain": 4
         },
         {
             "id": 15,
             "name": "vertige",
-            "types": ["human"],
-            "description": ""
+            "types": [
+                "human"
+            ],
+            "description": "Jet de CARESSE Difficile en hauteur.",
+            "gain": 4
         },
         {
             "id": 16,
             "name": "voyant",
-            "types": ["cat"],
-            "description": "mettez un -1 en discrétion"
+            "types": [
+                "cat"
+            ],
+            "description": "Retirez 1 en Discrétion sans prendre en compte les limites de points.",
+            "gain": 4
         }
     ]
 }

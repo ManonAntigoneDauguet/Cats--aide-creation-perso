@@ -26,6 +26,10 @@ th,
 td {
     border: 1px solid rgb(160 160 160);
     padding: 8px 10px;
-    min-width: 100px;
     text-align: center;
+    white-space: normal;
+
+    @include except-mobile {
+        min-width: 100px;
+    }
 }
