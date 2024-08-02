@@ -1,5 +1,6 @@
 /************** NECESSARIES IMPORTS *************/
 import { displayOptions } from "../utils.js";
+import { getAllDefaultsSelected, getAllQualitiesSelected } from "../index.js";
 
 /************** DOM ELEMENTS ********************/
 const qualitiesDiv = document.querySelector('.qualities');
@@ -27,17 +28,14 @@ function displayQualities(data, breed, type) {
     for (let i = breed.qualities.length; i < 2; i++) {
         const choice = document.createElement('li');
         const choiceInput = document.createElement('select');
-
         const filteredData = data.qualities.filter(e => e.types.includes(type));
         displayOptions(filteredData, choiceInput, "quality");
         choice.appendChild(choiceInput);
 
         const selectedOption = document.createElement('span');
-        selectedOption.classList.add("qualitySelected");
+        choiceQualityEvent(choiceInput, selectedOption);
         choice.appendChild(selectedOption);
-
         qualitiesDiv.appendChild(choice);
-        choiceInput.addEventListener("change", (e) => selectedOption.innerHTML = e.target.value);
     }
 }
 
@@ -46,7 +44,7 @@ function displayDefaults(data, breed, type) {
     breed.defaults.forEach(e => {
         const li = document.createElement('li');
         li.innerHTML = e;
-        li.classList.add("selected");
+        li.classList.add("defaultSelected");
         defaultsDiv.appendChild(li);
     })
     for (let i = breed.defaults.length; i < 3; i++) {
@@ -57,13 +55,29 @@ function displayDefaults(data, breed, type) {
         choice.appendChild(choiceInput);
 
         const selectedOption = document.createElement('span');
-        selectedOption.classList.add("selected");
+        choiceDefaultEvent(choiceInput, selectedOption);
         choice.appendChild(selectedOption);
-
         defaultsDiv.appendChild(choice);
-        choiceInput.addEventListener("change", (e) => selectedOption.innerHTML = e.target.value);
     }
 }
+
+
+function choiceQualityEvent(input, span) {
+    input.addEventListener("change", (e) => {
+        span.classList.add("qualitySelected");
+        span.innerHTML = e.target.value,
+        getAllQualitiesSelected();
+    });
+}
+
+function choiceDefaultEvent(input, span) {
+    input.addEventListener("change", (e) => {
+        span.classList.add("defaultSelected");
+        span.innerHTML = e.target.value;
+        getAllDefaultsSelected();
+    });
+}
+
 
 
 

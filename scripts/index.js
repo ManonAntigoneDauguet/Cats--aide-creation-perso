@@ -10,7 +10,8 @@ import { displayQualitiesAndDefaults } from "./features/qualitiesAndDefaults.fea
 const characterType = document.getElementById('type');
 characterType.value = 'cat';
 const breedInput = document.getElementById('breed');
-const recapQualitiesAndDefaults = document.querySelector('.recapQualitiesAndDefaults')
+const recapQualities = document.querySelector('.recapQualitiesAndDefaults--recapQualities');
+const recapDefaults = document.querySelector('.recapQualitiesAndDefaults--recapDefaults');
 
 
 async function getData() {
@@ -36,6 +37,7 @@ async function init() {
     displayPresentation(data);
     displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value);
     getAllQualitiesSelected();
+    getAllDefaultsSelected();
 }
 
 
@@ -83,32 +85,31 @@ characterType.addEventListener("change", () => {
 breedInput.addEventListener("change", () => {
     displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value);
     getAllQualitiesSelected();
+    getAllDefaultsSelected();
 })
 
 
 
 function getAllQualitiesSelected() {
-    // const all = document.querySelectorAll('.qualitySelected');
-    // all.forEach((optionDOM) => {
-    //     if (optionDOM?.textContent !== "") {
-    //         const selected = data.qualities.find(e => e.name === optionDOM.textContent);
-    //         const description = document.createElement('p');
-    //         description.innerHTML = selected.description;
-    //         recapQualitiesAndDefaults.appendChild(description);
-    //     }
-    // })
-
+    recapQualities.innerHTML = "";
+    const all = document.querySelectorAll('.qualitySelected');
+    all.forEach((selectedDOM) => {
+        const selectedOption = data.qualities.find(d => d.name === selectedDOM.textContent);
+        const description = document.createElement('p');
+        description.innerHTML = selectedOption.description;
+        recapQualities.appendChild(description);
+    })
 }
 
-// function getAllDefaultsSelected() {
-//     const all = document.querySelectorAll('.defaultSelected');
-//     all.forEach((optionDOM) => {
-//         if (optionDOM?.textContent !== "") {
-//             const selected = data.defaults.find(e => e.name === optionDOM.textContent);
-//             console.log(selected)
-//             const description = document.createElement('p');
-//             description.innerHTML = selected.description;
-//             recapQualitiesAndDefaults.appendChild(description);
-//         }
-//     })
-// }
+function getAllDefaultsSelected() {
+    recapDefaults.innerHTML = "";
+    const all = document.querySelectorAll('.defaultSelected');
+    all.forEach((selectedDOM) => {
+        const selectedOption = data.defaults.find(d => d.name === selectedDOM.textContent);
+        const description = document.createElement('p');
+        description.innerHTML = selectedOption.description;
+        recapDefaults.appendChild(description);
+    })
+}
+
+export { getAllDefaultsSelected, getAllQualitiesSelected }
