@@ -93,38 +93,66 @@ characterType.addEventListener("change", () => {
 
 breedInput.addEventListener("change", () => {
     displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value);
-    getAllQualitiesSelected();
-    getAllDefaultsSelected();
+    displayQualitiesSelected();
+    displayDefaultsSelected();
 })
 
 
 
-function getAllQualitiesSelected() {
+function displayQualitiesSelected() {
     recapQualities.innerHTML = "";
     const all = document.querySelectorAll('.qualitySelected');
     all.forEach((selectedDOM) => {
         const selectedOption = data.qualities.find(d => d.name === selectedDOM.textContent);
         if (selectedOption) {
             const description = document.createElement('p');
-            const content = `<em>${toUppercaseFirstCharacter(selectedOption.name)}</em> : ${selectedOption.description}`;
+            const content = `
+                <em>${toUppercaseFirstCharacter(selectedOption.name)}</em> : 
+                ${selectedOption.description}<br>
+                <span class='error'>Vous coûte ${selectedOption.cost} points de compétence.</span>
+            `;
             description.innerHTML = content;
             recapQualities.appendChild(description);
         }
     })
 }
 
-function getAllDefaultsSelected() {
+function displayDefaultsSelected() {
     recapDefaults.innerHTML = "";
     const all = document.querySelectorAll('.defaultSelected');
     all.forEach((selectedDOM) => {
         const selectedOption = data.defaults.find(d => d.name === selectedDOM.textContent);
         if (selectedOption) {
             const description = document.createElement('p');
-            const content = `<em>${toUppercaseFirstCharacter(selectedOption.name)}</em> : ${selectedOption.description}`;
+            const content = `
+                <em>${toUppercaseFirstCharacter(selectedOption.name)}</em> : 
+                ${selectedOption.description}<br>
+                <span class='correct'>Vous offre ${selectedOption.gain} points de compétence.</span>
+            `;
             description.innerHTML = content;
             recapDefaults.appendChild(description);
         }
     })
 }
 
-export { getAllDefaultsSelected, getAllQualitiesSelected }
+function getSelectedDefauts() {
+    const list = [];
+    const all = document.querySelectorAll('.defaultSelected');
+    all.forEach((selectedDOM) => {
+        list.push(selectedDOM.textContent);
+    })
+    return list;
+}
+
+function getSelectedQualities() {
+    const list = [];
+    const all = document.querySelectorAll('.qualitySelected');
+    all.forEach((selectedDOM) => {
+        list.push(selectedDOM.textContent);
+    })
+    return list;
+}
+
+
+
+export { displayDefaultsSelected, displayQualitiesSelected }

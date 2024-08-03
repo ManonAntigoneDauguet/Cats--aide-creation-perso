@@ -1,6 +1,6 @@
 /************** NECESSARIES IMPORTS *************/
 import { displayOptions } from "../utils.js";
-import { getAllDefaultsSelected, getAllQualitiesSelected } from "../index.js";
+import { displayDefaultsSelected, displayQualitiesSelected } from "../index.js";
 
 /************** DOM ELEMENTS ********************/
 const qualitiesDiv = document.querySelector('.qualities');
@@ -66,7 +66,7 @@ function choiceQualityEvent(input, span) {
     input.addEventListener("change", (e) => {
         span.classList.add("qualitySelected");
         span.innerHTML = e.target.value,
-        getAllQualitiesSelected();
+        displayQualitiesSelected();
     });
 }
 
@@ -74,7 +74,7 @@ function choiceDefaultEvent(input, span) {
     input.addEventListener("change", (e) => {
         span.classList.add("defaultSelected");
         span.innerHTML = e.target.value;
-        getAllDefaultsSelected();
+        displayDefaultsSelected();
     });
 }
 
