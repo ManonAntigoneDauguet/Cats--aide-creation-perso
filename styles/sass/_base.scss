@@ -63,13 +63,20 @@ em {
 
 .error {
     color: red;
+    &::after {
+        content: ' ⚠';
+    }
+}
+
+.bad {
+    color: red;
 }
 
 .irrelevant {
     color: orange;
 }
 
-.correct {
+.good {
     color: rgb(18, 175, 18);
 }
 

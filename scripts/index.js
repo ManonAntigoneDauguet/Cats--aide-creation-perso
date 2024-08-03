@@ -3,7 +3,7 @@ import { checkInputIsValid, toUppercaseFirstCharacter } from "./utils.js";
 import { displayCharacteristics, characteristics, setCharacTotalPoints } from "./features/characteristics.feature.js";
 import { displayPresentation } from "./features/presentation.feature.js";
 import { displayQualitiesAndDefaults } from "./features/qualitiesAndDefaults.feature.js";
-import { displaySkills } from "./features/skills.feature.js";
+import { displaySkills, setSkillsTotalPoint } from "./features/skills.feature.js";
 
 
 
@@ -95,6 +95,7 @@ breedInput.addEventListener("change", () => {
     displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value);
     displayQualitiesSelected();
     displayDefaultsSelected();
+    setSkillsTotalPoint();
 })
 
 
@@ -109,7 +110,7 @@ function displayQualitiesSelected() {
             const content = `
                 <em>${toUppercaseFirstCharacter(selectedOption.name)}</em> : 
                 ${selectedOption.description}<br>
-                <span class='error'>Vous coûte ${selectedOption.cost} points de compétence.</span>
+                <span class='bad'>Vous coûte ${selectedOption.cost} points de compétence.</span>
             `;
             description.innerHTML = content;
             recapQualities.appendChild(description);
@@ -127,7 +128,7 @@ function displayDefaultsSelected() {
             const content = `
                 <em>${toUppercaseFirstCharacter(selectedOption.name)}</em> : 
                 ${selectedOption.description}<br>
-                <span class='correct'>Vous offre ${selectedOption.gain} points de compétence.</span>
+                <span class='good'>Vous offre ${selectedOption.gain} points de compétence.</span>
             `;
             description.innerHTML = content;
             recapDefaults.appendChild(description);
@@ -139,8 +140,12 @@ function getSelectedDefauts() {
     const list = [];
     const all = document.querySelectorAll('.defaultSelected');
     all.forEach((selectedDOM) => {
-        list.push(selectedDOM.textContent);
+        const selectedOption = data.defaults.find(d => d.name === selectedDOM.textContent);
+        if (selectedOption) {
+            list.push(selectedOption);
+        }
     })
+    console.log('défauts : ', list);
     return list;
 }
 
@@ -148,11 +153,15 @@ function getSelectedQualities() {
     const list = [];
     const all = document.querySelectorAll('.qualitySelected');
     all.forEach((selectedDOM) => {
-        list.push(selectedDOM.textContent);
+        const selectedOption = data.qualities.find(d => d.name === selectedDOM.textContent);
+        if (selectedOption) {
+            list.push(selectedOption);
+        }
     })
+    console.log('qualités :  ', list);
     return list;
 }
 
 
 
-export { displayDefaultsSelected, displayQualitiesSelected }
+export { displayDefaultsSelected, displayQualitiesSelected, getSelectedDefauts, getSelectedQualities }
