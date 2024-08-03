@@ -17,6 +17,7 @@ main {
     -moz-osx-font-smoothing: grayscale;
     padding: 0px 8px 212px 8px;
     animation: opacity-appear 1500ms;
+    overflow-x: scroll;
 
     @include mobile-only {
         padding-bottom: 264px;
@@ -56,8 +57,20 @@ p {
     }
 }
 
+em {
+    text-decoration: underline;
+}
+
 .error {
     color: red;
+}
+
+.irrelevant {
+    color: orange;
+}
+
+.correct {
+    color: green;
 }
 
 .succes {

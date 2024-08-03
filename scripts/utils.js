@@ -29,4 +29,8 @@ function displayOptions(subData, input, dataCategory) {
     })
 }
 
-export { checkInputIsValid, displayOptions };
+function toUppercaseFirstCharacter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+export { checkInputIsValid, displayOptions, toUppercaseFirstCharacter };

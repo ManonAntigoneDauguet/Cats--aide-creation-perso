@@ -1,5 +1,5 @@
 /************** NECESSARIES IMPORTS *************/
-import { checkInputIsValid } from "./utils.js";
+import { checkInputIsValid, toUppercaseFirstCharacter } from "./utils.js";
 import { displayCharacteristics, characteristics, setCharacTotalPoints } from "./features/characteristics.feature.js";
 import { displayPresentation } from "./features/presentation.feature.js";
 import { displayQualitiesAndDefaults } from "./features/qualitiesAndDefaults.feature.js";
@@ -86,8 +86,8 @@ characterType.addEventListener("change", () => {
             breedInput.value = '';
             break;
     }
-    displayQualitiesAndDefaults(data, getCat(breedInput.value), 
-    characterType.value);
+    displayQualitiesAndDefaults(data, getCat(breedInput.value),
+        characterType.value);
     displaySkills(skillData, characterType.value);
 })
 
@@ -104,9 +104,12 @@ function getAllQualitiesSelected() {
     const all = document.querySelectorAll('.qualitySelected');
     all.forEach((selectedDOM) => {
         const selectedOption = data.qualities.find(d => d.name === selectedDOM.textContent);
-        const description = document.createElement('p');
-        description.innerHTML = selectedOption.description;
-        recapQualities.appendChild(description);
+        if (selectedOption) {
+            const description = document.createElement('p');
+            const content = `<em>${toUppercaseFirstCharacter(selectedOption.name)}</em> : ${selectedOption.description}`;
+            description.innerHTML = content;
+            recapQualities.appendChild(description);
+        }
     })
 }
 
@@ -115,9 +118,12 @@ function getAllDefaultsSelected() {
     const all = document.querySelectorAll('.defaultSelected');
     all.forEach((selectedDOM) => {
         const selectedOption = data.defaults.find(d => d.name === selectedDOM.textContent);
-        const description = document.createElement('p');
-        description.innerHTML = selectedOption.description;
-        recapDefaults.appendChild(description);
+        if (selectedOption) {
+            const description = document.createElement('p');
+            const content = `<em>${toUppercaseFirstCharacter(selectedOption.name)}</em> : ${selectedOption.description}`;
+            description.innerHTML = content;
+            recapDefaults.appendChild(description);
+        }
     })
 }
 

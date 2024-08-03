@@ -8,6 +8,7 @@
     img {
         width: 100%;
         position: absolute;
+        z-index: 1;
         left: 0;
         top: 24px;
         transform: scale(1);
@@ -18,18 +19,7 @@
         width: 16px;
     }
 
-    input:not(:checked) ~img {
+    input:not(:checked)~img {
         transform: scale(0);
-    }
-}
-
-.skill-table {
-    th[scope="col"] {
-        white-space: nowrap;
-        overflow: hidden;
-    }
-    td.td {
-        width: min-content;
-
     }
 }

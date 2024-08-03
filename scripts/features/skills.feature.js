@@ -44,6 +44,7 @@ function displayBaseTable(skillData, type) {
         e.value = 0;
         e.addEventListener("change", () => {
             checkInputIsValid(e, 0, 16);
+            avertIrrelevantValue(e);
             updateSkillAvailablePoints();
             displaySkillRates(e);
             displaySkillValues(skillData, type);
@@ -116,6 +117,15 @@ function displaySkillValues(skillData, type) {
             valueTd.innerHTML = value;
         }
     })
+}
+
+function avertIrrelevantValue(input) {
+    const scales = [0, 1, 2, 4, 8, 16];
+    if (!scales.includes(Number(input.value))) {
+        input.classList.add('irrelevant');
+    } else {
+        input.classList.remove('irrelevant');
+    }
 }
 
 
