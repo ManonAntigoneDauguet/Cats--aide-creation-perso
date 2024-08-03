@@ -1,7 +1,16 @@
 .qualitiesAndDefaults {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+    @include except-mobile {
+        display: flex;
+        flex-direction: column;
+        gap: 32px; 
+    }
+
+    @include mobile-only {
+        select,
+        option {
+            height: 32px;
+        }
+    }
 
     ul {
         font-size: 18px;
@@ -18,15 +27,16 @@
             display: flex;
             gap: 8px;
         }
-
     }
 }
 
-span.qualitySelected, span.defaultSelected {
+span.qualitySelected,
+span.defaultSelected {
     opacity: 0;
 }
 
 .recapQualitiesAndDefaults {
+
     &--recapQualities,
     &--recapDefaults {
         font-style: italic;
@@ -34,6 +44,7 @@ span.qualitySelected, span.defaultSelected {
         display: flex;
         flex-direction: column;
         gap: 8px;
+
         p {
             font-size: 16px;
         }
