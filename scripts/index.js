@@ -42,7 +42,7 @@ async function init() {
     })
     displayCharacteristics(skillData, characterType.value);
     displayPresentation(data);
-    displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value);
+    displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value, skillData);
     displaySkills(skillData, characterType.value);
 }
 
@@ -145,7 +145,6 @@ function getSelectedDefauts() {
             list.push(selectedOption);
         }
     })
-    console.log('défauts : ', list);
     return list;
 }
 
@@ -158,7 +157,6 @@ function getSelectedQualities() {
             list.push(selectedOption);
         }
     })
-    console.log('qualités :  ', list);
     return list;
 }
 

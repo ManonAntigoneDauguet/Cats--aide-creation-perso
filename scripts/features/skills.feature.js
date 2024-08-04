@@ -1,4 +1,5 @@
 /************** NECESSARIES IMPORTS *************/
+import { getSelectedDefauts, getSelectedQualities } from "../index.js";
 import { checkInputIsValid } from "../utils.js";
 import { getCaract } from "./characteristics.feature.js";
 import { returnSkillCost, returnSkillGain } from "./qualitiesAndDefaults.feature.js";
@@ -30,7 +31,9 @@ function displayBaseTable(skillData, type) {
             <td>
                 <input type="number" class='skillInput' ref=${e.id} id="skill-${e.id}" min="0" max="16" />
             </td>
-            <td class='skillRateTd' ref=${e.id} id="rate-skill-${e.id}">0</td>
+            <td class='skillRateTd' ref=${e.id} id="rate-skill-${e.id}">
+                ${type == 'cat' && e.id == 14 ? 1 : 0}
+            </td>
             <td class='skillFormulaTd' ref=${e.id} id="formula-skill-${e.id}">${displaySkillFormula(e)}</td>
             <td class='skillValueTd' ref=${e.id} id="value-skill-${e.id}"></td>
         `
@@ -44,10 +47,16 @@ function displayBaseTable(skillData, type) {
     skillsInputs.forEach(e => {
         e.value = 0;
         e.addEventListener("change", () => {
-            checkInputIsValid(e, 0, 16);
-            avertIrrelevantValue(e);
-            updateSkillAvailablePoints();
-            displaySkillRates(e);
+            if (type === 'cat' && Number(e.getAttribute('ref')) === 14) {
+                checkInputIsValid(e, 0, 8);
+                avertIrrelevantValue(e);
+                displaySkillRatesClimbingForCat(e);
+            } else {
+                checkInputIsValid(e, 0, 16);
+                avertIrrelevantValue(e);
+                updateSkillAvailablePoints();
+                displaySkillRates(e);
+            }
             displaySkillValues(skillData, type);
         });
     })
@@ -98,6 +107,16 @@ function displaySkillRates(refInput) {
     else if (points == 16) { td.innerHTML = 5 }
 }
 
+function displaySkillRatesClimbingForCat(refInput) {
+    const td = document.getElementById(`rate-${refInput.id}`);
+    const points = Number(refInput.value);
+    if (points == 0) { td.innerHTML = 1 }
+    else if (points == 1) { td.innerHTML = 2 }
+    else if (points < 4) { td.innerHTML = 3 }
+    else if (points < 8) { td.innerHTML = 4 }
+    else if (points < 16) { td.innerHTML = 5 }
+}
+
 function displaySkillFormula(e) {
     if (e.caract.length == 1) { return e.caract[0] }
     else if (e.caract.length == 2) {
@@ -128,8 +147,12 @@ function displaySkillValues(skillData, type) {
             valueTd.innerHTML = value;
         }
 
-        if (data.special && rate === 0) { 
-            valueTd.innerHTML = "🚫"; 
+        if (data.name === "discrétion") {
+            addDiscretionMalusAndBonus();
+        }
+
+        if (data.special && rate === 0) {
+            valueTd.innerHTML = "🚫";
         }
     })
 }
@@ -143,5 +166,28 @@ function avertIrrelevantValue(input) {
     }
 }
 
+function addDiscretionMalusAndBonus() {
+    const discretionValueTd = document.getElementById("value-skill-12");
+    discretionValueTd.classList.remove('good');
+    discretionValueTd.classList.remove('bad');
 
-export { displaySkills, setSkillsTotalPoint, displaySkillValues }
+    let allDefaults = getSelectedDefauts();
+    allDefaults.forEach(e => {
+        if (e.id = 16) {
+            let discretionValue = Number(discretionValueTd.textContent);
+            discretionValueTd.innerHTML = discretionValue -= 1;
+            discretionValueTd.classList.add('bad');
+        }
+    })
+
+    let allQualities = getSelectedQualities();
+    allQualities.forEach(e => {
+        if (e.id == 10) {
+            let discretionValue = Number(discretionValueTd.textContent);
+            discretionValueTd.innerHTML = discretionValue += 1;
+            discretionValueTd.classList.add('good');
+        }
+    })
+}
+
+export { displaySkills, setSkillsTotalPoint, displaySkillValues, addDiscretionMalusAndBonus }
