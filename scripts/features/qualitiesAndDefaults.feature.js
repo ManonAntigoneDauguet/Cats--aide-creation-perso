@@ -1,6 +1,7 @@
 /************** NECESSARIES IMPORTS *************/
 import { displayOptions } from "../utils.js";
-import { getAllDefaultsSelected, getAllQualitiesSelected } from "../index.js";
+import { displayDefaultsSelected, displayQualitiesSelected, getSelectedDefauts, getSelectedQualities } from "../index.js";
+import { setSkillsTotalPoint } from "./skills.feature.js";
 
 /************** DOM ELEMENTS ********************/
 const qualitiesDiv = document.querySelector('.qualities');
@@ -61,12 +62,30 @@ function displayDefaults(data, breed, type) {
     }
 }
 
+function returnSkillGain() {
+    const all = getSelectedDefauts()
+    let gain = 0;
+    all.forEach(e => {
+        gain += e.gain;
+    }) 
+    return gain;
+}
+
+function returnSkillCost() {
+    const all = getSelectedQualities()
+    let cost = 0;
+    all.forEach(e => {
+        cost += e.cost;
+    }) 
+    return cost;
+}
 
 function choiceQualityEvent(input, span) {
     input.addEventListener("change", (e) => {
         span.classList.add("qualitySelected");
         span.innerHTML = e.target.value,
-        getAllQualitiesSelected();
+        displayQualitiesSelected();
+        setSkillsTotalPoint();
     });
 }
 
@@ -74,11 +93,12 @@ function choiceDefaultEvent(input, span) {
     input.addEventListener("change", (e) => {
         span.classList.add("defaultSelected");
         span.innerHTML = e.target.value;
-        getAllDefaultsSelected();
+        displayDefaultsSelected();
+        setSkillsTotalPoint();
     });
 }
 
 
 
 
-export { displayQualitiesAndDefaults };
+export { displayQualitiesAndDefaults, returnSkillCost, returnSkillGain };

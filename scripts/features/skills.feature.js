@@ -1,6 +1,7 @@
 /************** NECESSARIES IMPORTS *************/
 import { checkInputIsValid } from "../utils.js";
 import { getCaract } from "./characteristics.feature.js";
+import { returnSkillCost, returnSkillGain } from "./qualitiesAndDefaults.feature.js";
 
 
 /************** DOM ELEMENTS ********************/
@@ -55,7 +56,17 @@ function displayBaseTable(skillData, type) {
 function setSkillsTotalPoint() {
     const ron = Number(getCaract('ron'));
     const car = Number(getCaract('car'));
-    skillsTotalPoints.innerHTML = (ron + car) * 3;
+    let totalPoints = (ron + car) * 3
+    const cost = returnSkillCost();
+    const gain = returnSkillGain();
+    totalPoints -= cost;
+    totalPoints += gain;
+    skillsTotalPoints.innerHTML = totalPoints;
+    if (totalPoints < 0) {
+        skillsTotalPoints.classList.add("error");
+    } else {
+        skillsTotalPoints.classList.remove("error");
+    }
     updateSkillAvailablePoints();
 }
 
