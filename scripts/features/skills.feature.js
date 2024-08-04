@@ -127,6 +127,10 @@ function displaySkillValues(skillData, type) {
             const value = rate + resultFormula;
             valueTd.innerHTML = value;
         }
+
+        if (data.special && rate === 0) { 
+            valueTd.innerHTML = "🚫"; 
+        }
     })
 }
 
