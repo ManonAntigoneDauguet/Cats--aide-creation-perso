@@ -1,18 +1,19 @@
 /************** NECESSARIES IMPORTS *************/
 import { checkInputIsValid } from "../utils.js";
 import { setSkillsTotalPoint, displaySkillValues } from "./skills.feature.js";
+import { getSelectedDefauts, getSelectedQualities } from "../index.js";
 
 
 /************** DOM ELEMENTS ********************/
-const gri = { "input": document.getElementById('gri'), "maxValueTd": document.getElementById('griMaxValue'), "catMaxValue": 5, "bastetMaxValue": 5, "humanMaxValue": 5, "actualMaxValue": 5 };
-const oei = { "input": document.getElementById('oei'), "maxValueTd": document.getElementById('oeiMaxValue'), "catMaxValue": 5, "bastetMaxValue": 4, "humanMaxValue": 4, "actualMaxValue": 5 };
-const poi = { "input": document.getElementById('poi'), "maxValueTd": document.getElementById('poiMaxValue'), "catMaxValue": 5, "bastetMaxValue": 5, "humanMaxValue": 5, "actualMaxValue": 5 };
-const que = { "input": document.getElementById('que'), "maxValueTd": document.getElementById('queMaxValue'), "catMaxValue": 5, "bastetMaxValue": 5, "humanMaxValue": 4, "actualMaxValue": 5 };
-const ron = { "input": document.getElementById('ron'), "maxValueTd": document.getElementById('ronMaxValue'), "catMaxValue": 5, "bastetMaxValue": 5, "humanMaxValue": 5, "actualMaxValue": 5 };
-const car = { "input": document.getElementById('car'), "maxValueTd": document.getElementById('carMaxValue'), "catMaxValue": 5, "bastetMaxValue": 5, "humanMaxValue": 5, "actualMaxValue": 5 };
-const vib = { "input": document.getElementById('vib'), "maxValueTd": document.getElementById('vibMaxValue'), "catMaxValue": 5, "bastetMaxValue": 4, "humanMaxValue": 3, "actualMaxValue": 5 };
-const cou = { "input": document.getElementById('cou'), "maxValueTd": document.getElementById('couMaxValue'), "catMaxValue": 5, "bastetMaxValue": 5, "humanMaxValue": 5, "actualMaxValue": 5 };
-const cha = { "input": document.getElementById('cha'), "maxValueTd": document.getElementById('chaMaxValue'), "catMaxValue": 5, "bastetMaxValue": 4, "humanMaxValue": 5, "actualMaxValue": 3 };
+const gri = { "input": document.getElementById('gri'), "valueTd": document.getElementById('griValue'), "maxValueTd": document.getElementById('griMaxValue'), "catMaxValue": 5, "bastetMaxValue": 5, "humanMaxValue": 5, "actualMaxValue": 5 };
+const oei = { "input": document.getElementById('oei'), "valueTd": document.getElementById('oeiValue'), "maxValueTd": document.getElementById('oeiMaxValue'), "catMaxValue": 5, "bastetMaxValue": 4, "humanMaxValue": 4, "actualMaxValue": 5 };
+const poi = { "input": document.getElementById('poi'), "valueTd": document.getElementById('poiValue'), "maxValueTd": document.getElementById('poiMaxValue'), "catMaxValue": 5, "bastetMaxValue": 5, "humanMaxValue": 5, "actualMaxValue": 5 };
+const que = { "input": document.getElementById('que'), "valueTd": document.getElementById('queValue'), "maxValueTd": document.getElementById('queMaxValue'), "catMaxValue": 5, "bastetMaxValue": 5, "humanMaxValue": 4, "actualMaxValue": 5 };
+const ron = { "input": document.getElementById('ron'), "valueTd": document.getElementById('ronValue'), "maxValueTd": document.getElementById('ronMaxValue'), "catMaxValue": 5, "bastetMaxValue": 5, "humanMaxValue": 5, "actualMaxValue": 5 };
+const car = { "input": document.getElementById('car'), "valueTd": document.getElementById('carValue'), "maxValueTd": document.getElementById('carMaxValue'), "catMaxValue": 5, "bastetMaxValue": 5, "humanMaxValue": 5, "actualMaxValue": 5 };
+const vib = { "input": document.getElementById('vib'), "valueTd": document.getElementById('vibValue'), "maxValueTd": document.getElementById('vibMaxValue'), "catMaxValue": 5, "bastetMaxValue": 4, "humanMaxValue": 3, "actualMaxValue": 5 };
+const cou = { "input": document.getElementById('cou'), "valueTd": document.getElementById('couValue'), "maxValueTd": document.getElementById('couMaxValue'), "catMaxValue": 5, "bastetMaxValue": 5, "humanMaxValue": 5, "actualMaxValue": 5 };
+const cha = { "input": document.getElementById('cha'), "valueTd": document.getElementById('chaValue'), "maxValueTd": document.getElementById('chaMaxValue'), "catMaxValue": 5, "bastetMaxValue": 4, "humanMaxValue": 5, "actualMaxValue": 3 };
 const characteristics = [gri, oei, poi, que, ron, car, vib, cou, cha];
 const characTotalPoints = document.querySelector('.caracTotalPoints');
 const characAvailablePoints = document.querySelector('.caracAvailablePoints');
@@ -21,12 +22,14 @@ const characAvailablePoints = document.querySelector('.caracAvailablePoints');
  * Add event listeners on caracteristics features at init
  */
 function displayCharacteristics(skillData, type) {
+    displayCharactValue();
     characteristics.forEach(e => {
         e.input.addEventListener("change", () => {
             checkInputIsValid(e.input, 1, e.actualMaxValue);
             updateCharacAvailablePoints();
             setSkillsTotalPoint();
             displaySkillValues(skillData, type);
+            displayCharactValue();
         })
     })
     updateCharacAvailablePoints();
@@ -35,7 +38,8 @@ function displayCharacteristics(skillData, type) {
 function setCharacTotalPoints(newTotal) {
     characTotalPoints.innerHTML = newTotal;
     updateCharacAvailablePoints();
-    
+    characteristics[2].actualMaxValue = characteristics[2].catMaxValue;
+    document.getElementById("poiMaxValue").innerHTML = characteristics[2].catMaxValue;
 }
 
 function updateCharacAvailablePoints() {
@@ -69,4 +73,45 @@ function getCaract(caracShortName) {
     }
 }
 
-export { characteristics, displayCharacteristics, setCharacTotalPoints, getCaract };
+function displayCharactValue() {
+    characteristics.forEach(e => {
+        e.valueTd.innerHTML = e.input.value;
+        switch (e.input.id) {
+            case 'poi': addPOILMalusAndBonus(); break;
+        }
+        if (Number(e.valueTd.textContent) > e.actualMaxValue || Number(e.valueTd.textContent) <= 0) {
+            e.valueTd.classList.add('error');
+        } else {
+            e.valueTd.classList.remove('error');
+        }
+    })
+}
+
+function addPOILMalusAndBonus() {
+    const valueTd = document.getElementById("poiValue");
+    valueTd.classList.remove('good');
+    valueTd.classList.remove('bad');
+    const maxValueTd = document.getElementById("poiMaxValue");
+    maxValueTd.classList.remove('good');
+    maxValueTd.classList.remove('bad');
+
+    let allDefaults = getSelectedDefauts();
+    allDefaults.forEach(e => {
+        if (e.id === 50) {
+            maxValueTd.classList.add('bad');
+            characteristics[2].actualMaxValue = 2;
+            maxValueTd.innerHTML = 2;
+        }
+    })
+
+    let allQualities = getSelectedQualities();
+    allQualities.forEach(e => {
+        if (e.id == 3) {
+            let value = Number(valueTd.textContent);
+            valueTd.innerHTML = value += 1;
+            valueTd.classList.add('good');
+        }
+    })
+}
+
+export { characteristics, displayCharacteristics, setCharacTotalPoints, getCaract, displayCharactValue, addPOILMalusAndBonus };

@@ -102,6 +102,7 @@ section+section {
     @include except-mobile {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        column-gap: 5%;
 
         .presentation {
             grid-column: 1 / 2;

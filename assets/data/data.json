@@ -241,7 +241,7 @@
                 "bastet",
                 "human"
             ],
-            "description": "Ajouter 1 en POIL sans prendre en compte les limites de points. Ne peux pas vous permettre de dépasser 5.",
+            "description": "+1 en POIL.",
             "cost": 8
         },
         {
