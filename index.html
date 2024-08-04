@@ -39,7 +39,7 @@
                                 </select>
                             </div>
                             <div class="couple-label-input">
-                                <label for="name">Name</label>
+                                <label for="name">Nom</label>
                                 <input type="text" id="name" />
                             </div>
                             <div class="couple-label-input">
@@ -79,6 +79,7 @@
                     <thead>
                         <tr>
                             <th scope="col">CARACTERISTIQUES</th>
+                            <th scope="col">Points investis</th>
                             <th scope="col">Valeur</th>
                             <th scope="col">Valeur max</th>
                         </tr>
@@ -89,6 +90,7 @@
                             <td>
                                 <input type="number" id="gri" min="1" max="5" />
                             </td>
+                            <td id="griValue"></td>
                             <td id="griMaxValue"></td>
                         </tr>
                         <tr>
@@ -96,6 +98,7 @@
                             <td>
                                 <input type="number" id="oei" min="1" max="5" />
                             </td>
+                            <td id="oeiValue"></td>
                             <td id="oeiMaxValue"></td>
                         </tr>
                         <tr>
@@ -103,6 +106,7 @@
                             <td>
                                 <input type="number" id="poi" min="1" max="5" />
                             </td>
+                            <td id="poiValue"></td>
                             <td id="poiMaxValue"></td>
                         </tr>
                         <tr>
@@ -110,6 +114,7 @@
                             <td>
                                 <input type="number" id="que" min="1" max="5" />
                             </td>
+                            <td id="queValue"></td>
                             <td id="queMaxValue"></td>
                         </tr>
                         <tr>
@@ -117,6 +122,7 @@
                             <td>
                                 <input type="number" id="ron" min="1" max="5" />
                             </td>
+                            <td id="ronValue"></td>
                             <td id="ronMaxValue"></td>
                         </tr>
                         <tr>
@@ -124,6 +130,7 @@
                             <td>
                                 <input type="number" id="car" min="1" max="5" />
                             </td>
+                            <td id="carValue"></td>
                             <td id="carMaxValue"></td>
                         </tr>
                         <tr>
@@ -131,6 +138,7 @@
                             <td>
                                 <input type="number" id="vib" min="1" max="5" />
                             </td>
+                            <td id="vibValue"></td>
                             <td id="vibMaxValue"></td>
                         </tr>
                         <tr>
@@ -138,6 +146,7 @@
                             <td>
                                 <input type="number" id="cou" min="1" max="5" />
                             </td>
+                            <td id="couValue"></td>
                             <td id="couMaxValue"></td>
                         </tr>
                         <tr>
@@ -145,13 +154,14 @@
                             <td>
                                 <input type="number" id="cha" min="1" max="5" />
                             </td>
+                            <td id="chaValue"></td>
                             <td id="chaMaxValue"></td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
                             <th scope="row">Points totaux = <span class="caracTotalPoints">28</span></th>
-                            <th scope="row" colspan="2">Points restants = <span class="caracAvailablePoints">???</span>
+                            <th scope="row" colspan="3">Points restants = <span class="caracAvailablePoints">???</span>
                             </th>
                         </tr>
                     </tfoot>
@@ -197,7 +207,7 @@
                     <tbody class="skillsContainer"></tbody>
                     <tfoot>
                         <tr>
-                            <th scope="row" colspan="3">Points totaux = (ron + car)*3 + <span class="good">gains</span> - <span class="bad">coût</span> = <span class="skillsTotalPoints">???</span></th>
+                            <th scope="row" colspan="3">Points totaux = (ron + car)*3 <span class="good">+ gains</span> <span class="bad">- coût</span> = <span class="skillsTotalPoints">???</span></th>
                             <th scope="row" colspan="2">Points restants = <span class="skillsAvailablePoints">???</span>
                             </th>
                         </tr>

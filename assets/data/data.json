@@ -241,7 +241,7 @@
                 "bastet",
                 "human"
             ],
-            "description": "Ajouter 1 en POIL sans prendre en compte les limites de points. Ne peux pas vous permettre de dépasser 5.",
+            "description": "+1 en POIL.",
             "cost": 8
         },
         {
@@ -317,7 +317,7 @@
             "types": [
                 "cat"
             ],
-            "description": "Ajoutez 1 en Discrétion sans prendre en compte les limites de points. Ne peux pas vous permettre de dépasser 5.",
+            "description": "+1 en Discrétion.",
             "cost": 6
         },
         {
@@ -513,7 +513,7 @@
             "types": [
                 "cat"
             ],
-            "description": "Retirez 1 en Discrétion sans prendre en compte les limites de points.",
+            "description": "- 1 en Discrétion.",
             "gain": 4
         }
     ]

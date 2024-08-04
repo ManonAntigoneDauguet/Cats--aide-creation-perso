@@ -1,6 +1,6 @@
 /************** NECESSARIES IMPORTS *************/
 import { checkInputIsValid, toUppercaseFirstCharacter } from "./utils.js";
-import { displayCharacteristics, characteristics, setCharacTotalPoints } from "./features/characteristics.feature.js";
+import { displayCharacteristics, characteristics, setCharacTotalPoints, displayCharactValue, addPOILMalusAndBonus } from "./features/characteristics.feature.js";
 import { displayPresentation } from "./features/presentation.feature.js";
 import { displayQualitiesAndDefaults } from "./features/qualitiesAndDefaults.feature.js";
 import { displaySkills, setSkillsTotalPoint } from "./features/skills.feature.js";
@@ -42,7 +42,7 @@ async function init() {
     })
     displayCharacteristics(skillData, characterType.value);
     displayPresentation(data);
-    displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value);
+    displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value, skillData);
     displaySkills(skillData, characterType.value);
 }
 
@@ -73,6 +73,8 @@ characterType.addEventListener("change", () => {
             })
             breedInput.setAttribute('disabled', '');
             breedInput.value = '';
+            recapDefaults.innerHTML = "";
+            recapQualities.innerHTML = "";
             break;
 
         case 'human':
@@ -84,18 +86,23 @@ characterType.addEventListener("change", () => {
             })
             breedInput.setAttribute('disabled', '');
             breedInput.value = '';
+            recapDefaults.innerHTML = "";
+            recapQualities.innerHTML = "";
             break;
     }
-    displayQualitiesAndDefaults(data, getCat(breedInput.value),
-        characterType.value);
+    displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value, skillData);
     displaySkills(skillData, characterType.value);
+    displayCharactValue();
 })
 
 breedInput.addEventListener("change", () => {
-    displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value);
+    setCharacTotalPoints(28);
+    displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value, skillData);
     displayQualitiesSelected();
     displayDefaultsSelected();
     setSkillsTotalPoint();
+    if (breedInput.value === 'ragdoll') { addPOILMalusAndBonus(); }
+    displayCharactValue();
 })
 
 
@@ -122,7 +129,10 @@ function displayDefaultsSelected() {
     recapDefaults.innerHTML = "";
     const all = document.querySelectorAll('.defaultSelected');
     all.forEach((selectedDOM) => {
-        const selectedOption = data.defaults.find(d => d.name === selectedDOM.textContent);
+        let selectedOption = data.defaults.find(d => d.name === selectedDOM.textContent);
+        if (selectedDOM.textContent === "score de Poil <= 2") {
+            selectedOption = {'id': 50, 'name': "score de Poil <= 2", 'types' : ['cat'], 'description': 'Votre score de POIL ne peux pas dépasser 2.', 'gain': 0};
+        };
         if (selectedOption) {
             const description = document.createElement('p');
             const content = `
@@ -140,12 +150,15 @@ function getSelectedDefauts() {
     const list = [];
     const all = document.querySelectorAll('.defaultSelected');
     all.forEach((selectedDOM) => {
+        if (selectedDOM.textContent === "score de Poil <= 2") {
+            let obj = {'id': 50, 'name': "score de Poil <= 2", 'types' : ['cat'], 'description': 'Votre score de POIL ne peux pas dépasser 2', 'gain': 0};
+            list.push(obj);
+        };
         const selectedOption = data.defaults.find(d => d.name === selectedDOM.textContent);
         if (selectedOption) {
             list.push(selectedOption);
         }
     })
-    console.log('défauts : ', list);
     return list;
 }
 
@@ -158,7 +171,6 @@ function getSelectedQualities() {
             list.push(selectedOption);
         }
     })
-    console.log('qualités :  ', list);
     return list;
 }
 
