@@ -85,10 +85,10 @@ function choiceQualityEvent(input, span, type, skillData) {
     input.addEventListener("change", (e) => {
         span.classList.add("qualitySelected");
         span.innerHTML = e.target.value,
+        displayCharactValue();
         displayQualitiesSelected();
         setSkillsTotalPoint();
         displaySkillValues(skillData, type);
-        displayCharactValue();
     });
 }
 
@@ -96,10 +96,10 @@ function choiceDefaultEvent(input, span, type, skillData) {
     input.addEventListener("change", (e) => {
         span.classList.add("defaultSelected");
         span.innerHTML = e.target.value;
+        displayCharactValue();
         displayDefaultsSelected();
         setSkillsTotalPoint();
         displaySkillValues(skillData, type);
-        displayCharactValue();
     });
 }
 

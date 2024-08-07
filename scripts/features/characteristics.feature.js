@@ -28,8 +28,8 @@ function displayCharacteristics(skillData, type) {
             checkInputIsValid(e.input, 1, e.actualMaxValue);
             updateCharacAvailablePoints();
             setSkillsTotalPoint();
-            displaySkillValues(skillData, type);
             displayCharactValue();
+            displaySkillValues(skillData);
         })
     })
     updateCharacAvailablePoints();
@@ -59,7 +59,7 @@ function updateCharacAvailablePoints() {
     }
 }
 
-function getCaract(caracShortName) {
+function getCaractRate(caracShortName) {
     switch (caracShortName) {
         case 'oei': return oei.input.value;
         case 'gri': return gri.input.value;
@@ -73,11 +73,26 @@ function getCaract(caracShortName) {
     }
 }
 
+function getCaract(caracShortName) {
+    switch (caracShortName) {
+        case 'oei': return oei.valueTd.textContent;
+        case 'gri': return gri.valueTd.textContent;
+        case 'poi': return poi.valueTd.textContent;
+        case 'que': return que.valueTd.textContent;
+        case 'ron': return ron.valueTd.textContent;
+        case 'car': return car.valueTd.textContent;
+        case 'vib': return vib.valueTd.textContent;
+        case 'cou': return cou.valueTd.textContent;
+        case 'cha': return cha.valueTd.textContent;
+    }
+}
+
 function displayCharactValue() {
     characteristics.forEach(e => {
         e.valueTd.innerHTML = e.input.value;
         switch (e.input.id) {
             case 'poi': addPOILMalusAndBonus(); break;
+            case 'oei': addOEILMalusAndBonus(); break;
         }
         if (Number(e.valueTd.textContent) > e.actualMaxValue || Number(e.valueTd.textContent) <= 0) {
             e.valueTd.classList.add('error');
@@ -114,4 +129,22 @@ function addPOILMalusAndBonus() {
     })
 }
 
-export { characteristics, displayCharacteristics, setCharacTotalPoints, getCaract, displayCharactValue, addPOILMalusAndBonus };
+function addOEILMalusAndBonus() {
+    const valueTd = document.getElementById("oeiValue");
+    valueTd.classList.remove('good');
+    valueTd.classList.remove('bad');
+    const maxValueTd = document.getElementById("oeiMaxValue");
+    maxValueTd.classList.remove('good');
+    maxValueTd.classList.remove('bad');
+
+    let allQualities = getSelectedQualities();
+    allQualities.forEach(e => {
+        if (e.id == 1) {
+            let value = Number(valueTd.textContent);
+            valueTd.innerHTML = value += 1;
+            valueTd.classList.add('good');
+        }
+    })
+}
+
+export { characteristics, displayCharacteristics, setCharacTotalPoints, getCaractRate, getCaract, displayCharactValue, addPOILMalusAndBonus };

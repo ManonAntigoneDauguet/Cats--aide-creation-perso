@@ -54,6 +54,7 @@ let skillData;
 init();
 
 characterType.addEventListener("change", () => {
+    // displayCharacteristics(skillData, characterType.value);
     switch (characterType.value) {
         case 'cat':
             characteristics.forEach(e => {
@@ -97,12 +98,12 @@ characterType.addEventListener("change", () => {
 
 breedInput.addEventListener("change", () => {
     setCharacTotalPoints(28);
+    displayCharactValue();
     displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value, skillData);
     displayQualitiesSelected();
     displayDefaultsSelected();
     setSkillsTotalPoint();
     if (breedInput.value === 'ragdoll') { addPOILMalusAndBonus(); }
-    displayCharactValue();
 })
 
 

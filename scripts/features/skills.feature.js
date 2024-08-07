@@ -1,7 +1,7 @@
 /************** NECESSARIES IMPORTS *************/
 import { getSelectedDefauts, getSelectedQualities } from "../index.js";
 import { checkInputIsValid } from "../utils.js";
-import { getCaract } from "./characteristics.feature.js";
+import { getCaractRate, getCaract } from "./characteristics.feature.js";
 import { returnSkillCost, returnSkillGain } from "./qualitiesAndDefaults.feature.js";
 
 
@@ -63,8 +63,8 @@ function displayBaseTable(skillData, type) {
 }
 
 function setSkillsTotalPoint() {
-    const ron = Number(getCaract('ron'));
-    const car = Number(getCaract('car'));
+    const ron = Number(getCaractRate('ron'));
+    const car = Number(getCaractRate('car'));
     let totalPoints = (ron + car) * 3
     const cost = returnSkillCost();
     const gain = returnSkillGain();
@@ -124,8 +124,7 @@ function displaySkillFormula(e) {
     }
 }
 
-function displaySkillValues(skillData, type) {
-    const filteredData = skillData.filter(e => e.types.includes(type));
+function displaySkillValues(skillData) {
     skillsInputs = document.querySelectorAll('.skillInput');
     skillsInputs.forEach(e => {
         const ref = Number(e.getAttribute('ref'));
@@ -133,7 +132,7 @@ function displaySkillValues(skillData, type) {
         const rate = Number(rateTd.textContent);
 
         const valueTd = document.getElementById(`value-skill-${ref}`);
-        const data = filteredData.find(e => e.id === ref);
+        const data = skillData.find(skill => skill.id === ref);
 
         if (data.caract.length == 1) {
             const resultFormula = Number(getCaract(data.caract[0]));
