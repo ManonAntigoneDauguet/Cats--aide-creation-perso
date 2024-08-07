@@ -172,7 +172,7 @@ function addDiscretionMalusAndBonus() {
 
     let allDefaults = getSelectedDefauts();
     allDefaults.forEach(e => {
-        if (e.id = 16) {
+        if (e.id == 16) {
             let discretionValue = Number(discretionValueTd.textContent);
             discretionValueTd.innerHTML = discretionValue -= 1;
             discretionValueTd.classList.add('bad');

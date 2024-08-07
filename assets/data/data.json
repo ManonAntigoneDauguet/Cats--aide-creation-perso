@@ -299,7 +299,7 @@
                 "bastet",
                 "human"
             ],
-            "description": "Ajouter 1 en QUEUE sans prendre en compte les limites de points. Ne peux pas vous permettre de dépasser 5.",
+            "description": "+1 en QUEUE.",
             "cost": 8
         },
         {
@@ -346,7 +346,7 @@
                 "bastet",
                 "human"
             ],
-            "description": "Ajouter 1 en CARESSE sans prendre en compte les limites de points. Ne peux pas vous permettre de dépasser 5.",
+            "description": "+1 en CARESSE.",
             "cost": 8
         }
     ],
@@ -369,7 +369,7 @@
                 "bastet",
                 "human"
             ],
-            "description": "Retirez 1 en QUEUE sans prendre en compte les limites de points. Ne peux pas vous permettre de descendre à 0.",
+            "description": "-1 en QUEUE.",
             "gain": 4
         },
         {
@@ -402,7 +402,7 @@
                 "bastet",
                 "human"
             ],
-            "description": "Retirez 1 en COUSSINET sans prendre en compte les limites de points. Ne peux pas vous permettre de descendre à 0.",
+            "description": "-1 en COUSSINET.",
             "gain": 4
         },
         {
@@ -495,7 +495,7 @@
                 "bastet",
                 "human"
             ],
-            "description": "Retirez 1 en COUSSINET sans prendre en compte les limites de points. Ne peux pas vous permettre de descendre à 0.",
+            "description": "-1 en COUSSINET.",
             "gain": 4
         },
         {
@@ -513,7 +513,7 @@
             "types": [
                 "cat"
             ],
-            "description": "- 1 en Discrétion.",
+            "description": "-1 en Discrétion.",
             "gain": 4
         }
     ]

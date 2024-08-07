@@ -93,6 +93,9 @@ function displayCharactValue() {
         switch (e.input.id) {
             case 'poi': addPOILMalusAndBonus(); break;
             case 'oei': addOEILMalusAndBonus(); break;
+            case 'que': addQUEUEMalusAndBonus(); break;
+            case 'cou': addCOUSSINETLMalusAndBonus(); break;
+            case 'car': addCARESSEMalusAndBonus(); break;
         }
         if (Number(e.valueTd.textContent) > e.actualMaxValue || Number(e.valueTd.textContent) <= 0) {
             e.valueTd.classList.add('error');
@@ -115,6 +118,7 @@ function addPOILMalusAndBonus() {
         if (e.id === 50) {
             maxValueTd.classList.add('bad');
             characteristics[2].actualMaxValue = 2;
+            checkInputIsValid(characteristics[2].input, 1, 2);
             maxValueTd.innerHTML = 2;
         }
     })
@@ -129,13 +133,72 @@ function addPOILMalusAndBonus() {
     })
 }
 
+function addCOUSSINETLMalusAndBonus() {
+    const valueTd = document.getElementById("couValue");
+    valueTd.classList.remove('good');
+    valueTd.classList.remove('bad');
+
+    let allDefaults = getSelectedDefauts();
+    allDefaults.forEach(e => {
+        console.log(e)
+        if (e.id === 14) {
+            let value = Number(valueTd.textContent);
+            valueTd.innerHTML = value -= 1;
+            valueTd.classList.add('bad');
+        }
+        if (e.id === 5) {
+            let value = Number(valueTd.textContent);
+            valueTd.innerHTML = value -= 1;
+            valueTd.classList.add('bad');
+        }
+    })
+}
+
+function addQUEUEMalusAndBonus() {
+    const valueTd = document.getElementById("queValue");
+    valueTd.classList.remove('good');
+    valueTd.classList.remove('bad');
+
+    let allQualities = getSelectedQualities();
+    allQualities.forEach(e => {
+        if (e.id == 14) {
+            let value = Number(valueTd.textContent);
+            valueTd.innerHTML = value += 1;
+            valueTd.classList.add('good');
+        }
+    })
+
+    let allDefaults = getSelectedDefauts();
+    allDefaults.forEach(e => {
+        console.log(e)
+        if (e.id === 2) {
+
+            let value = Number(valueTd.textContent);
+            valueTd.innerHTML = value -= 1;
+            valueTd.classList.add('bad');
+        }
+    })
+}
+
+function addCARESSEMalusAndBonus() {
+    const valueTd = document.getElementById("queValue");
+    valueTd.classList.remove('good');
+    valueTd.classList.remove('bad');
+
+    let allQualities = getSelectedQualities();
+    allQualities.forEach(e => {
+        if (e.id == 13) {
+            let value = Number(valueTd.textContent);
+            valueTd.innerHTML = value += 1;
+            valueTd.classList.add('good');
+        }
+    })
+}
+
 function addOEILMalusAndBonus() {
     const valueTd = document.getElementById("oeiValue");
     valueTd.classList.remove('good');
     valueTd.classList.remove('bad');
-    const maxValueTd = document.getElementById("oeiMaxValue");
-    maxValueTd.classList.remove('good');
-    maxValueTd.classList.remove('bad');
 
     let allQualities = getSelectedQualities();
     allQualities.forEach(e => {
