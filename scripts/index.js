@@ -5,6 +5,7 @@ import { displayPresentation } from "./features/presentation.feature.js";
 import { displayQualitiesAndDefaults } from "./features/qualitiesAndDefaults.feature.js";
 import { displaySkills, displaySkillValues, setSkillsTotalPoint } from "./features/skills.feature.js";
 import { displayHitLevel } from "./features/hitLevel.feature.js";
+import { displayPower } from "./features/power.feature.js";
 
 
 
@@ -26,6 +27,11 @@ async function getSkillData() {
     skillData = await response.json();
 }
 
+async function getPowerData() {
+    const response = await fetch('./assets/data/power.json');
+    powerData = await response.json();
+}
+
 function getCat(breed) {
     const cat = data.breed.find(e => e.name == breed);
     if (!cat) {
@@ -37,6 +43,7 @@ function getCat(breed) {
 async function init() {
     await getData();
     await getSkillData();
+    await getPowerData();
     characteristics.forEach(e => {
         e.input.value = 1;
         e.maxValueTd.innerHTML = e.actualMaxValue;
@@ -46,17 +53,18 @@ async function init() {
     displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value, skillData);
     displaySkills(skillData, characterType.value);
     displayHitLevel(characterType.value);
+    displayPower(powerData);
 }
 
 
 /******************* PAGE CREATION ******************/
 let data;
 let skillData;
+let powerData;
 
 init();
 
 characterType.addEventListener("change", () => {
-    // displayCharacteristics(skillData, characterType.value);
     switch (characterType.value) {
         case 'cat':
             characteristics.forEach(e => {

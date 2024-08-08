@@ -1,0 +1,9 @@
+[
+    {
+        "id": 1,
+        "name": "Allergène",
+        "catMax": 5,
+        "bastetMax": 2,
+        "humanMax": 0
+    }
+]

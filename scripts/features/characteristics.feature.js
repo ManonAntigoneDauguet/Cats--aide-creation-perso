@@ -3,6 +3,7 @@ import { checkInputIsValid } from "../utils.js";
 import { setSkillsTotalPoint, displaySkillValues } from "./skills.feature.js";
 import { getSelectedDefauts, getSelectedQualities } from "../index.js";
 import { displayDetailsHitLevel } from "./hitLevel.feature.js";
+import { setPowerTotalPoints } from "./power.feature.js";
 
 
 /************** DOM ELEMENTS ********************/
@@ -31,6 +32,7 @@ function displayCharacteristics(skillData) {
             setSkillsTotalPoint();
             displayCharactValue();
             displaySkillValues(skillData);
+            setPowerTotalPoints();
             displayDetailsHitLevel();
         })
     })
