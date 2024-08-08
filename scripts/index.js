@@ -53,7 +53,7 @@ async function init() {
     displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value, skillData);
     displaySkills(skillData, characterType.value);
     displayHitLevel(characterType.value);
-    displayPower(powerData);
+    displayPower(powerData, characterType.value);
 }
 
 
@@ -105,6 +105,7 @@ characterType.addEventListener("change", () => {
     displaySkills(skillData, characterType.value);
     displayCharactValue();
     displayHitLevel(characterType.value);
+    displayPower(powerData, characterType.value);
 })
 
 breedInput.addEventListener("change", () => {

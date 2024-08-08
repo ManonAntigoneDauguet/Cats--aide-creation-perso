@@ -9,8 +9,10 @@ const powerContainer = document.querySelector('.powerContainer');
 const powerTotalPoints = document.querySelector('.powerTotalPoints');
 const powerAvailablePoints = document.querySelector('.powerAvailablePoints');
 
+let type;
 
-function displayPower(powerData) {
+function displayPower(powerData, newType) {
+    type = newType;
     displayPowerBaseTable(powerData);
     setPowerTotalPoints();
 }
@@ -24,10 +26,12 @@ function displayPowerBaseTable(powerData) {
                 <td>
                     <input type="number" class='powerInput' id="power-${e.id}" min="0" max="16" />
                 </td>
-                    <td class='powerRateTd' id="rate-power-${e.id}">
-                ${type == 'cat' && e.id == 14 ? 1 : 0}
+                <td class='powerRateTd' id="rate-power-${e.id}">
+                    ${type == 'cat' && e.id == 14 ? 1 : 0}
                 </td>
-                <td class='powerValueTd' id="value-power-${e.id}"></td>
+                <td class='powerMaxValueTd' id="max-power-${e.id}">
+                    ${returnPowerMaxValue(e)}
+                </td>
             </tr>
         `
         powerContainer.innerHTML += content;
@@ -48,12 +52,12 @@ function displayPowerBaseTable(powerData) {
 function setPowerTotalPoints() {
     const vib = Number(getCaract('vib'));
     switch (vib) {
-        case 1 : powerTotalPoints.innerHTML = 2; break;
-        case 2 : powerTotalPoints.innerHTML = 4; break;
-        case 3 : powerTotalPoints.innerHTML = 8; break;
-        case 4 : powerTotalPoints.innerHTML = 16; break;
-        case 5 : powerTotalPoints.innerHTML = 24; break;
-    }    
+        case 1: powerTotalPoints.innerHTML = 2; break;
+        case 2: powerTotalPoints.innerHTML = 4; break;
+        case 3: powerTotalPoints.innerHTML = 8; break;
+        case 4: powerTotalPoints.innerHTML = 16; break;
+        case 5: powerTotalPoints.innerHTML = 24; break;
+    }
     updatePowerAvailablePoints();
 }
 
@@ -84,6 +88,23 @@ function displayPowerRates(refInput) {
     else if (points < 8) { td.innerHTML = 3 }
     else if (points < 16) { td.innerHTML = 4 }
     else if (points == 16) { td.innerHTML = 5 }
+
+    const maxValueTd = document.getElementById(`max-${refInput.id}`);
+    if(Number(td.textContent) > Number(maxValueTd.textContent)) {
+        td.classList.add('error');
+    } else {
+        td.classList.remove('error');
+    }
+}
+
+function returnPowerMaxValue(e) {
+    if (type == 'cat') {
+        return e.catMax;
+    } else if (type == 'bastet') {
+        return e.bastetMax;
+    } else if (type == 'human') {
+        return e.humanMax;
+    }
 }
 
 export { displayPower, setPowerTotalPoints }
