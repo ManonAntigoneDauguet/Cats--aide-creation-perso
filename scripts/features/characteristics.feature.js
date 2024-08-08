@@ -2,6 +2,7 @@
 import { checkInputIsValid } from "../utils.js";
 import { setSkillsTotalPoint, displaySkillValues } from "./skills.feature.js";
 import { getSelectedDefauts, getSelectedQualities } from "../index.js";
+import { displayDetailsHitLevel } from "./hitLevel.feature.js";
 
 
 /************** DOM ELEMENTS ********************/
@@ -21,7 +22,7 @@ const characAvailablePoints = document.querySelector('.caracAvailablePoints');
 /**
  * Add event listeners on caracteristics features at init
  */
-function displayCharacteristics(skillData, type) {
+function displayCharacteristics(skillData) {
     displayCharactValue();
     characteristics.forEach(e => {
         e.input.addEventListener("change", () => {
@@ -30,6 +31,7 @@ function displayCharacteristics(skillData, type) {
             setSkillsTotalPoint();
             displayCharactValue();
             displaySkillValues(skillData);
+            displayDetailsHitLevel();
         })
     })
     updateCharacAvailablePoints();
@@ -131,6 +133,8 @@ function addPOILMalusAndBonus() {
             valueTd.classList.add('good');
         }
     })
+
+    displayDetailsHitLevel();
 }
 
 function addCOUSSINETLMalusAndBonus() {

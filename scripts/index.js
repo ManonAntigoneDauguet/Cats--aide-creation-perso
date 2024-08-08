@@ -4,6 +4,7 @@ import { displayCharacteristics, characteristics, setCharacTotalPoints, displayC
 import { displayPresentation } from "./features/presentation.feature.js";
 import { displayQualitiesAndDefaults } from "./features/qualitiesAndDefaults.feature.js";
 import { displaySkills, displaySkillValues, setSkillsTotalPoint } from "./features/skills.feature.js";
+import { displayHitLevel } from "./features/hitLevel.feature.js";
 
 
 
@@ -44,6 +45,7 @@ async function init() {
     displayPresentation(data);
     displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value, skillData);
     displaySkills(skillData, characterType.value);
+    displayHitLevel(characterType.value);
 }
 
 
@@ -94,6 +96,7 @@ characterType.addEventListener("change", () => {
     displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value, skillData);
     displaySkills(skillData, characterType.value);
     displayCharactValue();
+    displayHitLevel(characterType.value);
 })
 
 breedInput.addEventListener("change", () => {
