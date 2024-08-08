@@ -3,7 +3,8 @@ import { checkInputIsValid, toUppercaseFirstCharacter } from "./utils.js";
 import { displayCharacteristics, characteristics, setCharacTotalPoints, displayCharactValue, addPOILMalusAndBonus } from "./features/characteristics.feature.js";
 import { displayPresentation } from "./features/presentation.feature.js";
 import { displayQualitiesAndDefaults } from "./features/qualitiesAndDefaults.feature.js";
-import { displaySkills, setSkillsTotalPoint } from "./features/skills.feature.js";
+import { displaySkills, displaySkillValues, setSkillsTotalPoint } from "./features/skills.feature.js";
+import { displayHitLevel } from "./features/hitLevel.feature.js";
 
 
 
@@ -44,6 +45,7 @@ async function init() {
     displayPresentation(data);
     displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value, skillData);
     displaySkills(skillData, characterType.value);
+    displayHitLevel(characterType.value);
 }
 
 
@@ -54,6 +56,7 @@ let skillData;
 init();
 
 characterType.addEventListener("change", () => {
+    // displayCharacteristics(skillData, characterType.value);
     switch (characterType.value) {
         case 'cat':
             characteristics.forEach(e => {
@@ -93,16 +96,18 @@ characterType.addEventListener("change", () => {
     displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value, skillData);
     displaySkills(skillData, characterType.value);
     displayCharactValue();
+    displayHitLevel(characterType.value);
 })
 
 breedInput.addEventListener("change", () => {
     setCharacTotalPoints(28);
+    displayCharactValue();
     displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value, skillData);
     displayQualitiesSelected();
     displayDefaultsSelected();
     setSkillsTotalPoint();
+    displaySkillValues(skillData);
     if (breedInput.value === 'ragdoll') { addPOILMalusAndBonus(); }
-    displayCharactValue();
 })
 
 

@@ -23,5 +23,13 @@ async function displayBreed(data) {
     displayOptions(data.breed, breedInput, "breed");
 }
 
+function setReputation(qualityName) {
+    const reputationSpan = document.getElementById('reputation');
+    if (qualityName === 'réputation de matou') {
+        reputationSpan.innerHTML = '1 à 4 selon résultat du dé'
+    } else {
+        reputationSpan.innerHTML = 0;
+    }
+}
 
-export { displayPresentation };
+export { displayPresentation, setReputation };

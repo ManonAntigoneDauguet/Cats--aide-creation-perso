@@ -2,6 +2,7 @@
 import { checkInputIsValid } from "../utils.js";
 import { setSkillsTotalPoint, displaySkillValues } from "./skills.feature.js";
 import { getSelectedDefauts, getSelectedQualities } from "../index.js";
+import { displayDetailsHitLevel } from "./hitLevel.feature.js";
 
 
 /************** DOM ELEMENTS ********************/
@@ -21,15 +22,16 @@ const characAvailablePoints = document.querySelector('.caracAvailablePoints');
 /**
  * Add event listeners on caracteristics features at init
  */
-function displayCharacteristics(skillData, type) {
+function displayCharacteristics(skillData) {
     displayCharactValue();
     characteristics.forEach(e => {
         e.input.addEventListener("change", () => {
             checkInputIsValid(e.input, 1, e.actualMaxValue);
             updateCharacAvailablePoints();
             setSkillsTotalPoint();
-            displaySkillValues(skillData, type);
             displayCharactValue();
+            displaySkillValues(skillData);
+            displayDetailsHitLevel();
         })
     })
     updateCharacAvailablePoints();
@@ -59,7 +61,7 @@ function updateCharacAvailablePoints() {
     }
 }
 
-function getCaract(caracShortName) {
+function getCaractRate(caracShortName) {
     switch (caracShortName) {
         case 'oei': return oei.input.value;
         case 'gri': return gri.input.value;
@@ -73,11 +75,29 @@ function getCaract(caracShortName) {
     }
 }
 
+function getCaract(caracShortName) {
+    switch (caracShortName) {
+        case 'oei': return oei.valueTd.textContent;
+        case 'gri': return gri.valueTd.textContent;
+        case 'poi': return poi.valueTd.textContent;
+        case 'que': return que.valueTd.textContent;
+        case 'ron': return ron.valueTd.textContent;
+        case 'car': return car.valueTd.textContent;
+        case 'vib': return vib.valueTd.textContent;
+        case 'cou': return cou.valueTd.textContent;
+        case 'cha': return cha.valueTd.textContent;
+    }
+}
+
 function displayCharactValue() {
     characteristics.forEach(e => {
         e.valueTd.innerHTML = e.input.value;
         switch (e.input.id) {
             case 'poi': addPOILMalusAndBonus(); break;
+            case 'oei': addOEILMalusAndBonus(); break;
+            case 'que': addQUEUEMalusAndBonus(); break;
+            case 'cou': addCOUSSINETLMalusAndBonus(); break;
+            case 'car': addCARESSEMalusAndBonus(); break;
         }
         if (Number(e.valueTd.textContent) > e.actualMaxValue || Number(e.valueTd.textContent) <= 0) {
             e.valueTd.classList.add('error');
@@ -100,6 +120,7 @@ function addPOILMalusAndBonus() {
         if (e.id === 50) {
             maxValueTd.classList.add('bad');
             characteristics[2].actualMaxValue = 2;
+            checkInputIsValid(characteristics[2].input, 1, 2);
             maxValueTd.innerHTML = 2;
         }
     })
@@ -112,6 +133,83 @@ function addPOILMalusAndBonus() {
             valueTd.classList.add('good');
         }
     })
+
+    displayDetailsHitLevel();
 }
 
-export { characteristics, displayCharacteristics, setCharacTotalPoints, getCaract, displayCharactValue, addPOILMalusAndBonus };
+function addCOUSSINETLMalusAndBonus() {
+    const valueTd = document.getElementById("couValue");
+    valueTd.classList.remove('good');
+    valueTd.classList.remove('bad');
+
+    let allDefaults = getSelectedDefauts();
+    allDefaults.forEach(e => {
+        if (e.id === 14) {
+            let value = Number(valueTd.textContent);
+            valueTd.innerHTML = value -= 1;
+            valueTd.classList.add('bad');
+        }
+        if (e.id === 5) {
+            let value = Number(valueTd.textContent);
+            valueTd.innerHTML = value -= 1;
+            valueTd.classList.add('bad');
+        }
+    })
+}
+
+function addQUEUEMalusAndBonus() {
+    const valueTd = document.getElementById("queValue");
+    valueTd.classList.remove('good');
+    valueTd.classList.remove('bad');
+
+    let allQualities = getSelectedQualities();
+    allQualities.forEach(e => {
+        if (e.id == 14) {
+            let value = Number(valueTd.textContent);
+            valueTd.innerHTML = value += 1;
+            valueTd.classList.add('good');
+        }
+    })
+
+    let allDefaults = getSelectedDefauts();
+    allDefaults.forEach(e => {
+        if (e.id === 2) {
+
+            let value = Number(valueTd.textContent);
+            valueTd.innerHTML = value -= 1;
+            valueTd.classList.add('bad');
+        }
+    })
+}
+
+function addCARESSEMalusAndBonus() {
+    const valueTd = document.getElementById("queValue");
+    valueTd.classList.remove('good');
+    valueTd.classList.remove('bad');
+
+    let allQualities = getSelectedQualities();
+    allQualities.forEach(e => {
+        if (e.id == 13) {
+            let value = Number(valueTd.textContent);
+            valueTd.innerHTML = value += 1;
+            valueTd.classList.add('good');
+        }
+    })
+}
+
+function addOEILMalusAndBonus() {
+    const valueTd = document.getElementById("oeiValue");
+    valueTd.classList.remove('good');
+    valueTd.classList.remove('bad');
+
+    let allQualities = getSelectedQualities();
+    allQualities.forEach(e => {
+        if (e.id == 1) {
+            let value = Number(valueTd.textContent);
+            valueTd.innerHTML = value += 1;
+            valueTd.classList.add('good');
+        }
+    })
+}
+
+export { characteristics, displayCharacteristics, setCharacTotalPoints, getCaractRate, getCaract, displayCharactValue, addPOILMalusAndBonus };

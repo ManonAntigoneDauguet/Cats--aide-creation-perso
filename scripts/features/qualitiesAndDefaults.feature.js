@@ -3,6 +3,7 @@ import { displayOptions } from "../utils.js";
 import { displayDefaultsSelected, displayQualitiesSelected, getSelectedDefauts, getSelectedQualities } from "../index.js";
 import { displaySkillValues, setSkillsTotalPoint } from "./skills.feature.js";
 import { displayCharactValue } from "./characteristics.feature.js";
+import { setReputation } from "./presentation.feature.js";
 
 /************** DOM ELEMENTS ********************/
 const qualitiesDiv = document.querySelector('.qualities');
@@ -85,10 +86,11 @@ function choiceQualityEvent(input, span, type, skillData) {
     input.addEventListener("change", (e) => {
         span.classList.add("qualitySelected");
         span.innerHTML = e.target.value,
+        displayCharactValue();
         displayQualitiesSelected();
         setSkillsTotalPoint();
         displaySkillValues(skillData, type);
-        displayCharactValue();
+        setReputation(e.target.value);
     });
 }
 
@@ -96,10 +98,10 @@ function choiceDefaultEvent(input, span, type, skillData) {
     input.addEventListener("change", (e) => {
         span.classList.add("defaultSelected");
         span.innerHTML = e.target.value;
+        displayCharactValue();
         displayDefaultsSelected();
         setSkillsTotalPoint();
         displaySkillValues(skillData, type);
-        displayCharactValue();
     });
 }
 

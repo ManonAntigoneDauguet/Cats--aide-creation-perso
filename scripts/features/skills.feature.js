@@ -1,7 +1,7 @@
 /************** NECESSARIES IMPORTS *************/
 import { getSelectedDefauts, getSelectedQualities } from "../index.js";
 import { checkInputIsValid } from "../utils.js";
-import { getCaract } from "./characteristics.feature.js";
+import { getCaractRate, getCaract } from "./characteristics.feature.js";
 import { returnSkillCost, returnSkillGain } from "./qualitiesAndDefaults.feature.js";
 
 
@@ -63,8 +63,8 @@ function displayBaseTable(skillData, type) {
 }
 
 function setSkillsTotalPoint() {
-    const ron = Number(getCaract('ron'));
-    const car = Number(getCaract('car'));
+    const ron = Number(getCaractRate('ron'));
+    const car = Number(getCaractRate('car'));
     let totalPoints = (ron + car) * 3
     const cost = returnSkillCost();
     const gain = returnSkillGain();
@@ -124,8 +124,7 @@ function displaySkillFormula(e) {
     }
 }
 
-function displaySkillValues(skillData, type) {
-    const filteredData = skillData.filter(e => e.types.includes(type));
+function displaySkillValues(skillData) {
     skillsInputs = document.querySelectorAll('.skillInput');
     skillsInputs.forEach(e => {
         const ref = Number(e.getAttribute('ref'));
@@ -133,7 +132,7 @@ function displaySkillValues(skillData, type) {
         const rate = Number(rateTd.textContent);
 
         const valueTd = document.getElementById(`value-skill-${ref}`);
-        const data = filteredData.find(e => e.id === ref);
+        const data = skillData.find(skill => skill.id === ref);
 
         if (data.caract.length == 1) {
             const resultFormula = Number(getCaract(data.caract[0]));
@@ -147,8 +146,12 @@ function displaySkillValues(skillData, type) {
             valueTd.innerHTML = value;
         }
 
-        if (data.name === "discrétion") {
+        if (data.id === 12) {
             addDiscretionMalusAndBonus();
+        } else if (data.id === 26) {
+            addJumpMalusAndBonus();
+        } else if (data.id === 24) {
+            addHumanInteractionMalusAndBonus();
         }
 
         if (data.special && rate === 0) {
@@ -173,7 +176,7 @@ function addDiscretionMalusAndBonus() {
 
     let allDefaults = getSelectedDefauts();
     allDefaults.forEach(e => {
-        if (e.id = 16) {
+        if (e.id == 16) {
             let discretionValue = Number(discretionValueTd.textContent);
             discretionValueTd.innerHTML = discretionValue -= 1;
             discretionValueTd.classList.add('bad');
@@ -190,4 +193,40 @@ function addDiscretionMalusAndBonus() {
     })
 }
 
-export { displaySkills, setSkillsTotalPoint, displaySkillValues, addDiscretionMalusAndBonus }
+function addJumpMalusAndBonus() {
+    const jumpValueTd = document.getElementById("value-skill-26");
+    jumpValueTd.classList.remove('good');
+    jumpValueTd.classList.remove('bad');
+
+    let allQualities = getSelectedQualities();
+    allQualities.forEach(e => {
+        if (e.id == 11) {
+            let jumpValue = Number(jumpValueTd.textContent);
+            jumpValueTd.innerHTML = jumpValue += 1;
+            jumpValueTd.classList.add('good');
+        }
+    })
+}
+
+function addHumanInteractionMalusAndBonus() {
+    const ValueTd = document.getElementById("value-skill-24");
+    ValueTd.classList.remove('good');
+    ValueTd.classList.remove('bad');
+
+    let allDefaults = getSelectedDefauts();
+    allDefaults.forEach(e => {
+        if (e.id == 10) {
+            let Value = Number(ValueTd.textContent);
+            ValueTd.innerHTML = Value -= 1;
+            ValueTd.classList.add('bad');
+        }
+    })
+
+    //
+}
+
+function addCatInteractionMalusAndBonus() {
+    //
+}
+
+export { displaySkills, setSkillsTotalPoint, displaySkillValues, addDiscretionMalusAndBonus, addJumpMalusAndBonus, addCatInteractionMalusAndBonus, addHumanInteractionMalusAndBonus }
