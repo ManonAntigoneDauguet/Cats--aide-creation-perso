@@ -230,7 +230,7 @@
                 "bastet",
                 "human"
             ],
-            "description": "+1 en COUSSINET vis à vis des chats seulement. Ne peux pas vous permettre de dépasser 5.",
+            "description": "+1 en COUSSINET vis à vis des chats seulement.",
             "cost": 8
         },
         {
@@ -250,7 +250,7 @@
             "types": [
                 "cat"
             ],
-            "description": "+1 en COUSSINET vis à vis des humains seulement. Ne peux pas vous permettre de dépasser 5.",
+            "description": "+1 en COUSSINET vis à vis des humains seulement.",
             "cost": 8
         },
         {
@@ -279,7 +279,7 @@
                 "bastet",
                 "human"
             ],
-            "description": "+1 en COUSSINET vis à vis du sexe opposé seulement. Ne peux pas vous permettre de dépasser 5.",
+            "description": "+1 en COUSSINET vis à vis du sexe opposé seulement.",
             "cost": 8
         },
         {
@@ -326,7 +326,7 @@
             "types": [
                 "cat"
             ],
-            "description": "Ajoutez 1 en Saut sans prendre en compte les limites de points. Ne peux pas vous permettre de dépasser 5.",
+            "description": "+1 en Saut.",
             "cost": 6
         },
         {
@@ -422,7 +422,7 @@
             "types": [
                 "cat"
             ],
-            "description": "-1 en COUSSINET vis à vis des chats seulement. Ne peux pas vous permettre de descendre à 0.",
+            "description": "-1 en COUSSINET vis à vis des chats seulement.",
             "gain": 4
         },
         {
@@ -447,11 +447,11 @@
         },
         {
             "id": 10,
-            "name": "mépris des humain",
+            "name": "mépris des humains",
             "types": [
                 "cat"
             ],
-            "description": "-1 en COUSSINET vis à vis des humains seulement. Ne peux pas vous permettre de descendre à 0.",
+            "description": "-1 en COUSSINET vis à vis des humains seulement.",
             "gain": 4
         },
         {

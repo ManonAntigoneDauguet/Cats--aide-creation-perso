@@ -146,8 +146,12 @@ function displaySkillValues(skillData) {
             valueTd.innerHTML = value;
         }
 
-        if (data.name === "discrétion") {
+        if (data.id === 12) {
             addDiscretionMalusAndBonus();
+        } else if (data.id === 26) {
+            addJumpMalusAndBonus();
+        } else if (data.id === 24) {
+            addHumanInteractionMalusAndBonus();
         }
 
         if (data.special && rate === 0) {
@@ -189,4 +193,40 @@ function addDiscretionMalusAndBonus() {
     })
 }
 
-export { displaySkills, setSkillsTotalPoint, displaySkillValues, addDiscretionMalusAndBonus }
+function addJumpMalusAndBonus() {
+    const jumpValueTd = document.getElementById("value-skill-26");
+    jumpValueTd.classList.remove('good');
+    jumpValueTd.classList.remove('bad');
+
+    let allQualities = getSelectedQualities();
+    allQualities.forEach(e => {
+        if (e.id == 11) {
+            let jumpValue = Number(jumpValueTd.textContent);
+            jumpValueTd.innerHTML = jumpValue += 1;
+            jumpValueTd.classList.add('good');
+        }
+    })
+}
+
+function addHumanInteractionMalusAndBonus() {
+    const ValueTd = document.getElementById("value-skill-24");
+    ValueTd.classList.remove('good');
+    ValueTd.classList.remove('bad');
+
+    let allDefaults = getSelectedDefauts();
+    allDefaults.forEach(e => {
+        if (e.id == 10) {
+            let Value = Number(ValueTd.textContent);
+            ValueTd.innerHTML = Value -= 1;
+            ValueTd.classList.add('bad');
+        }
+    })
+
+    //
+}
+
+function addCatInteractionMalusAndBonus() {
+    //
+}
+
+export { displaySkills, setSkillsTotalPoint, displaySkillValues, addDiscretionMalusAndBonus, addJumpMalusAndBonus, addCatInteractionMalusAndBonus, addHumanInteractionMalusAndBonus }

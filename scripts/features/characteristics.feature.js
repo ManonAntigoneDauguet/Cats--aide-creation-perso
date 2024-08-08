@@ -140,7 +140,6 @@ function addCOUSSINETLMalusAndBonus() {
 
     let allDefaults = getSelectedDefauts();
     allDefaults.forEach(e => {
-        console.log(e)
         if (e.id === 14) {
             let value = Number(valueTd.textContent);
             valueTd.innerHTML = value -= 1;
@@ -170,7 +169,6 @@ function addQUEUEMalusAndBonus() {
 
     let allDefaults = getSelectedDefauts();
     allDefaults.forEach(e => {
-        console.log(e)
         if (e.id === 2) {
 
             let value = Number(valueTd.textContent);

@@ -3,7 +3,7 @@ import { checkInputIsValid, toUppercaseFirstCharacter } from "./utils.js";
 import { displayCharacteristics, characteristics, setCharacTotalPoints, displayCharactValue, addPOILMalusAndBonus } from "./features/characteristics.feature.js";
 import { displayPresentation } from "./features/presentation.feature.js";
 import { displayQualitiesAndDefaults } from "./features/qualitiesAndDefaults.feature.js";
-import { displaySkills, setSkillsTotalPoint } from "./features/skills.feature.js";
+import { displaySkills, displaySkillValues, setSkillsTotalPoint } from "./features/skills.feature.js";
 
 
 
@@ -103,6 +103,7 @@ breedInput.addEventListener("change", () => {
     displayQualitiesSelected();
     displayDefaultsSelected();
     setSkillsTotalPoint();
+    displaySkillValues(skillData);
     if (breedInput.value === 'ragdoll') { addPOILMalusAndBonus(); }
 })
 
