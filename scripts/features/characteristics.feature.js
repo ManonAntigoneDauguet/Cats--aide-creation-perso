@@ -111,11 +111,9 @@ function displayCharactValue() {
 
 function addPOILMalusAndBonus() {
     const valueTd = document.getElementById("poiValue");
-    valueTd.classList.remove('good');
-    valueTd.classList.remove('bad');
+    valueTd.removeAttribute("class")
     const maxValueTd = document.getElementById("poiMaxValue");
-    maxValueTd.classList.remove('good');
-    maxValueTd.classList.remove('bad');
+    maxValueTd.removeAttribute("class")
 
     let allDefaults = getSelectedDefauts();
     allDefaults.forEach(e => {
@@ -141,8 +139,7 @@ function addPOILMalusAndBonus() {
 
 function addCOUSSINETLMalusAndBonus() {
     const valueTd = document.getElementById("couValue");
-    valueTd.classList.remove('good');
-    valueTd.classList.remove('bad');
+    valueTd.removeAttribute("class");
 
     let allDefaults = getSelectedDefauts();
     allDefaults.forEach(e => {
@@ -156,13 +153,31 @@ function addCOUSSINETLMalusAndBonus() {
             valueTd.innerHTML = value -= 1;
             valueTd.classList.add('bad');
         }
+        if (e.id === 7) {
+            valueTd.classList.add('coussinetMalus__7')
+        }
+        if (e.id === 10) {
+            valueTd.classList.add('coussinetMalus__10')
+        }
+    })
+
+    let allQualities = getSelectedQualities();
+    allQualities.forEach(e => {
+        if (e.id == 2) {
+            valueTd.classList.add('coussinetBonus__2')
+        }
+        if (e.id == 4) {
+            valueTd.classList.add('coussinetBonus__4')
+        }
+        if (e.id == 7) {
+            valueTd.classList.add('coussinetBonus__7')
+        }
     })
 }
 
 function addQUEUEMalusAndBonus() {
     const valueTd = document.getElementById("queValue");
-    valueTd.classList.remove('good');
-    valueTd.classList.remove('bad');
+    valueTd.removeAttribute("class");
 
     let allQualities = getSelectedQualities();
     allQualities.forEach(e => {
@@ -186,8 +201,7 @@ function addQUEUEMalusAndBonus() {
 
 function addCARESSEMalusAndBonus() {
     const valueTd = document.getElementById("queValue");
-    valueTd.classList.remove('good');
-    valueTd.classList.remove('bad');
+    valueTd.removeAttribute("class")
 
     let allQualities = getSelectedQualities();
     allQualities.forEach(e => {
@@ -201,8 +215,7 @@ function addCARESSEMalusAndBonus() {
 
 function addOEILMalusAndBonus() {
     const valueTd = document.getElementById("oeiValue");
-    valueTd.classList.remove('good');
-    valueTd.classList.remove('bad');
+    valueTd.removeAttribute("class")
 
     let allQualities = getSelectedQualities();
     allQualities.forEach(e => {

@@ -112,8 +112,8 @@ characterType.addEventListener("change", () => {
 
 breedInput.addEventListener("change", () => {
     setCharacTotalPoints(28);
-    displayCharactValue();
     displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value, skillData);
+    displayCharactValue();
     displayQualitiesSelected();
     displayDefaultsSelected();
     setSkillsTotalPoint();
