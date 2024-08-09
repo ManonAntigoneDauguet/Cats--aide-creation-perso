@@ -57,7 +57,7 @@ function displayBaseTable(skillData, type) {
                 updateSkillAvailablePoints();
                 displaySkillRates(e);
             }
-            displaySkillValues(skillData, type);
+            displaySkillValues(skillData);
         });
     })
 }
