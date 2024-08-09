@@ -1,3 +1,29 @@
+.power-help-container {
+    height: 24px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+
+    img {
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 24px;
+        transform: scale(1);
+    }
+
+    input {
+        height: 16px;
+        width: 16px;
+    }
+
+    input:not(:checked)~img {
+        transform: scale(0);
+    }
+}
+
 .powerTotalPoints, .powerAvailablePoints {
     font-weight: bold;
     font-size: 16px;

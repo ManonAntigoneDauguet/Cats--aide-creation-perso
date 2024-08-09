@@ -54,6 +54,7 @@ async function init() {
     displaySkills(skillData, characterType.value);
     displayHitLevel(characterType.value);
     displayPower(powerData, characterType.value);
+    changePicture(characterType.value);
 }
 
 
@@ -106,6 +107,7 @@ characterType.addEventListener("change", () => {
     displayCharactValue();
     displayHitLevel(characterType.value);
     displayPower(powerData, characterType.value);
+    changePicture(characterType.value);
 })
 
 breedInput.addEventListener("change", () => {
@@ -145,7 +147,7 @@ function displayDefaultsSelected() {
     all.forEach((selectedDOM) => {
         let selectedOption = data.defaults.find(d => d.name === selectedDOM.textContent);
         if (selectedDOM.textContent === "score de Poil <= 2") {
-            selectedOption = {'id': 50, 'name': "score de Poil <= 2", 'types' : ['cat'], 'description': 'Votre score de POIL ne peux pas dépasser 2.', 'gain': 0};
+            selectedOption = { 'id': 50, 'name': "score de Poil <= 2", 'types': ['cat'], 'description': 'Votre score de POIL ne peux pas dépasser 2.', 'gain': 0 };
         };
         if (selectedOption) {
             const description = document.createElement('p');
@@ -165,7 +167,7 @@ function getSelectedDefauts() {
     const all = document.querySelectorAll('.defaultSelected');
     all.forEach((selectedDOM) => {
         if (selectedDOM.textContent === "score de Poil <= 2") {
-            let obj = {'id': 50, 'name': "score de Poil <= 2", 'types' : ['cat'], 'description': 'Votre score de POIL ne peux pas dépasser 2', 'gain': 0};
+            let obj = { 'id': 50, 'name': "score de Poil <= 2", 'types': ['cat'], 'description': 'Votre score de POIL ne peux pas dépasser 2', 'gain': 0 };
             list.push(obj);
         };
         const selectedOption = data.defaults.find(d => d.name === selectedDOM.textContent);
@@ -188,6 +190,12 @@ function getSelectedQualities() {
     return list;
 }
 
+
+function changePicture(type) {
+    const picture = document.querySelector('.pictureContainer__picture');
+    picture.setAttribute('alt', type);
+    picture.setAttribute('src', `./assets/img/${type}.png`);
+}
 
 
 export { displayDefaultsSelected, displayQualitiesSelected, getSelectedDefauts, getSelectedQualities }

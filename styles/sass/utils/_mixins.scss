@@ -17,14 +17,8 @@
     }
 }
 
-@mixin laptop-and-less {
-    @media all and (max-width: map-get($breakpoints, medium)) {
-        @content;
-    }
-}
-
-@mixin large-desktop-only {
-    @media all and (min-width: map-get($breakpoints, xlarge)) {
+@mixin laptop-and-more {
+    @media all and (min-width: map-get($breakpoints, medium)) {
         @content;
     }
 }
