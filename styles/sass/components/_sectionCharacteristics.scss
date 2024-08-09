@@ -1,4 +1,15 @@
-.caracTotalPoints, .caracAvailablePoints {
+.caracTotalPoints,
+.caracAvailablePoints {
     font-weight: bold;
     font-size: 16px;
+}
+
+.coussinetMalus {
+    display: block;
+    color: red;
+}
+
+.coussinetBonus {
+    display: block;
+    color: rgb(18, 175, 18);
 }

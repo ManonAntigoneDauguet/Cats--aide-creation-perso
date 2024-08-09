@@ -1,6 +1,6 @@
 /************** NECESSARIES IMPORTS *************/
 import { getSelectedDefauts, getSelectedQualities } from "../index.js";
-import { checkInputIsValid } from "../utils.js";
+import { checkInputIsValid, avertIrrelevantValue } from "../utils.js";
 import { getCaractRate, getCaract } from "./characteristics.feature.js";
 import { returnSkillCost, returnSkillGain } from "./qualitiesAndDefaults.feature.js";
 
@@ -57,7 +57,7 @@ function displayBaseTable(skillData, type) {
                 updateSkillAvailablePoints();
                 displaySkillRates(e);
             }
-            displaySkillValues(skillData, type);
+            displaySkillValues(skillData);
         });
     })
 }
@@ -158,15 +158,6 @@ function displaySkillValues(skillData) {
             valueTd.innerHTML = "🚫";
         }
     })
-}
-
-function avertIrrelevantValue(input) {
-    const scales = [0, 1, 2, 4, 8, 16];
-    if (!scales.includes(Number(input.value))) {
-        input.classList.add('irrelevant');
-    } else {
-        input.classList.remove('irrelevant');
-    }
 }
 
 function addDiscretionMalusAndBonus() {

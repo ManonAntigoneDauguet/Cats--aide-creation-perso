@@ -63,6 +63,7 @@ em {
 
 .error {
     color: red;
+
     &::after {
         content: ' ⚠';
     }
@@ -99,7 +100,7 @@ section+section {
 }
 
 .main__content {
-    @include except-mobile {
+    @include laptop-and-more {
         display: grid;
         grid-template-columns: 1fr 1fr;
         column-gap: 5%;
@@ -114,6 +115,14 @@ section+section {
 
         .qualitiesAndDefaults {
             grid-column: 2 / 3;
+        }
+
+        .hitLevel {
+            grid-column: 2 / 3;
+        }
+
+        .powers {
+            grid-column: 1 / 2;
         }
     }
 
@@ -141,4 +150,19 @@ select {
 *:disabled {
     background-color: rgb(185, 185, 185);
     color: linen;
+}
+
+.pictureContainer {
+    display: none;
+
+    @include laptop-and-more {
+        display: block;
+    }
+
+    &__picture[alt="human"] {
+        width: 50%;
+    }
+    &__picture[alt="bastet"] {
+        width: 50%;
+    }
 }

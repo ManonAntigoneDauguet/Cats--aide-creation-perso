@@ -1,0 +1,156 @@
+[
+    {
+        "id": 1,
+        "name": "Allergène",
+        "catMax": 5,
+        "bastetMax": 2,
+        "humanMax": 0
+    },
+    {
+        "id": 2,
+        "name": "Armure",
+        "catMax": 5,
+        "bastetMax": 4,
+        "humanMax": 3
+    },
+    {
+        "id": 3,
+        "name": "Arrêt temporel",
+        "catMax": 5,
+        "bastetMax": 3,
+        "humanMax": 1
+    },
+    {
+        "id": 4,
+        "name": "Brouilleur électronique",
+        "catMax": 5,
+        "bastetMax": 4,
+        "humanMax": 2
+    },
+    {
+        "id": 5,
+        "name": "Clairaudience",
+        "catMax": 5,
+        "bastetMax": 4,
+        "humanMax": 2
+    },
+    {
+        "id": 6,
+        "name": "Clairvoyance",
+        "catMax": 5,
+        "bastetMax": 4,
+        "humanMax": 2
+    },
+    {
+        "id": 7,
+        "name": "Contrôle gravitationnel",
+        "catMax": 5,
+        "bastetMax": 3,
+        "humanMax": 1
+    },
+    {
+        "id": 8,
+        "name": "Contrôle mental",
+        "catMax": 5,
+        "bastetMax": 3,
+        "humanMax": 1
+    },
+    {
+        "id": 9,
+        "name": "Déplacement temporel",
+        "catMax": 5,
+        "bastetMax": 3,
+        "humanMax": 1
+    },
+    {
+        "id": 10,
+        "name": "Effet Schrödinger",
+        "catMax": 5,
+        "bastetMax": 1,
+        "humanMax": 0
+    },
+    {
+        "id": 11,
+        "name": "Force",
+        "catMax": 5,
+        "bastetMax": 4,
+        "humanMax": 3
+    },
+    {
+        "id": 12,
+        "name": "Hypnose",
+        "catMax": 5,
+        "bastetMax": 4,
+        "humanMax": 3
+    },
+    {
+        "id": 13,
+        "name": "Passe-Muraille",
+        "catMax": 5,
+        "bastetMax": 3,
+        "humanMax": 2
+    },
+    {
+        "id": 14,
+        "name": "Pesanteur",
+        "catMax": 5,
+        "bastetMax": 3,
+        "humanMax": 2
+    },
+    {
+        "id": 15,
+        "name": "Poltergeist",
+        "catMax": 5,
+        "bastetMax": 4,
+        "humanMax": 2
+    },
+    {
+        "id": 16,
+        "name": "Prescience",
+        "catMax": 5,
+        "bastetMax": 4,
+        "humanMax": 3
+    },
+    {
+        "id": 17,
+        "name": "Régénération",
+        "catMax": 5,
+        "bastetMax": 3,
+        "humanMax": 2
+    },
+    {
+        "id": 18,
+        "name": "Sixième sens",
+        "catMax": 5,
+        "bastetMax": 4,
+        "humanMax": 3
+    },
+    {
+        "id": 19,
+        "name": "Sommeil",
+        "catMax": 5,
+        "bastetMax": 2,
+        "humanMax": 1
+    },
+    {
+        "id": 20,
+        "name": "Télékinésie",
+        "catMax": 5,
+        "bastetMax": 3,
+        "humanMax": 2
+    },
+    {
+        "id": 21,
+        "name": "Télépathie",
+        "catMax": 5,
+        "bastetMax": 4,
+        "humanMax": 3
+    },
+    {
+        "id": 22,
+        "name": "Téléportation",
+        "catMax": 5,
+        "bastetMax": 3,
+        "humanMax": 2
+    }
+]

@@ -3,6 +3,7 @@ import { checkInputIsValid } from "../utils.js";
 import { setSkillsTotalPoint, displaySkillValues } from "./skills.feature.js";
 import { getSelectedDefauts, getSelectedQualities } from "../index.js";
 import { displayDetailsHitLevel } from "./hitLevel.feature.js";
+import { setPowerTotalPoints } from "./power.feature.js";
 
 
 /************** DOM ELEMENTS ********************/
@@ -31,6 +32,7 @@ function displayCharacteristics(skillData) {
             setSkillsTotalPoint();
             displayCharactValue();
             displaySkillValues(skillData);
+            setPowerTotalPoints();
             displayDetailsHitLevel();
         })
     })
@@ -109,11 +111,9 @@ function displayCharactValue() {
 
 function addPOILMalusAndBonus() {
     const valueTd = document.getElementById("poiValue");
-    valueTd.classList.remove('good');
-    valueTd.classList.remove('bad');
+    valueTd.removeAttribute("class")
     const maxValueTd = document.getElementById("poiMaxValue");
-    maxValueTd.classList.remove('good');
-    maxValueTd.classList.remove('bad');
+    maxValueTd.removeAttribute("class")
 
     let allDefaults = getSelectedDefauts();
     allDefaults.forEach(e => {
@@ -139,11 +139,13 @@ function addPOILMalusAndBonus() {
 
 function addCOUSSINETLMalusAndBonus() {
     const valueTd = document.getElementById("couValue");
-    valueTd.classList.remove('good');
-    valueTd.classList.remove('bad');
+    valueTd.removeAttribute("class");
 
     let allDefaults = getSelectedDefauts();
     allDefaults.forEach(e => {
+        let span = document.createElement('span');
+        span.classList.add('coussinetMalus');
+        valueTd.appendChild(span);
         if (e.id === 14) {
             let value = Number(valueTd.textContent);
             valueTd.innerHTML = value -= 1;
@@ -154,13 +156,34 @@ function addCOUSSINETLMalusAndBonus() {
             valueTd.innerHTML = value -= 1;
             valueTd.classList.add('bad');
         }
+        if (e.id === 7) {
+            span.textContent = "(-1 vis-à-vis des humains)";
+        }
+        if (e.id === 10) {
+            span.textContent = "(-1 vis-à-vis des chats)";
+        }
+    })
+
+    let allQualities = getSelectedQualities();
+    allQualities.forEach(e => {
+        let span = document.createElement('span');
+        span.classList.add('coussinetBonus');
+        valueTd.appendChild(span);
+        if (e.id == 2) {
+            span.textContent = "(+1 vis-à-vis des chats)";
+        }
+        if (e.id == 4) {
+            span.textContent = "(+1 vis-à-vis des humains)";
+        }
+        if (e.id == 7) {
+            span.textContent = "(+1 vis-à-vis du sexe opposé*)";
+        }
     })
 }
 
 function addQUEUEMalusAndBonus() {
     const valueTd = document.getElementById("queValue");
-    valueTd.classList.remove('good');
-    valueTd.classList.remove('bad');
+    valueTd.removeAttribute("class");
 
     let allQualities = getSelectedQualities();
     allQualities.forEach(e => {
@@ -174,7 +197,6 @@ function addQUEUEMalusAndBonus() {
     let allDefaults = getSelectedDefauts();
     allDefaults.forEach(e => {
         if (e.id === 2) {
-
             let value = Number(valueTd.textContent);
             valueTd.innerHTML = value -= 1;
             valueTd.classList.add('bad');
@@ -183,9 +205,8 @@ function addQUEUEMalusAndBonus() {
 }
 
 function addCARESSEMalusAndBonus() {
-    const valueTd = document.getElementById("queValue");
-    valueTd.classList.remove('good');
-    valueTd.classList.remove('bad');
+    const valueTd = document.getElementById("carValue");
+    valueTd.removeAttribute("class");
 
     let allQualities = getSelectedQualities();
     allQualities.forEach(e => {
@@ -199,8 +220,7 @@ function addCARESSEMalusAndBonus() {
 
 function addOEILMalusAndBonus() {
     const valueTd = document.getElementById("oeiValue");
-    valueTd.classList.remove('good');
-    valueTd.classList.remove('bad');
+    valueTd.removeAttribute("class");
 
     let allQualities = getSelectedQualities();
     allQualities.forEach(e => {

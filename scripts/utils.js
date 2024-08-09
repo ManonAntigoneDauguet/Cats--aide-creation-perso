@@ -33,4 +33,13 @@ function toUppercaseFirstCharacter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-export { checkInputIsValid, displayOptions, toUppercaseFirstCharacter };
+function avertIrrelevantValue(input) {
+    const scales = [0, 1, 2, 4, 8, 16];
+    if (!scales.includes(Number(input.value))) {
+        input.classList.add('irrelevant');
+    } else {
+        input.classList.remove('irrelevant');
+    }
+}
+
+export { checkInputIsValid, displayOptions, toUppercaseFirstCharacter, avertIrrelevantValue };

@@ -5,6 +5,7 @@ import { displayPresentation } from "./features/presentation.feature.js";
 import { displayQualitiesAndDefaults } from "./features/qualitiesAndDefaults.feature.js";
 import { displaySkills, displaySkillValues, setSkillsTotalPoint } from "./features/skills.feature.js";
 import { displayHitLevel } from "./features/hitLevel.feature.js";
+import { displayPower } from "./features/power.feature.js";
 
 
 
@@ -26,6 +27,11 @@ async function getSkillData() {
     skillData = await response.json();
 }
 
+async function getPowerData() {
+    const response = await fetch('./assets/data/power.json');
+    powerData = await response.json();
+}
+
 function getCat(breed) {
     const cat = data.breed.find(e => e.name == breed);
     if (!cat) {
@@ -37,6 +43,7 @@ function getCat(breed) {
 async function init() {
     await getData();
     await getSkillData();
+    await getPowerData();
     characteristics.forEach(e => {
         e.input.value = 1;
         e.maxValueTd.innerHTML = e.actualMaxValue;
@@ -46,17 +53,19 @@ async function init() {
     displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value, skillData);
     displaySkills(skillData, characterType.value);
     displayHitLevel(characterType.value);
+    displayPower(powerData, characterType.value);
+    changePicture(characterType.value);
 }
 
 
 /******************* PAGE CREATION ******************/
 let data;
 let skillData;
+let powerData;
 
 init();
 
 characterType.addEventListener("change", () => {
-    // displayCharacteristics(skillData, characterType.value);
     switch (characterType.value) {
         case 'cat':
             characteristics.forEach(e => {
@@ -76,8 +85,6 @@ characterType.addEventListener("change", () => {
             })
             breedInput.setAttribute('disabled', '');
             breedInput.value = '';
-            recapDefaults.innerHTML = "";
-            recapQualities.innerHTML = "";
             break;
 
         case 'human':
@@ -89,20 +96,22 @@ characterType.addEventListener("change", () => {
             })
             breedInput.setAttribute('disabled', '');
             breedInput.value = '';
-            recapDefaults.innerHTML = "";
-            recapQualities.innerHTML = "";
             break;
     }
+    recapDefaults.innerHTML = "";
+    recapQualities.innerHTML = "";
     displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value, skillData);
     displaySkills(skillData, characterType.value);
     displayCharactValue();
     displayHitLevel(characterType.value);
+    displayPower(powerData, characterType.value);
+    changePicture(characterType.value);
 })
 
 breedInput.addEventListener("change", () => {
     setCharacTotalPoints(28);
-    displayCharactValue();
     displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value, skillData);
+    displayCharactValue();
     displayQualitiesSelected();
     displayDefaultsSelected();
     setSkillsTotalPoint();
@@ -136,7 +145,7 @@ function displayDefaultsSelected() {
     all.forEach((selectedDOM) => {
         let selectedOption = data.defaults.find(d => d.name === selectedDOM.textContent);
         if (selectedDOM.textContent === "score de Poil <= 2") {
-            selectedOption = {'id': 50, 'name': "score de Poil <= 2", 'types' : ['cat'], 'description': 'Votre score de POIL ne peux pas dépasser 2.', 'gain': 0};
+            selectedOption = { 'id': 50, 'name': "score de Poil <= 2", 'types': ['cat'], 'description': 'Votre score de POIL ne peux pas dépasser 2.', 'gain': 0 };
         };
         if (selectedOption) {
             const description = document.createElement('p');
@@ -156,7 +165,7 @@ function getSelectedDefauts() {
     const all = document.querySelectorAll('.defaultSelected');
     all.forEach((selectedDOM) => {
         if (selectedDOM.textContent === "score de Poil <= 2") {
-            let obj = {'id': 50, 'name': "score de Poil <= 2", 'types' : ['cat'], 'description': 'Votre score de POIL ne peux pas dépasser 2', 'gain': 0};
+            let obj = { 'id': 50, 'name': "score de Poil <= 2", 'types': ['cat'], 'description': 'Votre score de POIL ne peux pas dépasser 2', 'gain': 0 };
             list.push(obj);
         };
         const selectedOption = data.defaults.find(d => d.name === selectedDOM.textContent);
@@ -179,6 +188,12 @@ function getSelectedQualities() {
     return list;
 }
 
+
+function changePicture(type) {
+    const picture = document.querySelector('.pictureContainer__picture');
+    picture.setAttribute('alt', type);
+    picture.setAttribute('src', `./assets/img/${type}.png`);
+}
 
 
 export { displayDefaultsSelected, displayQualitiesSelected, getSelectedDefauts, getSelectedQualities }
