@@ -171,7 +171,6 @@ function addCOUSSINETLMalusAndBonus() {
         valueTd.appendChild(span);
         if (e.id == 2) {
             span.textContent = "(+1 vis-à-vis des chats)";
-
         }
         if (e.id == 4) {
             span.textContent = "(+1 vis-à-vis des humains)";
@@ -198,7 +197,6 @@ function addQUEUEMalusAndBonus() {
     let allDefaults = getSelectedDefauts();
     allDefaults.forEach(e => {
         if (e.id === 2) {
-
             let value = Number(valueTd.textContent);
             valueTd.innerHTML = value -= 1;
             valueTd.classList.add('bad');
@@ -207,8 +205,8 @@ function addQUEUEMalusAndBonus() {
 }
 
 function addCARESSEMalusAndBonus() {
-    const valueTd = document.getElementById("queValue");
-    valueTd.removeAttribute("class")
+    const valueTd = document.getElementById("carValue");
+    valueTd.removeAttribute("class");
 
     let allQualities = getSelectedQualities();
     allQualities.forEach(e => {
@@ -222,7 +220,7 @@ function addCARESSEMalusAndBonus() {
 
 function addOEILMalusAndBonus() {
     const valueTd = document.getElementById("oeiValue");
-    valueTd.removeAttribute("class")
+    valueTd.removeAttribute("class");
 
     let allQualities = getSelectedQualities();
     allQualities.forEach(e => {

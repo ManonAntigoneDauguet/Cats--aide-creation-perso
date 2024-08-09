@@ -85,8 +85,6 @@ characterType.addEventListener("change", () => {
             })
             breedInput.setAttribute('disabled', '');
             breedInput.value = '';
-            recapDefaults.innerHTML = "";
-            recapQualities.innerHTML = "";
             break;
 
         case 'human':
@@ -98,10 +96,10 @@ characterType.addEventListener("change", () => {
             })
             breedInput.setAttribute('disabled', '');
             breedInput.value = '';
-            recapDefaults.innerHTML = "";
-            recapQualities.innerHTML = "";
             break;
     }
+    recapDefaults.innerHTML = "";
+    recapQualities.innerHTML = "";
     displayQualitiesAndDefaults(data, getCat(breedInput.value), characterType.value, skillData);
     displaySkills(skillData, characterType.value);
     displayCharactValue();
