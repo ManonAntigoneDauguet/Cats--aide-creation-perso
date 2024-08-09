@@ -18,7 +18,7 @@ let skillFormulaTd;
 function displaySkills(skillData, type) {
     displayBaseTable(skillData, type);
     setSkillsTotalPoint();
-    displaySkillValues(skillData, type);
+    displaySkillValues(skillData);
 }
 
 function displayBaseTable(skillData, type) {
@@ -27,7 +27,7 @@ function displayBaseTable(skillData, type) {
     filteredData.forEach(e => {
         const skillContainer = document.createElement("tr");
         const content = `
-            <th scope="row">${e.name}</th>
+            <th scope="row" id='title-skill-${e.id}'>${e.name}</th>
             <td>
                 <input type="number" class='skillInput' ref=${e.id} id="skill-${e.id}" min="0" max="16" />
             </td>
@@ -200,20 +200,48 @@ function addJumpMalusAndBonus() {
 }
 
 function addHumanInteractionMalusAndBonus() {
-    const ValueTd = document.getElementById("value-skill-24");
-    ValueTd.classList.remove('good');
-    ValueTd.classList.remove('bad');
+    const valueSeductionTd = document.getElementById('formula-skill-28');
+    let spans = valueSeductionTd.querySelectorAll('span');
+    spans.forEach(span => span.remove());
 
     let allDefaults = getSelectedDefauts();
     allDefaults.forEach(e => {
+        let span = document.createElement('span');
+        span.classList.add('coussinetMalus');
+        valueSeductionTd.appendChild(span);
+
         if (e.id == 10) {
-            let Value = Number(ValueTd.textContent);
-            ValueTd.innerHTML = Value -= 1;
-            ValueTd.classList.add('bad');
+            const valueReclamerTd = document.getElementById("value-skill-24");
+            valueReclamerTd.classList.remove('good');
+            valueReclamerTd.classList.remove('bad');
+            let value = Number(valueReclamerTd.textContent);
+            valueReclamerTd.innerHTML = value -= 1;
+            valueReclamerTd.classList.add('bad');
+
+            span.textContent = "(-1 vis-à-vis des humains)";
         }
+        if (e.id === 7) {
+            span.textContent = "(-1 vis-à-vis des chats)";
+        }
+
     })
 
-    //
+    let allQualities = getSelectedQualities();
+    allQualities.forEach(e => {
+        let span = document.createElement('span');
+        span.classList.add('coussinetBonus');
+        valueSeductionTd.appendChild(span);
+
+        if (e.id == 2) {
+            span.textContent = "(+1 vis-à-vis des chats)";
+        }
+        if (e.id == 4) {
+            span.textContent = "(+1 vis-à-vis des humains)";
+        }
+        if (e.id == 7) {
+            span.textContent = "(+1 vis-à-vis du sexe opposé*)";
+        }
+    })
 }
 
 function addCatInteractionMalusAndBonus() {

@@ -17,8 +17,8 @@ const vib = { "input": document.getElementById('vib'), "valueTd": document.getEl
 const cou = { "input": document.getElementById('cou'), "valueTd": document.getElementById('couValue'), "maxValueTd": document.getElementById('couMaxValue'), "catMaxValue": 5, "bastetMaxValue": 5, "humanMaxValue": 5, "actualMaxValue": 5 };
 const cha = { "input": document.getElementById('cha'), "valueTd": document.getElementById('chaValue'), "maxValueTd": document.getElementById('chaMaxValue'), "catMaxValue": 5, "bastetMaxValue": 4, "humanMaxValue": 5, "actualMaxValue": 3 };
 const characteristics = [gri, oei, poi, que, ron, car, vib, cou, cha];
-const characTotalPoints = document.querySelector('.caracTotalPoints');
-const characAvailablePoints = document.querySelector('.caracAvailablePoints');
+const characTotalPoints = document.getElementById('characTotalPoints');
+const characAvailablePoints = document.getElementById('characAvailablePoints');
 
 /**
  * Add event listeners on caracteristics features at init
@@ -50,16 +50,12 @@ function updateCharacAvailablePoints() {
     let sum = 0;
     characteristics.forEach(e => sum += Number(e.input.value));
     characAvailablePoints.innerHTML = characTotalPoints.textContent - sum;
+    characAvailablePoints.removeAttribute('class');
+
     if (characAvailablePoints.innerHTML < 0) {
         characAvailablePoints.classList.add("error");
-        characAvailablePoints.classList.remove("succes");
     } else if (characAvailablePoints.innerHTML == 0) {
-        characAvailablePoints.classList.remove("error");
         characAvailablePoints.classList.add("succes");
-    }
-    else {
-        characAvailablePoints.classList.remove("error");
-        characAvailablePoints.classList.remove("succes");
     }
 }
 
@@ -86,7 +82,14 @@ function getCaract(caracShortName) {
         case 'ron': return ron.valueTd.textContent;
         case 'car': return car.valueTd.textContent;
         case 'vib': return vib.valueTd.textContent;
-        case 'cou': return cou.valueTd.textContent;
+        case 'cou':
+            let value = '';
+            cou.valueTd.childNodes.forEach(node => {
+                if (node.nodeType === Node.TEXT_NODE) {
+                    value = node.textContent.trim();
+                }
+            });
+            return value;
         case 'cha': return cha.valueTd.textContent;
     }
 }
@@ -157,10 +160,10 @@ function addCOUSSINETLMalusAndBonus() {
             valueTd.classList.add('bad');
         }
         if (e.id === 7) {
-            span.textContent = "(-1 vis-à-vis des humains)";
+            span.textContent = "(-1 vis-à-vis des chats)";
         }
         if (e.id === 10) {
-            span.textContent = "(-1 vis-à-vis des chats)";
+            span.textContent = "(-1 vis-à-vis des humains)";
         }
     })
 
