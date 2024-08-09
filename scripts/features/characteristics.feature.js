@@ -82,7 +82,14 @@ function getCaract(caracShortName) {
         case 'ron': return ron.valueTd.textContent;
         case 'car': return car.valueTd.textContent;
         case 'vib': return vib.valueTd.textContent;
-        case 'cou': return cou.valueTd.textContent;
+        case 'cou':
+            let value = '';
+            cou.valueTd.childNodes.forEach(node => {
+                if (node.nodeType === Node.TEXT_NODE) {
+                    value = node.textContent.trim();
+                }
+            });
+            return value;
         case 'cha': return cha.valueTd.textContent;
     }
 }
@@ -153,10 +160,10 @@ function addCOUSSINETLMalusAndBonus() {
             valueTd.classList.add('bad');
         }
         if (e.id === 7) {
-            span.textContent = "(-1 vis-à-vis des humains)";
+            span.textContent = "(-1 vis-à-vis des chats)";
         }
         if (e.id === 10) {
-            span.textContent = "(-1 vis-à-vis des chats)";
+            span.textContent = "(-1 vis-à-vis des humains)";
         }
     })
 

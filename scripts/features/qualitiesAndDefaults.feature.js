@@ -9,18 +9,21 @@ import { setReputation } from "./presentation.feature.js";
 const qualitiesDiv = document.querySelector('.qualities');
 const defaultsDiv = document.querySelector('.defaults');
 
+let type;
+
 /**
  * 
  * @param { Object } data as completes data with qualities and defaults
  * @param { String } breed as the selected breed
  * @param { String } type as the selected type
  */
-function displayQualitiesAndDefaults(data, breed, type, skillData) {
-    displayQualities(data, breed, type, skillData);
-    displayDefaults(data, breed, type, skillData);
+function displayQualitiesAndDefaults(data, breed, newType, skillData) {
+    type = newType;
+    displayQualities(data, breed, skillData);
+    displayDefaults(data, breed, skillData);
 }
 
-function displayQualities(data, breed, type, skillData) {
+function displayQualities(data, breed, skillData) {
     qualitiesDiv.innerHTML = "Qualités :";
     breed.qualities.forEach(e => {
         const li = document.createElement('li');
@@ -35,14 +38,14 @@ function displayQualities(data, breed, type, skillData) {
         displayOptions(filteredData, choiceInput, "quality");
         choice.appendChild(choiceInput);
 
-        const selectedOption = document.createElement('span', type, skillData);
-        choiceQualityEvent(choiceInput, selectedOption, type, skillData);
+        const selectedOption = document.createElement('span');
+        choiceQualityEvent(choiceInput, selectedOption, skillData);
         choice.appendChild(selectedOption);
         qualitiesDiv.appendChild(choice);
     }
 }
 
-function displayDefaults(data, breed, type, skillData) {
+function displayDefaults(data, breed, skillData) {
     defaultsDiv.innerHTML = "Défauts :";
     breed.defaults.forEach(e => {
         const li = document.createElement('li');
@@ -58,7 +61,7 @@ function displayDefaults(data, breed, type, skillData) {
         choice.appendChild(choiceInput);
 
         const selectedOption = document.createElement('span');
-        choiceDefaultEvent(choiceInput, selectedOption, type, skillData);
+        choiceDefaultEvent(choiceInput, selectedOption, skillData);
         choice.appendChild(selectedOption);
         defaultsDiv.appendChild(choice);
     }
@@ -82,26 +85,26 @@ function returnSkillCost() {
     return cost;
 }
 
-function choiceQualityEvent(input, span, type, skillData) {
+function choiceQualityEvent(input, span, skillData) {
     input.addEventListener("change", (e) => {
         span.classList.add("qualitySelected");
         span.innerHTML = e.target.value,
         displayCharactValue();
         displayQualitiesSelected();
         setSkillsTotalPoint();
-        displaySkillValues(skillData, type);
+        displaySkillValues(skillData);
         setReputation(e.target.value);
     });
 }
 
-function choiceDefaultEvent(input, span, type, skillData) {
+function choiceDefaultEvent(input, span, skillData) {
     input.addEventListener("change", (e) => {
         span.classList.add("defaultSelected");
         span.innerHTML = e.target.value;
         displayCharactValue();
         displayDefaultsSelected();
         setSkillsTotalPoint();
-        displaySkillValues(skillData, type);
+        displaySkillValues(skillData);
     });
 }
 
