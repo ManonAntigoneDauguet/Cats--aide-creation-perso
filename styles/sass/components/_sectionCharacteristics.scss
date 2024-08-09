@@ -1,35 +1,15 @@
-.caracTotalPoints, .caracAvailablePoints {
+.caracTotalPoints,
+.caracAvailablePoints {
     font-weight: bold;
     font-size: 16px;
 }
 
 .coussinetMalus {
-    &__7::after {
-        content: "\A (-1 vis-à-vis des chats)";
-        white-space: pre;
-        color: red;
-    }
-    &__10::after {
-        content: "\A (-1 vis-à-vis des humains)";
-        white-space: pre;
-        color: red;
-    }
+    display: block;
+    color: red;
 }
 
 .coussinetBonus {
-    &__7::after {
-        content: "\A (+1 vis-à-vis du sexe opposé*)";
-        white-space: pre;
-        color: rgb(18, 175, 18);
-    }
-    &__4::after {
-        content: "\A (+1 vis-à-vis des humains)";
-        white-space: pre;
-        color: rgb(18, 175, 18);
-    }
-    &__2::after {
-        content: "\A (+1 vis-à-vis des chats)";
-        white-space: pre;
-        color: rgb(18, 175, 18);
-    }
+    display: block;
+    color: rgb(18, 175, 18);
 }

@@ -143,6 +143,9 @@ function addCOUSSINETLMalusAndBonus() {
 
     let allDefaults = getSelectedDefauts();
     allDefaults.forEach(e => {
+        let span = document.createElement('span');
+        span.classList.add('coussinetMalus');
+        valueTd.appendChild(span);
         if (e.id === 14) {
             let value = Number(valueTd.textContent);
             valueTd.innerHTML = value -= 1;
@@ -154,23 +157,27 @@ function addCOUSSINETLMalusAndBonus() {
             valueTd.classList.add('bad');
         }
         if (e.id === 7) {
-            valueTd.classList.add('coussinetMalus__7')
+            span.textContent = "(-1 vis-à-vis des humains)";
         }
         if (e.id === 10) {
-            valueTd.classList.add('coussinetMalus__10')
+            span.textContent = "(-1 vis-à-vis des chats)";
         }
     })
 
     let allQualities = getSelectedQualities();
     allQualities.forEach(e => {
+        let span = document.createElement('span');
+        span.classList.add('coussinetBonus');
+        valueTd.appendChild(span);
         if (e.id == 2) {
-            valueTd.classList.add('coussinetBonus__2')
+            span.textContent = "(+1 vis-à-vis des chats)";
+
         }
         if (e.id == 4) {
-            valueTd.classList.add('coussinetBonus__4')
+            span.textContent = "(+1 vis-à-vis des humains)";
         }
         if (e.id == 7) {
-            valueTd.classList.add('coussinetBonus__7')
+            span.textContent = "(+1 vis-à-vis du sexe opposé*)";
         }
     })
 }
