@@ -1,6 +1,6 @@
 /************** NECESSARIES IMPORTS *************/
 import { getSelectedDefauts, getSelectedQualities } from "../index.js";
-import { checkInputIsValid, avertIrrelevantValue } from "../utils.js";
+import { checkInputIsValid, avertIrrelevantValue, avertPersonnalisedIrrelevantValue } from "../utils.js";
 import { getCaractRate, getCaract } from "./characteristics.feature.js";
 import { returnSkillCost, returnSkillGain } from "./qualitiesAndDefaults.feature.js";
 
@@ -14,9 +14,12 @@ let skillsRateTd;
 let skillValueTd;
 let skillFormulaTd;
 
+let TESTtype;
 
-function displaySkills(skillData, type) {
-    displayBaseTable(skillData, type);
+
+function displaySkills(skillData, newType) {
+    TESTtype = newType;
+    displayBaseTable(skillData, newType);
     setSkillsTotalPoint();
     displaySkillValues(skillData);
 }
@@ -32,7 +35,7 @@ function displayBaseTable(skillData, type) {
                 <input type="number" class='skillInput' ref=${e.id} id="skill-${e.id}" min="0" max="16" />
             </td>
             <td class='skillRateTd' ref=${e.id} id="rate-skill-${e.id}">
-                ${type == 'cat' && e.id == 14 ? 1 : 0}
+                ${returnSkillRateValue(e.id, type)}
             </td>
             <td class='skillFormulaTd' ref=${e.id} id="formula-skill-${e.id}">${displaySkillFormula(e)}</td>
             <td class='skillValueTd' ref=${e.id} id="value-skill-${e.id}"></td>
@@ -47,10 +50,18 @@ function displayBaseTable(skillData, type) {
     skillsInputs.forEach(e => {
         e.value = 0;
         e.addEventListener("change", () => {
-            if (type === 'cat' && Number(e.getAttribute('ref')) === 14) {
+            if (
+                (type === 'cat' && Number(e.getAttribute('ref')) === 14)
+                || (type === 'cat' && Number(e.getAttribute('ref')) === 26)
+                || (type === 'cat' && Number(e.getAttribute('ref')) === 19)
+            ) {
                 checkInputIsValid(e, 0, 8);
                 avertIrrelevantValue(e);
                 displaySkillRatesClimbingForCat(e);
+            } else if (Number(e.getAttribute('ref')) === 3) { // arts martiaux
+                checkInputIsValid(e, 0, 32);
+                avertPersonnalisedIrrelevantValue(e, [0, 2, 4, 8, 16, 32])
+                displaySkillRatesMartialArts(e);
             } else {
                 checkInputIsValid(e, 0, 16);
                 avertIrrelevantValue(e);
@@ -115,6 +126,17 @@ function displaySkillRatesClimbingForCat(refInput) {
     else if (points < 4) { td.innerHTML = 3 }
     else if (points < 8) { td.innerHTML = 4 }
     else if (points < 16) { td.innerHTML = 5 }
+}
+
+function displaySkillRatesMartialArts(refInput) {
+    const td = document.getElementById(`rate-${refInput.id}`);
+    const points = Number(refInput.value);
+    if (points < 2) { td.innerHTML = 0 }
+    else if (points < 4) { td.innerHTML = 1 }
+    else if (points < 8) { td.innerHTML = 2 }
+    else if (points < 16) { td.innerHTML = 3 }
+    else if (points < 32) { td.innerHTML = 4 }
+    else if (points == 32) { td.innerHTML = 5 }
 }
 
 function displaySkillFormula(e) {
@@ -246,6 +268,13 @@ function addHumanInteractionMalusAndBonus() {
 
 function addCatInteractionMalusAndBonus() {
     //
+}
+
+function returnSkillRateValue(skillId, type) {
+    if (type == 'cat') {
+        if (skillId == 14 || skillId == 26 || skillId == 19) { return 1 }
+    }
+    return 0
 }
 
 export { displaySkills, setSkillsTotalPoint, displaySkillValues, addDiscretionMalusAndBonus, addJumpMalusAndBonus, addCatInteractionMalusAndBonus, addHumanInteractionMalusAndBonus }

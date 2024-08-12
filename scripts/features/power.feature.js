@@ -26,9 +26,7 @@ function displayPowerBaseTable(powerData) {
                 <td>
                     <input type="number" class='powerInput' id="power-${e.id}" min="0" max="16" />
                 </td>
-                <td class='powerRateTd' id="rate-power-${e.id}">
-                    ${type == 'cat' && e.id == 14 ? 1 : 0}
-                </td>
+                <td class='powerRateTd' id="rate-power-${e.id}">0</td>
                 <td class='powerMaxValueTd' id="max-power-${e.id}">
                     ${returnPowerMaxValue(e)}
                 </td>
@@ -90,7 +88,7 @@ function displayPowerRates(refInput) {
     else if (points == 16) { td.innerHTML = 5 }
 
     const maxValueTd = document.getElementById(`max-${refInput.id}`);
-    if(Number(td.textContent) > Number(maxValueTd.textContent)) {
+    if (Number(td.textContent) > Number(maxValueTd.textContent)) {
         td.classList.add('error');
     } else {
         td.classList.remove('error');
