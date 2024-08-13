@@ -14,17 +14,17 @@ let skillsRateTd;
 let skillValueTd;
 let skillFormulaTd;
 
-let TESTtype;
+let type;
 
 
 function displaySkills(skillData, newType) {
-    TESTtype = newType;
-    displayBaseTable(skillData, newType);
+    type = newType;
+    displayBaseTable(skillData);
     setSkillsTotalPoint();
     displaySkillValues(skillData);
 }
 
-function displayBaseTable(skillData, type) {
+function displayBaseTable(skillData) {
     skillsContainer.innerHTML = "";
     const filteredData = skillData.filter(e => e.types.includes(type));
     filteredData.forEach(e => {
@@ -35,7 +35,7 @@ function displayBaseTable(skillData, type) {
                 <input type="number" class='skillInput' ref=${e.id} id="skill-${e.id}" min="0" max="16" />
             </td>
             <td class='skillRateTd' ref=${e.id} id="rate-skill-${e.id}">
-                ${returnSkillRateValue(e.id, type)}
+                ${returnSkillRateValue(e.id)}
             </td>
             <td class='skillFormulaTd' ref=${e.id} id="formula-skill-${e.id}">${displaySkillFormula(e)}</td>
             <td class='skillValueTd' ref=${e.id} id="value-skill-${e.id}"></td>
@@ -174,6 +174,8 @@ function displaySkillValues(skillData) {
             addJumpMalusAndBonus();
         } else if (data.id === 24) {
             addHumanInteractionMalusAndBonus();
+        } else if (data.id === 16) {
+            addHumanPyschologyBonus();
         }
 
         if (data.special && rate === 0) {
@@ -270,7 +272,20 @@ function addCatInteractionMalusAndBonus() {
     //
 }
 
-function returnSkillRateValue(skillId, type) {
+function addHumanPyschologyBonus() {
+    const humanLgevalueTd = document.getElementById("value-skill-16");
+    humanLgevalueTd.classList.remove('good');
+    humanLgevalueTd.classList.remove('bad');
+
+    const humanPsyvalueTd = document.getElementById("rate-skill-22");
+    if (Number(humanPsyvalueTd.textContent) >= 3) {
+        let value = Number(humanLgevalueTd.textContent);
+        humanLgevalueTd.innerHTML = value += 1;
+        humanLgevalueTd.classList.add('good');
+    }
+}
+
+function returnSkillRateValue(skillId) {
     if (type == 'cat') {
         if (skillId == 14 || skillId == 26 || skillId == 19) { return 1 }
     }
