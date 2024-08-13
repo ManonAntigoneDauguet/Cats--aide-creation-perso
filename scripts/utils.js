@@ -42,4 +42,12 @@ function avertIrrelevantValue(input) {
     }
 }
 
-export { checkInputIsValid, displayOptions, toUppercaseFirstCharacter, avertIrrelevantValue };
+function avertPersonnalisedIrrelevantValue(input, scales) {
+    if (!scales.includes(Number(input.value))) {
+        input.classList.add('irrelevant');
+    } else {
+        input.classList.remove('irrelevant');
+    }
+}
+
+export { checkInputIsValid, displayOptions, toUppercaseFirstCharacter, avertIrrelevantValue, avertPersonnalisedIrrelevantValue };
