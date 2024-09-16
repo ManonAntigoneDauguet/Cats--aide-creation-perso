@@ -372,5 +372,16 @@
             "oei"
         ],
         "special": false
+    },
+    {
+        "id": 32,
+        "name": "psychologie féline",
+        "types": [
+            "cat"
+        ],
+        "caract" : [
+            "ron", "vib"
+        ],
+        "special": false
     }
 ]
